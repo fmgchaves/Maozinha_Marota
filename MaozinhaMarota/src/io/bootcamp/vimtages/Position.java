@@ -9,14 +9,14 @@ public class Position implements GridPosition {
 
     private int row;
 
-    private Shape grid;
+    //private Shape grid;
 
 
 
-    public Position(int col, int row, Shape grid) {
+    public Position(int col, int row) {
         this.col = col;
         this.row = row;
-        this.grid = grid;
+       // this.grid = grid;
     }
 
     @Override
