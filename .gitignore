@@ -1,0 +1,7 @@
+.Ds_Store
+.ds_store
+.DS_Store
+*.iml
+out
+target
+.idea
