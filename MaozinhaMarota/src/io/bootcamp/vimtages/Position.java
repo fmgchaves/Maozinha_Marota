@@ -1,18 +1,19 @@
 package io.bootcamp.vimtages;
 
-import apple.laf.JRSUIConstants;
 
-public class AbstractGridPosition implements GridPosition {
+import org.academiadecodigo.simplegraphics.graphics.Shape;
+
+public class Position implements GridPosition {
 
     private int col;
 
     private int row;
 
-    private Grid grid;
+    private Shape grid;
 
 
 
-    public AbstractGridPosition(int col, int row, Grid grid) {
+    public Position(int col, int row, Shape grid) {
         this.col = col;
         this.row = row;
         this.grid = grid;

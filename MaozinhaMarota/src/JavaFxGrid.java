@@ -1,4 +1,5 @@
 import io.bootcamp.vimtages.Grid;
+import io.bootcamp.vimtages.Position;
 import org.academiadecodigo.simplegraphics.graphics.Canvas;
 import org.academiadecodigo.simplegraphics.graphics.Rectangle;
 import org.academiadecodigo.simplegraphics.graphics.Shape;
@@ -39,7 +40,12 @@ public class JavaFxGrid implements Grid {
     }
 
     @Override
+    public Position GridPosition(int col, int row) {
+        return new Position(col,row,grid);
+    }
+
+
     public Position makeGridPosition(int col, int row) {
-        return null;
+        return new Position(col,row,grid);
     }
 }
