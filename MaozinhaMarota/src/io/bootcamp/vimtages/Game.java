@@ -1,3 +1,5 @@
+package io.bootcamp.vimtages;
+
 import org.academiadecodigo.simplegraphics.graphics.Shape;
 
 public class Game {

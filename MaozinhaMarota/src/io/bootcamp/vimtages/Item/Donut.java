@@ -1,8 +1,8 @@
 package io.bootcamp.vimtages.Item;
 
 import io.bootcamp.vimtages.Position;
-
-public class Donut implements Item {
+//will override and use abstract Items methods
+public class Donut extends Item {
     private Position donutsposition;
 
     public Donut(Position donutsposition) {

@@ -1,7 +1,7 @@
 package io.bootcamp.vimtages;
 
 import java.util.LinkedList;
-
+//Translate positions to directions -width left, + width right this will be implemented in another class
 public class Hand {
     private int numberofmoves;
     LinkedList<Position> positionLinkedList = new LinkedList<>();
