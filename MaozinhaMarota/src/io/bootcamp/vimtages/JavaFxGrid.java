@@ -1,3 +1,5 @@
+package io.bootcamp.vimtages;
+
 import io.bootcamp.vimtages.Grid;
 import io.bootcamp.vimtages.Position;
 import org.academiadecodigo.simplegraphics.graphics.Canvas;

@@ -1,8 +1,7 @@
-package io.bootcamp.vimtages.Item.Obstacles;
+package io.bootcamp.vimtages.Item.Obstacle;
 
 import io.bootcamp.vimtages.Item.Item;
 
-public abstract class Obstacle implements Item {
-    public Obstacle() {
-    }
+public abstract class Obstacle extends Item {
+
 }

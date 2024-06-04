@@ -1,8 +1,7 @@
 package io.bootcamp.vimtages.Item.Winnables;
 
-import io.bootcamp.vimtages.Item.Item;
+// Donnut and beer are going to implement from this interface
+public interface Winnable {
 
-public abstract class Winnable implements Item {
-    public Winnable() {
-    }
+
 }

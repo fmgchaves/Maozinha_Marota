@@ -1,3 +1,7 @@
+package io.bootcamp.vimtages;
+
+import io.bootcamp.vimtages.Game;
+
 public class Main {
     private static final int cols = 20;
     private static final int rows = 10;

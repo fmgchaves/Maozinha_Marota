@@ -1,5 +1,6 @@
 package io.bootcamp.vimtages;
 
+//This Class defines de position inside the Grid
 
 public class Position implements GridPosition {
 
@@ -41,6 +42,14 @@ public class Position implements GridPosition {
         this.col = col;
         this.row = row;
     }
+
+    /*
+    public Position setPos(Position position){
+        return  position.setPos(position.getCol(),position.getRow());
+
+    }
+
+     */
 
     public void setFilled() {
         this.isFilled = true;
