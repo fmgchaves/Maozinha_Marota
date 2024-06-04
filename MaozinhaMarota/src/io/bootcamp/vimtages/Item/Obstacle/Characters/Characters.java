@@ -1,6 +1,6 @@
-package io.bootcamp.vimtages.Item.Obstacles.Characters;
+package io.bootcamp.vimtages.Item.Obstacle.Characters;
 
-import io.bootcamp.vimtages.Item.Obstacles.Obstacle;
+import io.bootcamp.vimtages.Item.Obstacle.Obstacle;
 
 public abstract class Characters extends Obstacle {
     public Characters() {
