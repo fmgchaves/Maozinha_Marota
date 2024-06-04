@@ -3,7 +3,7 @@ package io.bootcamp.vimtages;
 import java.util.LinkedList;
 
 public class Hand {
-    private int numberofmoves;
+    private int numberOfMoves;
     LinkedList<Position> positionLinkedList = new LinkedList<>();
 
     public Hand (Position initialPositionHand) {
@@ -18,27 +18,27 @@ public class Hand {
                 tempUp.setRow (tempUp.getRow() - 1);
                 this.positionLinkedList.add(tempUp);
                 (this.positionLinkedList.get(this.positionLinkedList.size() - 1)).setFilled();
-                ++this.numberofmoves;
+                ++this.numberOfMoves;
                 break;
             case DOWN:
                 Position tempDown = this.positionLinkedList.get(this.positionLinkedList.size() - 1);
                 tempDown.setRow(tempDown.getRow() + 1);
                 this.positionLinkedList.add(tempDown);
-                ++this.numberofmoves;
+                ++this.numberOfMoves;
                 break;
             case LEFT:
                 Position tempLeft = this.positionLinkedList.get(this.positionLinkedList.size() - 1);
                 tempLeft.setCol (tempLeft.getCol () - 1);
                 this.positionLinkedList.add(tempLeft);
                 (this.positionLinkedList.get(this.positionLinkedList.size() - 1)).setFilled();
-                ++this.numberofmoves;
+                ++this.numberOfMoves;
                 break;
             case RIGHT:
                 Position tempRight = this.positionLinkedList.get(this.positionLinkedList.size() - 1);
                 tempRight.setCol(tempRight.getCol() + 1);
                 this.positionLinkedList.add(tempRight);
                 (this.positionLinkedList.get(this.positionLinkedList.size() - 1)).setFilled();
-                ++this.numberofmoves;
+                ++this.numberOfMoves;
                 break;
             default:
                 break;
@@ -46,15 +46,15 @@ public class Hand {
 
     }
 
-    public Position getnPosition(int index) {
+    public Position getNPosition(int index) {
         return this.positionLinkedList.get(index);
     }
 
-    public int getNumberofmoves() {
-        return this.numberofmoves;
+    public int getNumberOfMoves() {
+        return this.numberOfMoves;
     }
 
-    public void setNumberofmoves(int numberofmoves) {
-        this.numberofmoves = numberofmoves;
+    public void setNumberOfMoves(int numberOfMoves) {
+        this.numberOfMoves = numberOfMoves;
     }
 }
