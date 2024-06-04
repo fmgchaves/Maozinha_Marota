@@ -9,6 +9,8 @@ public class Position implements GridPosition {
 
     private int row;
 
+    private boolean isFilled;
+
     //private Shape grid;
 
 
@@ -16,17 +18,18 @@ public class Position implements GridPosition {
     public Position(int col, int row) {
         this.col = col;
         this.row = row;
+        this.isFilled = false;
        // this.grid = grid;
     }
 
     @Override
     public int getCol() {
-        return col;
+        return this.col;
     }
 
     @Override
     public int getRow() {
-        return row;
+        return this.row;
     }
 
     @Override
@@ -35,5 +38,16 @@ public class Position implements GridPosition {
         this.row = row;
     }
 
+    public void setFilled() {
+        this.isFilled = true;
+    }
+
+    public void notFilled() {
+        this.isFilled = false;
+    }
+
+    public boolean isFilled() {
+        return this.isFilled;
+    }
 
 }
