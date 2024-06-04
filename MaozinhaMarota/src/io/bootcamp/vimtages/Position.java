@@ -1,8 +1,6 @@
 package io.bootcamp.vimtages;
 
 
-import org.academiadecodigo.simplegraphics.graphics.Shape;
-
 public class Position implements GridPosition {
 
     private int col;
@@ -26,7 +24,13 @@ public class Position implements GridPosition {
     public int getCol() {
         return this.col;
     }
-
+    public void setCol (int col) {
+        this.col = col;
+    }
+    
+    public void setRow(int row) {
+        this.row = row;
+    }
     @Override
     public int getRow() {
         return this.row;
