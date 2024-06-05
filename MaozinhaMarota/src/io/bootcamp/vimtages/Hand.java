@@ -61,4 +61,6 @@ public class Hand {
     public void setNumberofmoves(int numberofmoves) {
         this.numberofmoves = numberofmoves;
     }
+    
+    //ordem reversa do movimento do braço usando um iterador
 }

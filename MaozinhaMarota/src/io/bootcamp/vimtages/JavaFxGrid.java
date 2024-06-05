@@ -1,9 +1,6 @@
 package io.bootcamp.vimtages;
 
-import io.bootcamp.vimtages.Grid;
-import io.bootcamp.vimtages.Position;
 import org.academiadecodigo.simplegraphics.graphics.Canvas;
-import org.academiadecodigo.simplegraphics.graphics.Color;
 import org.academiadecodigo.simplegraphics.graphics.Rectangle;
 import org.academiadecodigo.simplegraphics.graphics.Shape;
 

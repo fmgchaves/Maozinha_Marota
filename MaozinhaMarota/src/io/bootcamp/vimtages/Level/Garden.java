@@ -13,8 +13,8 @@ public class Garden extends Level {
     private static Integer numberofTree = 5;
     private ArrayList<Position> TreePositions;
     
-    public Garden(Donut donut, Hand hand) {
-        super(donut, hand);
+    public Garden(Hand hand) {
+        super(hand);
     }
     
     @Override
@@ -24,7 +24,7 @@ public class Garden extends Level {
         placeItem ( new Tree (new Position ( 12,7 )));
         placeItem ( new Tree (new Position ( 15,3 )));
         placeItem ( new Tree (new Position (18 ,5 )));
-        placeItem (getDonut());
+        placeItem (new Donut (new Position (10 ,2 )));
         for (Integer i = 0; i < numberofTree + 1; i++) {
             System.out.println ("Object" + getArrayPosIndex (i));
             System.out.println ("Position Col" + getArrayPosIndex ( i ).getPosition ().getCol (  ));

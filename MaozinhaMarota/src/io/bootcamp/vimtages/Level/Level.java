@@ -18,12 +18,10 @@ public abstract class Level {
     private Donut donut;
     private Hand hand;
 
-    public Level (Donut donut, Hand hand) {
-        this.donut = donut;
+    public Level (Hand hand) {
         this.hand = hand;
         this.array = new ArrayList<Item>();
     }
-
     
     //Gets an Item from a given position
     //The reason for this method is to start a given action
@@ -55,18 +53,23 @@ public abstract class Level {
         return this.array.add(item);
     }
     
-    public Donut getDonut() {
-        return this.donut;
-    }
-    
     public Hand getHand() {
         return this.hand;
     }
     
-    //Gets Donut position from the level variable in this method
-    private Position getDonutPosition () {
-        return this.donut.getDonutsposition ();
+    public void setHand(Hand hand) {
+        this.hand = hand;
     }
+    
+    public Position getDonutPosition() {
+        return this.donut.getPosition ();
+    }
+    
+    public void setDonutPosition(Position position) {
+        this.donut.setPosition ( position );
+    }
+    
+    //Gets Donut position from the level variable in this method
     
     //Verifies if the Player has won
     public boolean didWin() {
@@ -85,7 +88,4 @@ public abstract class Level {
     public void setWin() {
         this.win=true;
     }
-    
-    //Criar metodo para obter posições do Item da Array
-    
 }

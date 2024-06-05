@@ -19,4 +19,8 @@ public abstract class Item {
     // like position, effect, destructability
     // another interface?
     
+    public void setPosition (Position position) {
+        this.position = position;
+    }
+    
 }

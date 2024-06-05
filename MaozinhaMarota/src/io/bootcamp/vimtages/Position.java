@@ -2,7 +2,7 @@ package io.bootcamp.vimtages;
 
 //This Class defines de position inside the Grid
 
-public class Position implements GridPosition {
+public class Position {
 
     private int col;
 
@@ -20,8 +20,7 @@ public class Position implements GridPosition {
         this.isFilled = false;
        // this.grid = grid;
     }
-
-    @Override
+    
     public int getCol() {
         return this.col;
     }
@@ -33,13 +32,11 @@ public class Position implements GridPosition {
     public void setRow(int row) {
         this.row = row;
     }
-
-    @Override
+    
     public int getRow() {
         return this.row;
     }
-
-    @Override
+    
     public void setPos(int col, int row) {
         this.col = col;
         this.row = row;

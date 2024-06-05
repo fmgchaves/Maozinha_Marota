@@ -1,19 +1,18 @@
 package io.bootcamp.vimtages.Level;
 
 import io.bootcamp.vimtages.Hand;
-import io.bootcamp.vimtages.Item.Donut;
-import io.bootcamp.vimtages.Item.Obstacle.Tree;
+import io.bootcamp.vimtages.Item.Obstacle.Wall;
 import io.bootcamp.vimtages.Position;
 
 public class Moes extends Level {
 
-    public Moes(Donut donut, Hand hand) {
-        super(donut, hand);
+    public Moes(Hand hand) {
+        super(hand);
     }
     
     @Override
     public void makeCenario () {
-        placeItem ( new Tree (new Position ( 3,2 )));
+        placeItem ( new Wall (new Position ( 3,2 )));
     }
     
     @Override
