@@ -5,9 +5,9 @@ import io.bootcamp.vimtages.Position;
 public class Donut extends Item {
     private Position donutsposition;
 
-    public Donut(Position donutsposition) {
-        this.donutsposition = donutsposition;
-        this.donutsposition.setFilled();
+    public Donut(Position position) {
+        super(position);
+        //this.donutsposition.setFilled();
     }
 
     public Position getDonutsposition() {

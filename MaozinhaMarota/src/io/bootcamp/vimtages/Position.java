@@ -25,13 +25,15 @@ public class Position implements GridPosition {
     public int getCol() {
         return this.col;
     }
+
     public void setCol (int col) {
         this.col = col;
     }
-    
+
     public void setRow(int row) {
         this.row = row;
     }
+
     @Override
     public int getRow() {
         return this.row;

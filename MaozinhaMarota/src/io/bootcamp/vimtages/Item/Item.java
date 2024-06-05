@@ -1,4 +1,22 @@
 package io.bootcamp.vimtages.Item;
 
-public abstract class Item { // items are going to implement abstract methods from item and inherit common item behaviour like position, effect, destructability another interface?
+import io.bootcamp.vimtages.GridPosition;
+import io.bootcamp.vimtages.Position;
+
+public abstract class Item {
+
+    private Position position;
+
+    public Item (Position position) {
+        this.position=position;
+    }
+
+    public Position getPosition() {
+        return this.position;
+    }
+    // items are going to implement
+    // abstract methods from item and
+    // inherit common item behaviour
+    // like position, effect, destructability
+    // another interface?
 }

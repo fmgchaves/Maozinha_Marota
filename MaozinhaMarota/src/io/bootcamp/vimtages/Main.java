@@ -1,6 +1,7 @@
 package io.bootcamp.vimtages;
 
-import io.bootcamp.vimtages.Game;
+import io.bootcamp.vimtages.Item.Donut;
+import io.bootcamp.vimtages.Level.Garden;
 
 public class Main {
     private static final int cols = 20;
@@ -8,7 +9,5 @@ public class Main {
     public static void main(String[] args) {
         Game game = new Game(cols,rows);
         game.init();
-
     }
-
 }
