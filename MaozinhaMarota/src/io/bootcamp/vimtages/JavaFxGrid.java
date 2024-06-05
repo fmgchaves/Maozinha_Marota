@@ -1,62 +1,59 @@
 package io.bootcamp.vimtages;
 
-import io.bootcamp.vimtages.Grid;
-import io.bootcamp.vimtages.Position;
+
 import org.academiadecodigo.simplegraphics.graphics.Canvas;
-import org.academiadecodigo.simplegraphics.graphics.Color;
 import org.academiadecodigo.simplegraphics.graphics.Rectangle;
 import org.academiadecodigo.simplegraphics.graphics.Shape;
 
 public class JavaFxGrid implements Grid {
     Canvas canvas;
     Shape grid;
-    Shape[][] squares;
-    int cellSize = 80;
+    private static Position position;
+    int cellSize;
     int padding = 10;
     int rows;
     int cols;
-    public JavaFxGrid(int cols, int rows){
-        this.cols=cols;
-        this.rows = rows;
-        this.squares=new Shape[getWidth()/cellSize][getHeight()/cellSize];
+    public JavaFxGrid(Position position, int cellSize){
+        this.position = position;
+        this.cellSize=cellSize;
+
     }
     @Override
     public void init() {
         this.canvas= Canvas.getInstance();
         this.grid= new Rectangle(padding,padding,getWidth(),getHeight());
         canvas.show(grid);
-        gridSquares();
-    }
-    //Creates rectangle objects in 2 dimensional array
-    public void gridSquares(){
-        Position position = new Position(0, 0);
-        for (int i = 0; i < squares.length; i++) {
-            for (int j = 0; j < squares[i].length; j++) {
-                if (squares[i][j] == null) {
-                    squares[i][j] = new Rectangle(position.getCol()+padding, position.getRow()+padding, cellSize, cellSize);
-                    squares[i][j].draw();
-                    position.setPos(position.getCol(),position.getRow()+cellSize);
-                }
-            }
-            position.setPos(position.getCol()+cellSize,0);
 
-        }
     }
+
+    @Override
+    public int getCol() {
+        return cols*cellSize;
+    }
+
+    @Override
+    public int getRow() {
+        return rows*cellSize;
+    }
+
+    //Creates rectangle objects in 2 dimensional array
+
     public int getWidth(){
-        return cols*this.cellSize;
+        return getCol()*this.cellSize;
     }
+
+    @Override
+    public int getHeigth() {
+        return getRow()*this.cellSize;
+    }
+
     public int getHeight(){
         return rows*this.cellSize;
     }
 
     @Override
-    public int getCols() {
-        return this.cols;
-    }
-
-    @Override
-    public int getRows() {
-        return this.getRows();
+    public void setPos(int col, int row) {
+        GridPosition(col,row);
     }
 
     @Override

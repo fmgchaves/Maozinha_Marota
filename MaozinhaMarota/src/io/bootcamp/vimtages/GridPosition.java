@@ -1,5 +1,5 @@
 package io.bootcamp.vimtages;
-
+// eliminate position class to implement those methods through out the program from the interface
 public interface GridPosition {
 
     public int getCol();
@@ -7,6 +7,7 @@ public interface GridPosition {
     public int getRow();
 
     public void setPos(int col, int row);
+
 
     //public void show();
 
