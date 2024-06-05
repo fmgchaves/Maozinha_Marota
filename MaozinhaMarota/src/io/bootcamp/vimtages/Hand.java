@@ -11,6 +11,10 @@ public class Hand {
         (this.positionLinkedList.get(0)).setFilled();
     }
 
+    public Position currentHandPosition () {
+        return this.positionLinkedList.getLast();
+    }
+
     public void move(Direction dir) {
         switch (dir) {
             case UP:
@@ -57,4 +61,6 @@ public class Hand {
     public void setNumberOfMoves(int numberOfMoves) {
         this.numberOfMoves = numberOfMoves;
     }
+    
+    //ordem reversa do movimento do braço usando um iterador
 }

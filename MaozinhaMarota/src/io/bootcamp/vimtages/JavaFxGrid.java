@@ -1,9 +1,6 @@
 package io.bootcamp.vimtages;
 
-import io.bootcamp.vimtages.Grid;
-import io.bootcamp.vimtages.Position;
 import org.academiadecodigo.simplegraphics.graphics.Canvas;
-import org.academiadecodigo.simplegraphics.graphics.Color;
 import org.academiadecodigo.simplegraphics.graphics.Rectangle;
 import org.academiadecodigo.simplegraphics.graphics.Shape;
 
@@ -42,6 +39,7 @@ public class JavaFxGrid implements Grid {
 
         }
     }
+
     public int getWidth(){
         return cols*this.cellSize;
     }
@@ -63,7 +61,6 @@ public class JavaFxGrid implements Grid {
     public Position GridPosition(int col, int row) {
         return new Position(col,row);
     }
-
 
     public Position makeGridPosition(int col, int row) {
         return new Position(col,row);

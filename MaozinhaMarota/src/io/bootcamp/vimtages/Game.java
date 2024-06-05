@@ -11,8 +11,6 @@ public class Game {
 
     }
 
-
-
     public static int getRows() {
         return rows;
     }
