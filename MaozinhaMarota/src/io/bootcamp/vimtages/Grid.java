@@ -1,11 +1,18 @@
 package io.bootcamp.vimtages;
 
+import org.academiadecodigo.simplegraphics.pictures.Picture;
+
 public interface Grid {
 
     /**
      * Initializes the grid
      */
     public void init();
+
+    //public void show();
+    //public void hide();
+
+    public void setPicture(Picture picture);
 
     /**
      * Gets the number of columns in the grid

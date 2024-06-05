@@ -3,8 +3,11 @@ package io.bootcamp.vimtages;
 import org.academiadecodigo.simplegraphics.graphics.Canvas;
 import org.academiadecodigo.simplegraphics.graphics.Rectangle;
 import org.academiadecodigo.simplegraphics.graphics.Shape;
+import org.academiadecodigo.simplegraphics.pictures.Picture;
 
-public class JavaFxGrid implements Grid {
+public class GameScreen {
+    String backgroundPath = "MaozinhaMarota/resources/defaultImage.jpg";
+    Picture picture;
     Canvas canvas;
     Shape grid;
     Shape[][] squares;
@@ -12,19 +15,33 @@ public class JavaFxGrid implements Grid {
     int padding = 10;
     int rows;
     int cols;
-    public JavaFxGrid(int cols, int rows){
+    public GameScreen(int cols, int rows){
         this.cols=cols;
         this.rows = rows;
         this.squares=new Shape[getWidth()/cellSize][getHeight()/cellSize];
     }
-    @Override
+
     public void init() {
-        this.canvas= Canvas.getInstance();
-        this.grid= new Rectangle(padding,padding,getWidth(),getHeight());
-        canvas.show(grid);
+        //this.canvas= Canvas.getInstance();
+        //this.grid= new Rectangle(padding,padding,getWidth(),getHeight());
+        //canvas.show(grid);
+
+        Picture picture = new Picture(10,10,backgroundPath);
+        picture.draw();
         gridSquares();
+        //canvas.hide(picture);
+
     }
+
+
+    public void setPicture(Picture picture) {
+        picture = new Picture(10,10,"./resources/initscreen1.jpg");
+        picture.draw();
+    }
+
+
     //Creates rectangle objects in 2 dimensional array
+
     public void gridSquares(){
         Position position = new Position(0, 0);
         for (int i = 0; i < squares.length; i++) {
@@ -33,6 +50,7 @@ public class JavaFxGrid implements Grid {
                     squares[i][j] = new Rectangle(position.getCol()+padding, position.getRow()+padding, cellSize, cellSize);
                     squares[i][j].draw();
                     position.setPos(position.getCol(),position.getRow()+cellSize);
+                    System.out.println(getWidth()+" " +getHeight());
                 }
             }
             position.setPos(position.getCol()+cellSize,0);
@@ -47,17 +65,16 @@ public class JavaFxGrid implements Grid {
         return rows*this.cellSize;
     }
 
-    @Override
+/*
     public int getCols() {
         return this.cols;
     }
 
-    @Override
     public int getRows() {
         return this.getRows();
     }
 
-    @Override
+
     public Position GridPosition(int col, int row) {
         return new Position(col,row);
     }
@@ -65,4 +82,6 @@ public class JavaFxGrid implements Grid {
     public Position makeGridPosition(int col, int row) {
         return new Position(col,row);
     }
+*/
 }
+
