@@ -83,9 +83,31 @@ public abstract class Level {
     
     public abstract void makeCenario();
     
-    public abstract void runCenario();
+    public void runScenario() {
 
-    public void setWin() {
-        this.win=true;
+        while (!didWin()) {
+            //keyboard listener
+            hand.move(); //pass user given direction as an argument
+            if (!setWin()){
+                hand.addCurrentHandPosition();
+                hand.setNumberOfMoves(hand.getNumberOfMoves() + 1);
+
+            } else {
+                //implement the reverse iterator from the exercise (class 05/06/2024).
+                    //this will give us the previous position to give to JavaFxItem
+                for(int j = 0; j < array.size(); j++){ //clean array list in Level class
+                    array.remove(0);
+
+                }
+                setWin();
+                //move to the next level
+            }
+
+        }
+
+    }
+
+    public boolean setWin() {
+        return this.win=true;
     }
 }

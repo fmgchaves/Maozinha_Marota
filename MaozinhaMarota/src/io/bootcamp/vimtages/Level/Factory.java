@@ -54,7 +54,7 @@ public class Factory extends Level {
     }
     
     @Override
-    public void runCenario () {
+    public void runScenario() {
     }
 }
 
