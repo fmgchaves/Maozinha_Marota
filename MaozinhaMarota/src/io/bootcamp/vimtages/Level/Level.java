@@ -24,27 +24,51 @@ public abstract class Level {
         this.array = new ArrayList<Item>();
     }
 
-    public Donut getDonut() {
-        return this.donut;
+    
+    //Gets an Item from a given position
+    //The reason for this method is to start a given action
+    //Given an Item
+    //For example hand in the same position of a box or a wall
+    //cannot allow a hand to move
+    public Item getItemFromPosition (Position position) {
+        int tempindex;
+        if (this.array.contains ( position )) {
+            tempindex = this.array.indexOf ( position );
+            return getArrayPosIndex ( tempindex );
+        } else {
+            return null;
+        }
     }
-    public Position getDonutPosition () {
-        return this.donut.getDonutsposition();
-    }
-
+    
+    //Gets an Item from an index position
     public Item getArrayPosIndex (Integer index) {
         return this.array.get(index);
     }
-    //abstract
+    
+    //removes an Item from a given position
     public void removeItem (Item item) {
         this.array.remove(item);
     }
-
-    //abstract
+    
+    //Placas an Item on a given position
     public boolean placeItem(Item item) {
         return this.array.add(item);
     }
-
-    //abstract
+    
+    public Donut getDonut() {
+        return this.donut;
+    }
+    
+    public Hand getHand() {
+        return this.hand;
+    }
+    
+    //Gets Donut position from the level variable in this method
+    private Position getDonutPosition () {
+        return this.donut.getDonutsposition ();
+    }
+    
+    //Verifies if the Player has won
     public boolean didWin() {
         if (this.hand.currentHandPosition().equals(getDonutPosition())){
             setWin();
@@ -53,13 +77,15 @@ public abstract class Level {
             return this.win;
         }
     }
-
-    //abstract
-    //public void makeCenario() {
-    //}
-
+    
+    public abstract void makeCenario();
+    
+    public abstract void runCenario();
 
     public void setWin() {
         this.win=true;
     }
+    
+    //Criar metodo para obter posições do Item da Array
+    
 }

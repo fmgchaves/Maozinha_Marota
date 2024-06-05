@@ -8,4 +8,5 @@ public class Tree extends Obstacle {
     public Tree(Position position) {
         super(position);
     }
+    
 }

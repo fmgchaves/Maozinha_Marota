@@ -8,4 +8,6 @@ public class Radioactive extends Obstacle {
     public Radioactive(Position position) {
         super(position);
     }
+    
+  
 }

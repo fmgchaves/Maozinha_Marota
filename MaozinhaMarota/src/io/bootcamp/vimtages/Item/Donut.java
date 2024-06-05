@@ -1,6 +1,7 @@
 package io.bootcamp.vimtages.Item;
 
 import io.bootcamp.vimtages.Position;
+
 //will override and use abstract Items methods
 public class Donut extends Item {
     private Position donutsposition;
@@ -9,7 +10,7 @@ public class Donut extends Item {
         super(position);
         //this.donutsposition.setFilled();
     }
-
+    
     public Position getDonutsposition() {
         return this.donutsposition;
     }

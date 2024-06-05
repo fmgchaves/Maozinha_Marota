@@ -1,17 +1,16 @@
 package io.bootcamp.vimtages.Item;
 
-import io.bootcamp.vimtages.GridPosition;
 import io.bootcamp.vimtages.Position;
 
 public abstract class Item {
-
+    
     private Position position;
-
+    
     public Item (Position position) {
-        this.position=position;
+        this.position = position;
     }
-
-    public Position getPosition() {
+    
+    public Position getPosition () {
         return this.position;
     }
     // items are going to implement
@@ -19,4 +18,5 @@ public abstract class Item {
     // inherit common item behaviour
     // like position, effect, destructability
     // another interface?
+    
 }
