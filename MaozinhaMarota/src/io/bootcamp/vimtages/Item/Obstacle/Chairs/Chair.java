@@ -1,11 +1,12 @@
 package io.bootcamp.vimtages.Item.Obstacle.Chairs;
 
+
+import io.bootcamp.vimtages.Item.Obstacle.Obstacle;
 import io.bootcamp.vimtages.Position;
 
-public class Chair extends Chairs{
+public abstract class Chairs extends Obstacle {
 
-    public Chair(Position position) {
+    public Chairs(Position position) {
         super(position);
     }
-
 }
