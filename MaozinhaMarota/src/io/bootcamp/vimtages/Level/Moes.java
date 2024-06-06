@@ -80,7 +80,7 @@ public class Moes extends Level {
     }
     
     @Override
-    public void runCenario () {
+    public void runScenario() {
     
     }
 }

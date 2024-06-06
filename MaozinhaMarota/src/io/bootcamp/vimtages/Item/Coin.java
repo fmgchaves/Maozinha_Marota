@@ -7,4 +7,14 @@ public class Coin extends Item{
 	public Coin (Position position) {
 		super ( position );
 	}
+
+	@Override
+	public void draw() {
+
+	}
+
+	@Override
+	public void erase() {
+
+	}
 }

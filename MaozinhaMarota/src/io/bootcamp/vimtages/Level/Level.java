@@ -15,6 +15,7 @@ public abstract class Level {
 
     private ArrayList<Item> array;
     private boolean win;
+
     private Donut donut;
     private Hand hand;
 
@@ -83,9 +84,27 @@ public abstract class Level {
     
     public abstract void makeCenario();
     
-    public abstract void runCenario();
+    public abstract void runScenario();
 
-    public void setWin() {
-        this.win=true;
+     /*   while (!didWin()) {
+            //keyboard listener
+            hand.move(); //pass user given direction as an argument
+            if (!setWin()){
+                hand.addCurrentHandPosition();
+                hand.setNumberOfMoves(hand.getNumberOfMoves() + 1);
+
+            } else {
+                for(int i = 0; i < array.size(); i++){ //clean array list in Level class, if stored in this class
+                    array.remove(0);
+
+                }
+                setWin();
+                //move to the next level //how?
+            }
+        */
+
+
+    public boolean setWin() {
+        return this.win=true;
     }
 }

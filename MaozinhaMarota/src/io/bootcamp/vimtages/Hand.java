@@ -22,6 +22,10 @@ public class Hand {
         return this.positionLinkedList.getLast();
     }
 
+    public void addCurrentHandPosition () {
+        positionLinkedList.add(currentHandPosition());
+    }
+
     public void move(Direction dir) {
         switch (dir) {
             case UP:
