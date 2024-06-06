@@ -1,7 +1,6 @@
 package io.bootcamp.vimtages;
 
-import io.bootcamp.vimtages.Item.Item;
-import io.bootcamp.vimtages.Level.Garden;
+import org.academiadecodigo.simplegraphics.graphics.Shape;
 
 public class Game {
     private static int cols;
@@ -16,17 +15,9 @@ public class Game {
         return rows;
     }
 
-    public void initInitialScreen(){
-        //GameScreen grid = new GameScreen(cols,rows);
-        //grid.init();
-        InitScreen initScreen = new InitScreen(cols,rows);
-        initScreen.init();
-        //System.out.println("Hei " + grid.getHeight());
-        //System.out.println("Width " + grid.getWidth());
-    }
-    public void initGame(){
-        GameScreen newGame = new GameScreen(cols,rows);
-        newGame.init();
+    public void init(){
+        JavaFxGrid grid = new JavaFxGrid(cols,rows);
+        grid.init();
         //System.out.println("Hei " + grid.getHeight());
         //System.out.println("Width " + grid.getWidth());
     }
