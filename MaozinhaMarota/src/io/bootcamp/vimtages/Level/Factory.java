@@ -2,10 +2,9 @@ package io.bootcamp.vimtages.Level;
 
 import io.bootcamp.vimtages.Hand;
 import io.bootcamp.vimtages.Item.Donut;
+import io.bootcamp.vimtages.Item.Item;
 import io.bootcamp.vimtages.Item.Obstacle.Radioactive;
 import io.bootcamp.vimtages.Position;
-import org.academiadecodigo.simplegraphics.graphics.Color;
-import org.academiadecodigo.simplegraphics.graphics.Rectangle;
 
 public class Factory extends Level {
     
@@ -13,11 +12,13 @@ public class Factory extends Level {
     public Factory(Hand hand) {
         super(hand);
     }
-    
+
+    //Donut donut = new Donut (new Position (6,5));
+
     @Override
     public void makeCenario () {
-        
-        placeItem ( new Donut (new Position (6,5)));
+        Donut donut = new Donut (new Position (10,9));
+        placeItem (donut);
         placeItem ( new Radioactive (new Position ( 5,4 )));
         placeItem ( new Radioactive (new Position ( 5,5 )));
         placeItem ( new Radioactive (new Position ( 5,6 )));
@@ -56,13 +57,11 @@ public class Factory extends Level {
     }
     
     @Override
-    public void runCenario () {
-        for (Integer i = 0; i < numberofWall + 1; i++){
-            Rectangle rectangle = new Rectangle(getArrayPosIndex(i).getPosition().getCol()*80+10,getArrayPosIndex(i).getPosition().getRow()*80+10,80,80);
-            rectangle.setColor(Color.WHITE);
-            rectangle.draw();
-        }
+    public void runScenario() {
+
+        Item exp = getArrayPosIndex(0);
+        exp.draw();
+        //exp.erase();
     }
     //caquinharesolver
 }
-
