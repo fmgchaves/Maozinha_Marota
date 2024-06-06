@@ -6,7 +6,7 @@ import org.academiadecodigo.simplegraphics.graphics.Shape;
 import org.academiadecodigo.simplegraphics.pictures.Picture;
 
 public class GameScreen {
-    private static String backgroundPath = "MaozinhaMarota/resources/defaultImage.jpg";
+    private static String backgroundPath = "./resources/defaultImage.jpg";
     Picture picture;
     //Canvas canvas;
     //Shape grid;

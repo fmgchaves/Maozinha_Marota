@@ -12,9 +12,14 @@ import org.academiadecodigo.simplegraphics.keyboard.KeyboardHandler;
 public class Handler implements KeyboardHandler {
     public Keyboard keyboard;
     //public Player player;
+    private static int enterCounter = 0;
+    public Hand hand;
+    public Donut donut;
 
 
     public Handler() {
+        this.hand = new Hand(new Position(10, 11));
+        this.donut = new Donut(new Position(10, 2));
         keyboard = new Keyboard(this);
         createKeyboardEvents();
     }
@@ -29,15 +34,27 @@ public class Handler implements KeyboardHandler {
 
     @Override
     public void keyPressed(KeyboardEvent keyboardEvent) {
+        switch(keyboardEvent.getKey()){
+            case KeyboardEvent.KEY_ENTER:
+                if(enterCounter!=1) {
+                    GameScreen newGame = new GameScreen(10, 20);
+                    newGame.init();
+                    Level factory = new Factory(hand);
+                    factory.makeCenario();
+                    factory.runCenario();
+                    hand.initHand();
+                    enterCounter++;
+                    System.out.println("Here");
+                }
+                break;
+            case KeyboardEvent.KEY_UP:
 
-        if (keyboardEvent.getKey() == KeyboardEvent.KEY_ENTER) {
-           GameScreen newGame = new GameScreen(10,20);
-           newGame.init();
-           Hand hand = new Hand (new Position ( 50,100 ));
-           Donut donut = new Donut (new Position ( 10,2 ));
-           Level factory = new Factory(hand);
-           factory.makeCenario ();
-           factory.runCenario();
+                break;
+
+
+
+
+
         }
     }
 

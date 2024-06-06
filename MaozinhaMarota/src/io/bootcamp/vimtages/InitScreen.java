@@ -18,7 +18,7 @@ public class InitScreen {
 
     public void init(){
         int padding = 10;
-        String backGround = "MaozinhaMarota/resources/defaultImage.jpg";
+        String backGround = "./resources/defaultImage.jpg";
         Picture picture = new Picture(padding, padding, backGround);
         picture.draw();
         int width = picture.getWidth();

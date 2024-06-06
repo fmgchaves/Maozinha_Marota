@@ -1,14 +1,21 @@
 package io.bootcamp.vimtages;
 
+import org.academiadecodigo.simplegraphics.graphics.Rectangle;
+import org.academiadecodigo.simplegraphics.graphics.Shape;
+
 import java.util.LinkedList;
 //Translate positions to directions -width left, + width right this will be implemented in another class
 public class Hand {
     private int numberOfMoves;
     LinkedList<Position> positionLinkedList = new LinkedList<>();
+    static Shape hand;
 
     public Hand (Position initialPositionHand) {
         this.positionLinkedList.add(initialPositionHand);
         (this.positionLinkedList.get(0)).setFilled();
+        this.hand = new Rectangle(10,10,80,80);
+
+
     }
 
     public Position currentHandPosition () {
@@ -61,6 +68,12 @@ public class Hand {
     public void setNumberOfMoves(int numberOfMoves) {
         this.numberOfMoves = numberOfMoves;
     }
-    
+
+    public Shape initHand(){
+        Rectangle hand = new Rectangle(10,10,80,80);
+        hand.draw();
+        return hand;
+    }
+
     //ordem reversa do movimento do braço usando um iterador
 }
