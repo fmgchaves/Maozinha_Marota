@@ -7,4 +7,5 @@ public class Chair extends Chairs{
     public Chair(Position position) {
         super(position);
     }
+
 }
