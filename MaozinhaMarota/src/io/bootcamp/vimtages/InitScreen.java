@@ -7,12 +7,9 @@ import org.academiadecodigo.simplegraphics.pictures.Picture;
 
 
 public class InitScreen {
-    int cellSize = 80;
-    int pading = 10;
-    int rows;
-    int cols;
-    private Picture picture;
-    private String backGround= "MaozinhaMarota/resources/defaultImage.jpg";
+    private final int cellSize = 80;
+    private int rows;
+    private int cols;
 
     public InitScreen(int cols, int rows) {
         this.rows = rows;
@@ -20,7 +17,9 @@ public class InitScreen {
     }
 
     public void init(){
-        picture = new Picture(pading,pading,backGround);
+        int padding = 10;
+        String backGround = "./resources/defaultImage.jpg";
+        Picture picture = new Picture(padding, padding, backGround);
         picture.draw();
         int width = picture.getWidth();
         int heigth = picture.getHeight();

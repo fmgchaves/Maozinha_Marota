@@ -6,10 +6,10 @@ import org.academiadecodigo.simplegraphics.graphics.Shape;
 import org.academiadecodigo.simplegraphics.pictures.Picture;
 
 public class GameScreen {
-    String backgroundPath = "MaozinhaMarota/resources/defaultImage.jpg";
+    private static String backgroundPath = "./resources/defaultImage.jpg";
     Picture picture;
-    Canvas canvas;
-    Shape grid;
+    //Canvas canvas;
+    //Shape grid;
     Shape[][] squares;
     int cellSize = 80;
     int padding = 10;
@@ -50,7 +50,7 @@ public class GameScreen {
                     squares[i][j] = new Rectangle(position.getCol()+padding, position.getRow()+padding, cellSize, cellSize);
                     squares[i][j].draw();
                     position.setPos(position.getCol(),position.getRow()+cellSize);
-                    System.out.println(getWidth()+" " +getHeight());
+                    //System.out.println(getWidth()+" " +getHeight());
                 }
             }
             position.setPos(position.getCol()+cellSize,0);
@@ -59,10 +59,10 @@ public class GameScreen {
     }
 
     public int getWidth(){
-        return cols*this.cellSize;
+        return rows*this.cellSize;
     }
     public int getHeight(){
-        return rows*this.cellSize;
+        return cols*this.cellSize;
     }
 
 /*
