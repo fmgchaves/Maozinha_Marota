@@ -58,7 +58,7 @@ public class Factory extends Level {
     @Override
     public void runCenario () {
         for (Integer i = 0; i < numberofWall + 1; i++){
-            Rectangle rectangle = new Rectangle(getArrayPosIndex(i).getPosition().getCol()*80+10,getArrayPosIndex(i).getPosition().getRow()*80+10,50,50);
+            Rectangle rectangle = new Rectangle(getArrayPosIndex(i).getPosition().getCol()*80+10,getArrayPosIndex(i).getPosition().getRow()*80+10,80,80);
             rectangle.setColor(Color.WHITE);
             rectangle.draw();
         }
