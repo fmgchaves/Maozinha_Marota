@@ -15,6 +15,7 @@ public abstract class Level {
 
     private ArrayList<Item> array;
     private boolean win;
+
     private Donut donut;
     private Hand hand;
 
@@ -83,9 +84,9 @@ public abstract class Level {
     
     public abstract void makeCenario();
     
-    public void runScenario() {
+    public abstract void runScenario();
 
-        while (!didWin()) {
+     /*   while (!didWin()) {
             //keyboard listener
             hand.move(); //pass user given direction as an argument
             if (!setWin()){
@@ -100,10 +101,8 @@ public abstract class Level {
                 setWin();
                 //move to the next level //how?
             }
+        */
 
-        }
-
-    }
 
     public boolean setWin() {
         return this.win=true;

@@ -11,14 +11,12 @@ public class Main {
     public static void main(String[] args) {
         Game game = new Game(cols,rows);
         game.init();
-    
-        Hand hand = new Hand (new Position ( 50,100 ));
-        Donut donut = new Donut (new Position ( 10,2 ));
-        
-        Level factory = new Factory (hand);
-        factory.makeCenario ();
-        
-        Level garden = new Garden (hand);
-        garden.makeCenario();
+
+        Hand hand = new Hand(new Position(2,3));
+
+        Factory factory = new Factory(hand);
+        factory.makeCenario();
+        factory.runScenario();
+
     }
 }

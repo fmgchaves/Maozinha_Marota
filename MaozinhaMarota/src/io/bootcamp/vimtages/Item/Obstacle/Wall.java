@@ -8,6 +8,16 @@ public class Wall extends Obstacle {
     public Wall(Position position) {
         super(position);
     }
-    
-    
+
+    @Override
+    public void draw() {
+
+    }
+
+    @Override
+    public void erase() {
+
+    }
+
+
 }

@@ -8,5 +8,15 @@ public class Tree extends Obstacle {
     public Tree(Position position) {
         super(position);
     }
-    
+
+    @Override
+    public void draw() {
+
+    }
+
+    @Override
+    public void erase() {
+
+    }
+
 }
