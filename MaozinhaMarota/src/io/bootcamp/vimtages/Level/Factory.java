@@ -4,6 +4,8 @@ import io.bootcamp.vimtages.Hand;
 import io.bootcamp.vimtages.Item.Donut;
 import io.bootcamp.vimtages.Item.Obstacle.Radioactive;
 import io.bootcamp.vimtages.Position;
+import org.academiadecodigo.simplegraphics.graphics.Color;
+import org.academiadecodigo.simplegraphics.graphics.Rectangle;
 
 public class Factory extends Level {
     
@@ -55,6 +57,11 @@ public class Factory extends Level {
     
     @Override
     public void runCenario () {
+        for (Integer i = 0; i < numberofWall + 1; i++){
+            Rectangle rectangle = new Rectangle(getArrayPosIndex(i).getPosition().getCol()*80+10,getArrayPosIndex(i).getPosition().getRow()*80+10,80,80);
+            rectangle.setColor(Color.WHITE);
+            rectangle.draw();
+        }
     }
 }
 
