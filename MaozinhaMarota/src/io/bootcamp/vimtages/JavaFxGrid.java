@@ -3,6 +3,7 @@ package io.bootcamp.vimtages;
 import org.academiadecodigo.simplegraphics.graphics.Canvas;
 import org.academiadecodigo.simplegraphics.graphics.Rectangle;
 import org.academiadecodigo.simplegraphics.graphics.Shape;
+import org.academiadecodigo.simplegraphics.pictures.Picture;
 
 public class JavaFxGrid implements Grid {
     Canvas canvas;
@@ -24,6 +25,12 @@ public class JavaFxGrid implements Grid {
         canvas.show(grid);
         gridSquares();
     }
+
+    @Override
+    public void setPicture(Picture picture) {
+
+    }
+
     //Creates rectangle objects in 2 dimensional array
     public void gridSquares(){
         Position position = new Position(0, 0);

@@ -41,8 +41,8 @@ public class Handler implements KeyboardHandler {
                     newGame.init();
                     Level factory = new Factory(hand);
                     factory.makeCenario();
-                    factory.runCenario();
-                    hand.initHand();
+                    factory.runScenario();
+                    //hand.initHand();
                     enterCounter++;
                     System.out.println("Here");
                 }
