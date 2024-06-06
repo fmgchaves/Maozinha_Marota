@@ -93,14 +93,12 @@ public abstract class Level {
                 hand.setNumberOfMoves(hand.getNumberOfMoves() + 1);
 
             } else {
-                //implement the reverse iterator from the exercise (class 05/06/2024).
-                    //this will give us the previous position to give to JavaFxItem
-                for(int j = 0; j < array.size(); j++){ //clean array list in Level class
+                for(int i = 0; i < array.size(); i++){ //clean array list in Level class, if stored in this class
                     array.remove(0);
 
                 }
                 setWin();
-                //move to the next level
+                //move to the next level //how?
             }
 
         }

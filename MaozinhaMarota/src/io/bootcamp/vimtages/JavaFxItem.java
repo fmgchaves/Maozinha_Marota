@@ -3,12 +3,16 @@ package io.bootcamp.vimtages;
 import org.academiadecodigo.simplegraphics.pictures.Picture;
 
 // we will use this class to implement the Items' graphic logic
-public class JavaFxItem {
+public class JavaFxItem{
+    private Picture donnut;
 
-    Picture donut = new Picture(4, 4,"resources/icone-colorido-de-vetor-de-rosquinha-rosa-isolado-no-fundo-branco_134830-1096.avif" );
-
-    public void draw() {
-
+    public JavaFxItem(Picture donnut) {
+        this.donnut =  new Picture(40, 40,"resources/donut.avif" );
+        this.donnut.draw();
     }
+
+
+
+
 
 }
