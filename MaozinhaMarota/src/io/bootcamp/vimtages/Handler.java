@@ -1,8 +1,6 @@
 package io.bootcamp.vimtages;
 
 import io.bootcamp.vimtages.Item.Donut;
-import io.bootcamp.vimtages.Level.Factory;
-import io.bootcamp.vimtages.Level.Level;
 import org.academiadecodigo.simplegraphics.keyboard.Keyboard;
 import org.academiadecodigo.simplegraphics.keyboard.KeyboardEvent;
 import org.academiadecodigo.simplegraphics.keyboard.KeyboardEventType;
@@ -16,11 +14,13 @@ public class Handler implements KeyboardHandler {
     public Hand hand;
     public Donut donut;
 
+    private Game game;
 
-    public Handler() {
+    public Handler(Game game) {
         this.hand = new Hand(new Position(10, 11));
         this.donut = new Donut(new Position(10, 2));
         keyboard = new Keyboard(this);
+        this.game = game;
         createKeyboardEvents();
     }
 
@@ -36,7 +36,8 @@ public class Handler implements KeyboardHandler {
     public void keyPressed(KeyboardEvent keyboardEvent) {
         switch(keyboardEvent.getKey()){
             case KeyboardEvent.KEY_ENTER:
-                if(enterCounter!=1) {
+                game.setNextlevel ( true );
+               /* if(enterCounter!=1) {
                     GameScreen newGame = new GameScreen(10, 20);
                     newGame.init();
                     Level factory = new Factory(hand);
@@ -47,8 +48,10 @@ public class Handler implements KeyboardHandler {
                     System.out.println("Here");
                 }
                 break;
+                
+                */
             case KeyboardEvent.KEY_UP:
-
+                
                 break;
 
 

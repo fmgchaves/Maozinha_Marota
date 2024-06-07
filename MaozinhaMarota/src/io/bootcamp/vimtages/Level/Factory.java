@@ -89,7 +89,7 @@ public class Factory extends Level {
     }
     
     @Override
-    public void runScenario() {
+    public boolean runScenario() {
         ArrayList<Item> temp = getArray();
         for (Item item : temp) {
             Item exp = item;
@@ -99,5 +99,17 @@ public class Factory extends Level {
        // Item exp = getArrayPosIndex(0);
        // exp.draw();
         //exp.erase();
+        
+        
+        return true;
+    }
+    
+    @Override
+    public void deleteScenario () {
+        ArrayList<Item> temp = getArray();
+        for (Item item : temp) {
+            Item exp = item;
+            exp.erase();
+        }
     }
 }

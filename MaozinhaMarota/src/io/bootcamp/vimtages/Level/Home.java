@@ -4,7 +4,6 @@ import io.bootcamp.vimtages.Hand;
 import io.bootcamp.vimtages.Item.Donut;
 import io.bootcamp.vimtages.Item.Item;
 import io.bootcamp.vimtages.Item.Obstacle.Characters.Maggie;
-import io.bootcamp.vimtages.Item.Obstacle.Tree;
 import io.bootcamp.vimtages.Position;
 
 import java.util.ArrayList;
@@ -25,11 +24,22 @@ public class Home extends Level {
     }
     
     @Override
-    public void runScenario() {
+    public boolean runScenario() {
         ArrayList<Item> temp = getArray();
         for (Item item : temp) {
             Item exp = item;
             exp.draw();
         }
+        return true;
+    }
+    
+    @Override
+    public void deleteScenario () {
+        ArrayList<Item> temp = getArray();
+        for (Item item : temp) {
+            Item exp = item;
+            exp.erase();
+        }
     }
 }
+

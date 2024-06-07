@@ -53,7 +53,7 @@ public abstract class Level {
         this.array.remove(item);
     }
 
-    //Placas an Item on a given position
+    //Places an Item on a given position
     public boolean placeItem(Item item) {
         return this.array.add(item);
     }
@@ -88,7 +88,9 @@ public abstract class Level {
 
     public abstract void makeCenario();
 
-    public abstract void runScenario();
+    public abstract boolean runScenario();
+    
+    public abstract void deleteScenario();
 
     public boolean setWin() {
         return this.win = true;
