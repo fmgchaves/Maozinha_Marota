@@ -1,9 +1,6 @@
 package io.bootcamp.vimtages;
 
-import io.bootcamp.vimtages.Item.Donut;
-import io.bootcamp.vimtages.Level.Factory;
 import io.bootcamp.vimtages.Level.Garden;
-import io.bootcamp.vimtages.Level.Level;
 
 public class Main {
     private static final int cols = 20;
@@ -19,7 +16,7 @@ public class Main {
         factory.makeCenario();
         factory.runScenario();*/
 
-        hand.setNumberOfMoves(40);
-        garden.giveScore();
+        hand.setNumberOfMoves(29);
+        garden.giveLevelFinalScreen();
     }
 }

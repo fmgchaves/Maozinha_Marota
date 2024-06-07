@@ -110,23 +110,26 @@ public abstract class Level {
     }
 
 
-    //Score review star position on the grid and the min1 and min2
-    public int giveScore(){
+    //Score review min1 and min2
+    public int giveLevelFinalScreen(){
 
         int min1 = 30;
         int min2 = 38;
 
         if(hand.getNumberOfMoves() <= min1) {
-            placeItem(new Star(new Position(650,250)));
+            placeItem(new Star(new Position(708,250)));
+            placeItem(new PressSpace(new Position(650,500)));
             return 3;
         } else if (min1 < hand.getNumberOfMoves() && hand.getNumberOfMoves() <= min2){
-            placeItem(new Star(new Position(730,250)));
-            placeItem(new Star(new Position(890,250)));
+            placeItem(new Star(new Position(608,250)));
+            placeItem(new Star(new Position(808,250)));
+            placeItem(new PressSpace(new Position(650,500)));
             return 2;
         } else {
-            placeItem(new Star(new Position(650,250)));
-            placeItem(new Star(new Position(810,250)));
-            placeItem(new Star(new Position(970,250)));
+            placeItem(new Star(new Position(508,250)));
+            placeItem(new Star(new Position(708,250)));
+            placeItem(new Star(new Position(910,250)));
+            placeItem(new PressSpace(new Position(650,500)));
             return 1;
         }
 
@@ -154,6 +157,27 @@ public abstract class Level {
         }
     }
 
+    private class PressSpace extends Item{
+
+        private Picture picture;
+
+        public PressSpace(Position position) {
+            super(position);
+            String Path = "./resources/item/pressSpace.png";
+            setPicture(new Picture(getPosition().getCol(),getPosition().getRow(),Path));
+            getPicture().draw();
+        }
+
+        @Override
+        public void draw() {
+
+        }
+
+        @Override
+        public void erase() {
+
+        }
+    }
 
 
 }

@@ -43,7 +43,7 @@ public class Garden extends Level {
     }
 
     @Override
-    public int giveScore(){
-        return super.giveScore();
+    public int giveLevelFinalScreen(){
+        return super.giveLevelFinalScreen();
     }
 }
