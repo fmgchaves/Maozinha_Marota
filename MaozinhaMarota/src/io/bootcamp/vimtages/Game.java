@@ -3,6 +3,7 @@ package io.bootcamp.vimtages;
 import io.bootcamp.vimtages.Level.Factory;
 import io.bootcamp.vimtages.Level.Garden;
 import io.bootcamp.vimtages.Level.Level;
+import io.bootcamp.vimtages.Level.Moes;
 import org.academiadecodigo.simplegraphics.graphics.Shape;
 
 public class Game {
@@ -29,6 +30,7 @@ public class Game {
         //System.out.println("Width " + grid.getWidth());
         return initScreen;
     }
+
     public static void gameScreenInit(){
         GameScreen gameScreen = new GameScreen(rows,cols);
         gameScreen.init();
@@ -47,5 +49,18 @@ public class Game {
 
 
   }
+
+    public static void initMoes(){
+        Level moes = new Moes(new Hand((initHandPosition)));
+        moes.makeCenario();
+        moes.runScenario();
+
+
+    }
+    public static void initHell(){
+        Level moes = new Moes(new Hand(initHandPosition));
+        moes.makeCenario();
+        moes.runScenario();
+    }
 
 }

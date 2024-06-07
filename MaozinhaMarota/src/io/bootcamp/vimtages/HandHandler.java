@@ -13,7 +13,9 @@ public class HandHandler implements KeyboardHandler {
     private static int enterCounter = 0;
     public Hand hand;
     public Donut donut;
-
+    public int getEnterCounter(){
+        return this.enterCounter;
+    }
 
     public HandHandler() {
         keyboard = new Keyboard(this);
@@ -40,16 +42,17 @@ public class HandHandler implements KeyboardHandler {
                     factory.runScenario();
                     Hand hand = factory.getHand();
                     hand.runScenario(handPosition);
-                    hand.removeHand();
                     System.out.println("Here");
                     enterCounter++;
+                    InitScreen.stop();
+                    break;
 
                 }
-                break;
-            case KeyboardEvent.KEY_UP:
-                System.out.println("here");
+
+            case KeyboardEvent.KEY_DOWN:
                 hand.move(Direction.UP);
                 hand.runScenario(hand.currentHandPosition());
+
 
         }
     }

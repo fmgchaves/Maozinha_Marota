@@ -6,7 +6,7 @@ import org.academiadecodigo.simplegraphics.graphics.Shape;
 import org.academiadecodigo.simplegraphics.pictures.Picture;
 
 public class GameScreen {
-    private static String backgroundPath = "./resources/defaultImage.jpg";
+    private static String backgroundPath = "MaozinhaMarota/resources/defaultImage.jpg";
     Picture picture;
     //Canvas canvas;
     //Shape grid;
@@ -26,11 +26,14 @@ public class GameScreen {
         //this.grid= new Rectangle(padding,padding,getWidth(),getHeight());
         //canvas.show(grid);
 
-        Picture picture = new Picture(10,10,backgroundPath);
+        picture = new Picture(10,10,backgroundPath);
         picture.draw();
         gridSquares();
         //canvas.hide(picture);
 
+    }
+    public void stop(){
+        picture.delete();
     }
 
 

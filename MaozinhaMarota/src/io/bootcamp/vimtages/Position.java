@@ -20,7 +20,7 @@ public class Position {
         this.isFilled = false;
        // this.grid = grid;
     }
-    
+    // alterar col e row para multiplicar por cellsize e adicionar o padding
     public int getCol() {
         return this.col;
     }

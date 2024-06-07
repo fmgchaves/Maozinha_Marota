@@ -18,7 +18,9 @@ public class Handler implements KeyboardHandler {
         keyboard = new Keyboard(this);
         createKeyboardEvents();
     }
-
+    public int getEnterCounter(){
+        return enterCounter;
+    }
     public void createKeyboardEvents() {
         KeyboardEvent keyboardEventEnter = new KeyboardEvent();
         keyboardEventEnter.setKeyboardEventType(KeyboardEventType.KEY_PRESSED);
