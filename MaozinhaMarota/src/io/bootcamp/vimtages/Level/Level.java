@@ -69,6 +69,9 @@ public abstract class Level {
     public void setDonutPosition(Position position) {
         this.donut.setPosition ( position );
     }
+    public ArrayList<Item> getArray() {
+        return this.array;
+    }
     
     //Gets Donut position from the level variable in this method
     

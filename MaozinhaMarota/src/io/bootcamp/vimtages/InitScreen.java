@@ -7,7 +7,7 @@ import org.academiadecodigo.simplegraphics.pictures.Picture;
 
 
 public class InitScreen {
-    private final int cellSize = 80;
+    private final static int cellSize = 80;
     private int rows;
     private int cols;
 
@@ -16,7 +16,7 @@ public class InitScreen {
         this.cols = cols;
     }
 
-    public void init(){
+    public static void init(){
         int padding = 10;
         String backGround = "./resources/defaultImage.jpg";
         Picture picture = new Picture(padding, padding, backGround);
@@ -28,12 +28,11 @@ public class InitScreen {
         initButton.fill();
         initButton.draw();
 
-
     }
     public int getWidth(){
-        return cols*this.cellSize;
+        return cols* cellSize;
     }
     public int getHeight(){
-        return rows*this.cellSize;
+        return rows* cellSize;
     }
 }

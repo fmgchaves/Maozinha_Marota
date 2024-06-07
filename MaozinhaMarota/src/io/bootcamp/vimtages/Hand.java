@@ -1,10 +1,14 @@
 package io.bootcamp.vimtages;
 
+import io.bootcamp.vimtages.Item.Item;
+import org.academiadecodigo.simplegraphics.pictures.Picture;
+
 import java.util.LinkedList;
 //Translate positions to directions -width left, + width right this will be implemented in another class
 public class Hand {
     private int numberOfMoves;
     LinkedList<Position> positionLinkedList = new LinkedList<>();
+    private static Picture hand;
 
     public Hand (Position initialPositionHand) {
         this.positionLinkedList.add(initialPositionHand);
@@ -52,6 +56,13 @@ public class Hand {
                 break;
         }
 
+    }
+    public void runScenario(Position position) {
+        hand = new Picture(position.getCol()*80+10,position.getRow()*80+10,"./resources/Item/samplehand.gif");
+        hand.draw();
+    }
+    public void removeHand(){
+        hand.delete();
     }
 
     public Position getNPosition(int index) {

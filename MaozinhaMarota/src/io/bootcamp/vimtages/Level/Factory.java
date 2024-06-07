@@ -6,6 +6,8 @@ import io.bootcamp.vimtages.Item.Item;
 import io.bootcamp.vimtages.Item.Obstacle.Radioactive;
 import io.bootcamp.vimtages.Position;
 
+import java.util.ArrayList;
+
 public class Factory extends Level {
     
     private static Integer numberofWall = 29;
@@ -58,10 +60,15 @@ public class Factory extends Level {
     
     @Override
     public void runScenario() {
-
-        Item exp = getArrayPosIndex(0);
-        exp.draw();
+        ArrayList<Item> temp = getArray();
+        for (Item item : temp) {
+            Item exp = item;
+            exp.draw();
+        }
+        
         //exp.erase();
     }
+
+
     //caquinharesolver
 }

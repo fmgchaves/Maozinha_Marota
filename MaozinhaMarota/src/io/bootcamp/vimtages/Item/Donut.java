@@ -11,7 +11,7 @@ public class Donut extends Item {
 
     @Override
     public void draw() {
-        String Path = "./resources/item/background.jpg";
+        String Path = "./resources/item/samplehand.gif";
         setPicture(new Picture(getPosition().getCol(),getPosition().getRow(),Path));
         getPicture().draw();
     }

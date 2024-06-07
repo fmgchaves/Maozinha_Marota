@@ -10,13 +10,14 @@ public class Main {
     private static final int rows = 10;
     public static void main(String[] args) {
         Game game = new Game(cols,rows);
-        game.init();
+        game.startScreen();
+        new Handler();
 
-        Hand hand = new Hand(new Position(2,3));
-
+        //Hand hand = new Hand(new Position(2,3));
+        /*
         Factory factory = new Factory(hand);
         factory.makeCenario();
         factory.runScenario();
-
+        */
     }
 }
