@@ -1,8 +1,8 @@
 package io.bootcamp.vimtages.Item.Obstacle;
 
 import io.bootcamp.vimtages.Position;
+import org.academiadecodigo.simplegraphics.pictures.Picture;
 
-//this class will override behaviour from abstract class Obstacle
 public class Tree extends Obstacle {
 
     public Tree(Position position) {
@@ -11,12 +11,14 @@ public class Tree extends Obstacle {
 
     @Override
     public void draw() {
-
+        String Path = "./resources/item/bush.png";
+        setPicture(new Picture((getPosition().getCol()*80)+10,(getPosition().getRow()*80)+10,Path));
+        getPicture().draw();
     }
 
     @Override
     public void erase() {
-
+        getPicture().delete();
     }
 
 }

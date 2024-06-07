@@ -41,4 +41,9 @@ public class Garden extends Level {
     public void setTreePositions() {
     
     }
+
+    @Override
+    public int giveScore(){
+        return super.giveScore();
+    }
 }

@@ -13,10 +13,13 @@ public class Main {
         game.init();
 
         Hand hand = new Hand(new Position(2,3));
+        Garden garden = new Garden(hand);
 
-        Factory factory = new Factory(hand);
+        /*Factory factory = new Factory(hand);
         factory.makeCenario();
-        factory.runScenario();
+        factory.runScenario();*/
 
+        hand.setNumberOfMoves(40);
+        garden.giveScore();
     }
 }

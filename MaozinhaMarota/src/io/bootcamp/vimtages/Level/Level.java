@@ -8,6 +8,7 @@ import io.bootcamp.vimtages.Hand;
 import io.bootcamp.vimtages.Item.Donut;
 import io.bootcamp.vimtages.Item.Item;
 import io.bootcamp.vimtages.Position;
+import org.academiadecodigo.simplegraphics.pictures.Picture;
 
 import java.util.ArrayList;
 
@@ -107,4 +108,52 @@ public abstract class Level {
     public boolean setWin() {
         return this.win=true;
     }
+
+
+    //Score review star position on the grid and the min1 and min2
+    public int giveScore(){
+
+        int min1 = 30;
+        int min2 = 38;
+
+        if(hand.getNumberOfMoves() <= min1) {
+            placeItem(new Star(new Position(650,250)));
+            return 3;
+        } else if (min1 < hand.getNumberOfMoves() && hand.getNumberOfMoves() <= min2){
+            placeItem(new Star(new Position(730,250)));
+            placeItem(new Star(new Position(890,250)));
+            return 2;
+        } else {
+            placeItem(new Star(new Position(650,250)));
+            placeItem(new Star(new Position(810,250)));
+            placeItem(new Star(new Position(970,250)));
+            return 1;
+        }
+
+    }
+
+    private class Star extends Item{
+
+        private Picture picture;
+
+        private Star(Position position){
+            super(position);
+            String Path = "./resources/item/star.png";
+            setPicture(new Picture(getPosition().getCol(),getPosition().getRow(),Path));
+            getPicture().draw();
+        }
+
+        @Override
+        public void draw() {
+
+        }
+
+        @Override
+        public void erase() {
+
+        }
+    }
+
+
+
 }
