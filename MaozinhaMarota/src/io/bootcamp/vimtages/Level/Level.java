@@ -19,92 +19,79 @@ public abstract class Level {
     private Donut donut;
     private Hand hand;
 
-    public Level (Hand hand) {
+    public Level(Hand hand) {
         this.hand = hand;
         this.array = new ArrayList<Item>();
     }
-    
+
+    public ArrayList<Item> getArray() {
+        return this.array;
+    }
+
     //Gets an Item from a given position
     //The reason for this method is to start a given action
     //Given an Item
     //For example hand in the same position of a box or a wall
     //cannot allow a hand to move
-    public Item getItemFromPosition (Position position) {
+    public Item getItemFromPosition(Position position) {
         int tempindex;
-        if (this.array.contains ( position )) {
-            tempindex = this.array.indexOf ( position );
-            return getArrayPosIndex ( tempindex );
+        if (this.array.contains(position)) {
+            tempindex = this.array.indexOf(position);
+            return getArrayPosIndex(tempindex);
         } else {
             return null;
         }
     }
-    
+
     //Gets an Item from an index position
-    public Item getArrayPosIndex (Integer index) {
+    public Item getArrayPosIndex(Integer index) {
         return this.array.get(index);
     }
-    
+
     //removes an Item from a given position
-    public void removeItem (Item item) {
+    public void removeItem(Item item) {
         this.array.remove(item);
     }
-    
+
     //Placas an Item on a given position
     public boolean placeItem(Item item) {
         return this.array.add(item);
     }
-    
+
     public Hand getHand() {
         return this.hand;
     }
-    
+
     public void setHand(Hand hand) {
         this.hand = hand;
     }
-    
+
     public Position getDonutPosition() {
-        return this.donut.getPosition ();
+        return this.donut.getPosition();
     }
-    
+
     public void setDonutPosition(Position position) {
-        this.donut.setPosition ( position );
+        this.donut.setPosition(position);
     }
-    
+
     //Gets Donut position from the level variable in this method
-    
+
     //Verifies if the Player has won
     public boolean didWin() {
-        if (this.hand.currentHandPosition().equals(getDonutPosition())){
+        if (this.hand.currentHandPosition().equals(getDonutPosition())) {
             setWin();
             return this.win;
         } else {
             return this.win;
         }
     }
-    
+
     public abstract void makeCenario();
-    
+
     public abstract void runScenario();
 
-     /*   while (!didWin()) {
-            //keyboard listener
-            hand.move(); //pass user given direction as an argument
-            if (!setWin()){
-                hand.addCurrentHandPosition();
-                hand.setNumberOfMoves(hand.getNumberOfMoves() + 1);
-
-            } else {
-                for(int i = 0; i < array.size(); i++){ //clean array list in Level class, if stored in this class
-                    array.remove(0);
-
-                }
-                setWin();
-                //move to the next level //how?
-            }
-        */
-
-
     public boolean setWin() {
-        return this.win=true;
+        return this.win = true;
     }
+
 }

@@ -22,7 +22,5 @@ public class Game {
         //System.out.println("Width " + grid.getWidth());
     }
     public static void gridSquares(){
-
-
     }
 }

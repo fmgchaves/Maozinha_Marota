@@ -11,8 +11,8 @@ public class Donut extends Item {
 
     @Override
     public void draw() {
-        String Path = "./resources/item/background.jpg";
-        setPicture(new Picture(getPosition().getCol(),getPosition().getRow(),Path));
+        String Path = "./resources/item/owl_victory_roll_2_80x80_by_moogleymog-d4nz5kd-1954011555.gif";
+        setPicture(new Picture((getPosition().getCol()*80)+10,(getPosition().getRow()*80)+10,Path));
         getPicture().draw();
     }
     public void erase() {

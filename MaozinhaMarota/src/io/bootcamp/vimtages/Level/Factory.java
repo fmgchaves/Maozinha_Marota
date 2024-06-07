@@ -6,50 +6,82 @@ import io.bootcamp.vimtages.Item.Item;
 import io.bootcamp.vimtages.Item.Obstacle.Radioactive;
 import io.bootcamp.vimtages.Position;
 
+import java.util.ArrayList;
+
 public class Factory extends Level {
-    
-    private static Integer numberofWall = 29;
+
+    private static Integer numberofWall = 27;
+    Donut donut = new Donut (new Position (6,5));
+    Radioactive Radio1 = new Radioactive(new Position ( 5,4 ));
+    Radioactive Radio2 = new Radioactive(new Position ( 5,5 ));
+    Radioactive Radio3 = new Radioactive(new Position ( 6,4 ));
+    Radioactive Radio4 = new Radioactive(new Position ( 6,6 ));
+    Radioactive Radio5 = new Radioactive(new Position ( 7,4 ));
+    Radioactive Radio6 = new Radioactive(new Position ( 7,6 ));
+    Radioactive Radio7 = new Radioactive(new Position ( 8,2 ));
+    Radioactive Radio8 = new Radioactive(new Position ( 8,3 ));
+    Radioactive Radio9 = new Radioactive(new Position ( 8,4 ));
+    Radioactive Radio10 = new Radioactive(new Position ( 9,2 ));
+    Radioactive Radio11 = new Radioactive(new Position ( 9,6 ));
+    Radioactive Radio12 = new Radioactive(new Position ( 10,2 ));
+    Radioactive Radio13 = new Radioactive(new Position ( 10,4 ));
+    Radioactive Radio14 = new Radioactive(new Position ( 10,5 ));
+    Radioactive Radio15 = new Radioactive(new Position ( 10,6 ));
+    Radioactive Radio16 = new Radioactive(new Position ( 11,2 ));
+    Radioactive Radio17 = new Radioactive(new Position ( 11,4 ));
+    Radioactive Radio18 = new Radioactive(new Position ( 12,2 ));
+    Radioactive Radio19 = new Radioactive(new Position ( 12,4 ));
+    Radioactive Radio20 = new Radioactive(new Position ( 13,2 ));
+    Radioactive Radio21 = new Radioactive(new Position ( 13,4 ));
+    Radioactive Radio22 = new Radioactive(new Position ( 13,5 ));
+    Radioactive Radio23 = new Radioactive(new Position ( 14,2 ));
+    Radioactive Radio24 = new Radioactive(new Position ( 15,2 ));
+    Radioactive Radio25 = new Radioactive(new Position ( 15,3 ));
+    Radioactive Radio26 = new Radioactive(new Position ( 15,4 ));
+    Radioactive Radio27 = new Radioactive(new Position ( 15,5 ));
+    Radioactive Radio28 = new Radioactive(new Position ( 5,6 ));
+    Radioactive Radio29 = new Radioactive(new Position ( 8,6 ));
+
     public Factory(Hand hand) {
         super(hand);
     }
 
-    //Donut donut = new Donut (new Position (6,5));
-
     @Override
     public void makeCenario () {
-        Donut donut = new Donut (new Position (10,9));
+
         placeItem (donut);
-        placeItem ( new Radioactive (new Position ( 5,4 )));
-        placeItem ( new Radioactive (new Position ( 5,5 )));
-        placeItem ( new Radioactive (new Position ( 5,6 )));
-        placeItem ( new Radioactive (new Position ( 6,4 )));
-        placeItem ( new Radioactive (new Position ( 6,6 )));
-        placeItem ( new Radioactive (new Position ( 7,4 )));
-        placeItem ( new Radioactive (new Position ( 7,6 )));
-        placeItem ( new Radioactive (new Position ( 8,2 )));
-        placeItem ( new Radioactive (new Position ( 8,3 )));
-        placeItem ( new Radioactive (new Position ( 8,4 )));
-        placeItem ( new Radioactive (new Position ( 8,6 )));
-        placeItem ( new Radioactive (new Position ( 9,2 )));
-        placeItem ( new Radioactive (new Position ( 9,6 )));
-        placeItem ( new Radioactive (new Position ( 10,2 )));
-        placeItem ( new Radioactive (new Position ( 10,4 )));
-        placeItem ( new Radioactive (new Position ( 10,5 )));
-        placeItem ( new Radioactive (new Position ( 10,6 )));
-        placeItem ( new Radioactive (new Position ( 11,2 )));
-        placeItem ( new Radioactive (new Position ( 11,4 )));
-        placeItem ( new Radioactive (new Position ( 12,2 )));
-        placeItem ( new Radioactive (new Position ( 12,4 )));
-        placeItem ( new Radioactive (new Position ( 13,2 )));
-        placeItem ( new Radioactive (new Position ( 13,4 )));
-        placeItem ( new Radioactive (new Position ( 13,5 )));
-        placeItem ( new Radioactive (new Position ( 14,2 )));
-        placeItem ( new Radioactive (new Position ( 15,2 )));
-        placeItem ( new Radioactive (new Position ( 15,3 )));
-        placeItem ( new Radioactive (new Position ( 15,4 )));
-        placeItem ( new Radioactive (new Position ( 15,5 )));
+        placeItem (Radio1);
+        placeItem (Radio2);
+        placeItem (Radio3);
+        placeItem (Radio4);
+        placeItem (Radio5);
+        placeItem (Radio6);
+        placeItem (Radio7);
+        placeItem (Radio8);
+        placeItem (Radio9);
+        placeItem (Radio10);
+        placeItem (Radio11);
+        placeItem (Radio12);
+        placeItem (Radio13);
+        placeItem (Radio14);
+        placeItem (Radio15);
+        placeItem (Radio16);
+        placeItem (Radio17);
+        placeItem (Radio18);
+        placeItem (Radio19);
+        placeItem (Radio20);
+        placeItem (Radio21);
+        placeItem (Radio22);
+        placeItem (Radio23);
+        placeItem (Radio24);
+        placeItem (Radio25);
+        placeItem (Radio26);
+        placeItem (Radio27);
+        placeItem (Radio28);
+        placeItem (Radio29);
+
         
-        for (Integer i = 0; i < numberofWall + 1; i++) {
+        for (Integer i = 0; i < numberofWall; i++) {
             System.out.println ("Object" + getArrayPosIndex (i));
             System.out.println ("Position Col" + getArrayPosIndex ( i ).getPosition ().getCol (  ));
             System.out.println ("Position Row" + getArrayPosIndex ( i ).getPosition ().getRow (  ));
@@ -58,10 +90,14 @@ public class Factory extends Level {
     
     @Override
     public void runScenario() {
+        ArrayList<Item> temp = getArray();
+        for (Item item : temp) {
+            Item exp = item;
+            exp.draw();
+        }
 
-        Item exp = getArrayPosIndex(0);
-        exp.draw();
+       // Item exp = getArrayPosIndex(0);
+       // exp.draw();
         //exp.erase();
     }
-    //caquinharesolver
 }
