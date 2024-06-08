@@ -58,7 +58,7 @@ public class Handler implements KeyboardHandler {
                 game.setNextlevel ( true );
                 break;
             case KeyboardEvent.KEY_UP:
-                if(donut.getPosition().getCol ()*80 == hand.getHandY() && donut.getPosition().getRow ()*80 == hand.getHandX()){
+                if(donut.getPosition().getCol ()*80 == hand.getHandX() && donut.getPosition().getRow ()*80 == hand.getHandY()){
                     game.setNextlevel( true );
                 }
                 if(hand.getHandY()>0) {
@@ -67,7 +67,7 @@ public class Handler implements KeyboardHandler {
                 }
                 break;
             case KeyboardEvent.KEY_DOWN:
-                if(donut.getPosition().getCol ()*80 == hand.getHandY() && donut.getPosition().getRow ()*80 == hand.getHandX()){
+                if(donut.getPosition().getCol ()*80 == hand.getHandX() && donut.getPosition().getRow ()*80 == hand.getHandY()){
                     game.setNextlevel( true );
                 }
                 if(hand.getHandY()<10*80) {
@@ -76,7 +76,7 @@ public class Handler implements KeyboardHandler {
                 }
                 break;
             case KeyboardEvent.KEY_LEFT:
-                if(donut.getPosition().getCol ()*80 == hand.getHandY() && donut.getPosition().getRow ()*80 == hand.getHandX()){
+                if(donut.getPosition().getCol ()*80 == hand.getHandX() && donut.getPosition().getRow ()*80 == hand.getHandY()){
                     game.setNextlevel( true );
                 }
                 if(hand.getHandX()>0) {
@@ -85,7 +85,7 @@ public class Handler implements KeyboardHandler {
                 }
                 break;
             case KeyboardEvent.KEY_RIGHT:
-                if(donut.getPosition().getCol ()*80 == hand.getHandY() && donut.getPosition().getRow ()*80 == hand.getHandX()){
+                if(donut.getPosition().getCol ()*80 == hand.getHandX() && donut.getPosition().getRow ()*80 == hand.getHandY()){
                     game.setNextlevel( true );
                 }
                 if(hand.getHandX()<19*80) {
