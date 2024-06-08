@@ -44,7 +44,7 @@ public class Game {
                 level.makeCenario ();
                 //Quando true dá os resultados
                 if (level.runScenario ()) {
-                    //Corre método de retornar resultado
+                    level.giveLevelFinalScreen ();
                 }
                 
                 while (!nextlevel) {

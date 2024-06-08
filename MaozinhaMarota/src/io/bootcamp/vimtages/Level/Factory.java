@@ -5,6 +5,7 @@ import io.bootcamp.vimtages.Item.Donut;
 import io.bootcamp.vimtages.Item.Item;
 import io.bootcamp.vimtages.Item.Obstacle.Radioactive;
 import io.bootcamp.vimtages.Position;
+import org.academiadecodigo.simplegraphics.pictures.Picture;
 
 import java.util.ArrayList;
 
@@ -111,5 +112,32 @@ public class Factory extends Level {
             Item exp = item;
             exp.erase();
         }
+    }
+    
+    @Override
+    public void giveLevelFinalScreen () {
+        int min1 = 20;
+        int min2 = 40;
+    
+        Hand hand = getHand ();
+        Picture star1 = new Picture (608,400, "Item/star.png");
+        Picture star2 = new Picture (808,400, "Item/star.png");
+        Picture star3 = new Picture (1010,400, "Item/star.png");
+    
+        if(hand.getNumberOfMoves() <= min1) {
+            star1.draw();
+            star2.draw();
+            star3.draw();
+        } else if (min1 < hand.getNumberOfMoves() && hand.getNumberOfMoves() <= min2){
+            star1.draw();
+            star3.draw();
+        } else {
+            star2.draw();
+        }
+    }
+    
+    @Override
+    public void drawScreen () {
+    
     }
 }

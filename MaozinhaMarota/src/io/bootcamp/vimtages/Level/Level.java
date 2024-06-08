@@ -8,6 +8,7 @@ import io.bootcamp.vimtages.Hand;
 import io.bootcamp.vimtages.Item.Donut;
 import io.bootcamp.vimtages.Item.Item;
 import io.bootcamp.vimtages.Position;
+import org.academiadecodigo.simplegraphics.pictures.Picture;
 
 import java.util.ArrayList;
 
@@ -18,6 +19,8 @@ public abstract class Level {
 
     private Donut donut;
     private Hand hand;
+    
+    private Picture screen;
 
     public Level(Hand hand) {
         this.hand = hand;
@@ -95,5 +98,8 @@ public abstract class Level {
     public boolean setWin() {
         return this.win = true;
     }
+    
+    public abstract void giveLevelFinalScreen();
 
+    public abstract void drawScreen();
 }

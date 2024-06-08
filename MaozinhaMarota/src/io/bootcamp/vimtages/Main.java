@@ -6,10 +6,7 @@ public class Main {
     public static void main(String[] args) throws InterruptedException {
         Game game = new Game(cols,rows);
         game.init ();
-        
-        
-        
-        
+    
         //Hand hand = new Hand(new Position(2,3));
         /*
         Factory factory = new Factory(hand);
