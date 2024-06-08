@@ -57,20 +57,48 @@ public class Handler implements KeyboardHandler {
                 game.setNextlevel ( true );
                 break;
             case KeyboardEvent.KEY_UP:
-                System.out.println("Move Up");
-                hand.move(Direction.UP);
+                System.out.println(donut.getPosition().getCol());
+                System.out.println(donut.getPosition().getRow());
+
+                System.out.println(hand.getHandX()/80);
+                System.out.println(hand.getHandY()/80);
+
+                if(donut.getPosition().getCol ()*80 == hand.getHandX() && donut.getPosition().getRow ()*80 == hand.getHandY()-80){
+                    System.out.println("here");
+                    game.setNextlevel( true );
+                }
+                if(hand.getHandY()>0) {
+                    System.out.println("Move Up");
+                    hand.move(Direction.UP);
+                }
                 break;
             case KeyboardEvent.KEY_DOWN:
-                System.out.println("Move Down");
-                hand.move(Direction.DOWN);
+                if(donut.getPosition().getCol ()*80 == hand.getHandX() && donut.getPosition().getRow ()*80 == hand.getHandY()-80){
+                    game.setNextlevel( true );
+                    break;
+                }
+                if(hand.getHandY()<10*80) {
+                    System.out.println("Move Down");
+                    hand.move(Direction.DOWN);
+                }
                 break;
             case KeyboardEvent.KEY_LEFT:
-                System.out.println("Move Left");
-                hand.move(Direction.LEFT);
+                if(donut.getPosition().getCol ()*80 == hand.getHandX() && donut.getPosition().getRow ()*80 == hand.getHandY()-80){
+                    game.setNextlevel( true );
+                }
+                if(hand.getHandX()>0) {
+                    System.out.println("Move Left");
+                    hand.move(Direction.LEFT);
+                }
                 break;
             case KeyboardEvent.KEY_RIGHT:
-                System.out.println("Move Right");
-                hand.move(Direction.RIGHT);
+                if(donut.getPosition().getCol ()*80 == hand.getHandX() && donut.getPosition().getRow ()*80 == hand.getHandY()-80){
+                    game.setNextlevel( true );
+                }
+                if(hand.getHandX()<19*80) {
+                    System.out.println("Move Right");
+                    hand.move(Direction.RIGHT);
+                }
                 break;
 
 
