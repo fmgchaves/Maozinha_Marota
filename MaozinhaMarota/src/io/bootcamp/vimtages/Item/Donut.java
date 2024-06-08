@@ -15,6 +15,12 @@ public class Donut extends Item {
         setPicture(new Picture((getPosition().getCol()*80)+10,(getPosition().getRow()*80)+10,Path));
         getPicture().draw();
     }
+
+    @Override
+    public void draw(String string) {
+
+    }
+
     public void erase() {
         getPicture().delete();
     }

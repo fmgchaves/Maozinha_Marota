@@ -23,7 +23,7 @@ public class Garden extends Level {
     Tree tree3 = new Tree ( new Position ( 12, 7 ) );
     Tree tree4 = new Tree ( new Position ( 15, 3 ) );
     Tree tree5 = new Tree ( new Position ( 18, 5 ) );
-    Donut donut = new Donut ( new Position ( 10, 2 ) );
+    Donut donut = new Donut ( new Position ( 0, 0) );
     Picture backscreen = new Picture (10,10,"/Levels/Jardim background.png");
     
     @Override

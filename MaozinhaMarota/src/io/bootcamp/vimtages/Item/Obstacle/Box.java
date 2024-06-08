@@ -22,6 +22,11 @@ public class Box extends Obstacle{
     }
 
     @Override
+    public void draw(String string) {
+
+    }
+
+    @Override
     public void erase() {
         //condition if booter true;
         getPicture().delete();

@@ -9,7 +9,6 @@ import org.academiadecodigo.simplegraphics.keyboard.KeyboardHandler;
 //keyboard mechanics
 public class Handler implements KeyboardHandler {
     public Keyboard keyboard;
-    //public Player player;
     private static int enterCounter = 0;
     public Hand hand;
     public Donut donut;

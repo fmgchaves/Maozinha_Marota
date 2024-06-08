@@ -26,8 +26,7 @@ public class Game {
     }
     
     public void init() throws InterruptedException {
-        //Desenha
-        //Qual o método para desenhar????......
+
         initScreen.init ();
         Testgrid testgrid = new Testgrid(cols,rows,80,10);
         testgrid.gridSquares();

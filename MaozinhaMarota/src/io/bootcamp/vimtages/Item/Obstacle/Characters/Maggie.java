@@ -17,6 +17,11 @@ public class Maggie extends Characters {
     }
 
     @Override
+    public void draw(String string) {
+
+    }
+
+    @Override
     public void erase() {
         getPicture().delete();
     }

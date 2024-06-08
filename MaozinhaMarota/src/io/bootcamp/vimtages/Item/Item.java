@@ -36,6 +36,8 @@ public abstract class Item {
 
     public abstract void draw();
 
+    public abstract void draw(String string);
+
     public abstract void erase();
     
     

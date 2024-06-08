@@ -94,6 +94,9 @@ public class Factory extends Level {
         ArrayList<Item> temp = getArray();
         for (Item item : temp) {
             Item exp = item;
+            if (exp.equals(Radio1)) {
+                exp.draw("a");
+            }
             exp.draw();
         }
 

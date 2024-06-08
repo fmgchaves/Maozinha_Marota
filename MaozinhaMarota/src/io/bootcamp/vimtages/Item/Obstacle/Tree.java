@@ -18,6 +18,10 @@ public class Tree extends Obstacle {
     }
 
     @Override
+    public void draw(String string) {
+    }
+
+    @Override
     public void erase() {
         getPicture().delete();
     }

@@ -17,6 +17,11 @@ public class Coin extends Item{
 	}
 
 	@Override
+	public void draw(String string) {
+
+	}
+
+	@Override
 	public void erase() {
 
 	}
