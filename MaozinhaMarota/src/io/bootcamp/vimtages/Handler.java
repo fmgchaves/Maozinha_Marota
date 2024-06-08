@@ -5,7 +5,6 @@ import org.academiadecodigo.simplegraphics.keyboard.Keyboard;
 import org.academiadecodigo.simplegraphics.keyboard.KeyboardEvent;
 import org.academiadecodigo.simplegraphics.keyboard.KeyboardEventType;
 import org.academiadecodigo.simplegraphics.keyboard.KeyboardHandler;
-import org.academiadecodigo.simplegraphics.pictures.Picture;
 
 //keyboard mechanics
 public class Handler implements KeyboardHandler {
@@ -59,7 +58,7 @@ public class Handler implements KeyboardHandler {
                 game.setNextlevel ( true );
                 break;
             case KeyboardEvent.KEY_UP:
-                if(donut.getPosition().getcol()*80 == hand.getHandY() && donut.getPosition().getrow()*80 == hand.getHandX()){
+                if(donut.getPosition().getCol ()*80 == hand.getHandY() && donut.getPosition().getRow ()*80 == hand.getHandX()){
                     game.setNextlevel( true );
                 }
                 if(hand.getHandY()>0) {
@@ -68,7 +67,7 @@ public class Handler implements KeyboardHandler {
                 }
                 break;
             case KeyboardEvent.KEY_DOWN:
-                if(donut.getPosition().getcol()*80 == hand.getHandY() && donut.getPosition().getrow()*80 == hand.getHandX()){
+                if(donut.getPosition().getCol ()*80 == hand.getHandY() && donut.getPosition().getRow ()*80 == hand.getHandX()){
                     game.setNextlevel( true );
                 }
                 if(hand.getHandY()<10*80) {
@@ -77,7 +76,7 @@ public class Handler implements KeyboardHandler {
                 }
                 break;
             case KeyboardEvent.KEY_LEFT:
-                if(donut.getPosition().getcol()*80 == hand.getHandY() && donut.getPosition().getrow()*80 == hand.getHandX()){
+                if(donut.getPosition().getCol ()*80 == hand.getHandY() && donut.getPosition().getRow ()*80 == hand.getHandX()){
                     game.setNextlevel( true );
                 }
                 if(hand.getHandX()>0) {
@@ -86,7 +85,7 @@ public class Handler implements KeyboardHandler {
                 }
                 break;
             case KeyboardEvent.KEY_RIGHT:
-                if(donut.getPosition().getcol()*80 == hand.getHandY() && donut.getPosition().getrow()*80 == hand.getHandX()){
+                if(donut.getPosition().getCol ()*80 == hand.getHandY() && donut.getPosition().getRow ()*80 == hand.getHandX()){
                     game.setNextlevel( true );
                 }
                 if(hand.getHandX()<19*80) {
