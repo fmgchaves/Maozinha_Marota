@@ -15,6 +15,7 @@ public class Hell extends Level {
     }
 
     Donut donut = new Donut (new Position (10,3));
+    Picture backscreen = new Picture (10,10,"/Levels/Hell background.png");
     
     @Override
     public void makeCenario () {
@@ -45,6 +46,7 @@ public class Hell extends Level {
             Item exp = item;
             exp.erase();
         }
+        backscreen.delete ();
     }
     
     @Override
@@ -71,6 +73,6 @@ public class Hell extends Level {
     
     @Override
     public void drawScreen () {
-    
+        backscreen.draw();
     }
 }

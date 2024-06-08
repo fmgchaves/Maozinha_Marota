@@ -26,6 +26,7 @@ public class Home extends Level {
     
     @Override
     public boolean runScenario() {
+        drawScreen ();
         ArrayList<Item> temp = getArray();
         for (Item item : temp) {
             Item exp = item;
@@ -68,7 +69,8 @@ public class Home extends Level {
     
     @Override
     public void drawScreen () {
-        Picture homescreen = new Picture (10,10,"");
+        Picture homescreen = new Picture (10,10,"/Levels/Jardim background.png");
+        homescreen.draw();
     }
     
     /*

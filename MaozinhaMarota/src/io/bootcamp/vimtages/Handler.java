@@ -85,6 +85,10 @@ public class Handler implements KeyboardHandler {
     public void keyReleased(KeyboardEvent keyboardEvent) {
 
     }
+    
+    public void handDraw() {
+        hand.draw();
+    }
 
 
 }

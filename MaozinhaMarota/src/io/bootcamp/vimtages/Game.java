@@ -39,18 +39,24 @@ public class Game {
         
             
             for (Level level : levelArrayList) {
+                level.drawScreen ();
+                handler.handDraw ();
                 //has erase level
                 //level.deleteScenario ();
                 level.makeCenario ();
                 //Quando true dá os resultados
                 if (level.runScenario ()) {
                     level.giveLevelFinalScreen ();
+                    
                 }
+    
+               
                 
                 while (!nextlevel) {
                     System.out.println ("Waiting");
                 }
-                
+    
+                level.deleteScenario ();
                 setNextlevel ( false );
                 
                 //Próximo nível

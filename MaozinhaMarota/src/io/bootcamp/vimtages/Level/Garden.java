@@ -24,6 +24,7 @@ public class Garden extends Level {
     Tree tree4 = new Tree ( new Position ( 15, 3 ) );
     Tree tree5 = new Tree ( new Position ( 18, 5 ) );
     Donut donut = new Donut ( new Position ( 10, 2 ) );
+    Picture backscreen = new Picture (10,10,"/Levels/Jardim background.png");
     
     @Override
     public void makeCenario () {
@@ -43,6 +44,7 @@ public class Garden extends Level {
     
     @Override
     public boolean runScenario () {
+        //drawScreen ();
         ArrayList<Item> temp = getArray ();
         for (Item item : temp) {
             Item exp = item;
@@ -58,6 +60,7 @@ public class Garden extends Level {
             Item exp = item;
             exp.erase ();
         }
+        backscreen.delete ();
     }
     
     @Override
@@ -84,6 +87,6 @@ public class Garden extends Level {
     
     @Override
     public void drawScreen () {
-    
+        backscreen.draw();
     }
 }

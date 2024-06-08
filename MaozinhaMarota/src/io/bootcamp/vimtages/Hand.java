@@ -18,7 +18,7 @@ public class Hand {
         this.positionLinkedList.add(initialPositionHand);
         (this.positionLinkedList.get(0)).setFilled();
         this.hand = new Picture(9*80,9*80,handPic);
-        hand.draw();
+        //hand.draw();
     }
 
     public Position currentHandPosition () {
@@ -86,6 +86,10 @@ public class Hand {
 
     public void setNumberOfMoves(int numberOfMoves) {
         this.numberOfMoves = numberOfMoves;
+    }
+    
+    public void draw() {
+        hand.draw();
     }
     
     //ordem reversa do movimento do braço usando um iterador

@@ -161,7 +161,8 @@ public class Moes extends Level {
     
     @Override
     public void drawScreen () {
-    
+        Picture homescreen = new Picture (10,10,"/Levels/Bar background.png");
+        homescreen.draw();
     }
 }
 
