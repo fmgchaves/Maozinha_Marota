@@ -47,8 +47,8 @@ public class Game {
                     //Corre método de retornar resultado
                 }
                 
-                while (!nextlevel) {
-                    System.out.println ("Waiting");
+                while (!nextlevel){
+                    System.out.println("Waiting");
                 }
                 
                 setNextlevel ( false );

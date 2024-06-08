@@ -58,7 +58,14 @@ public class Handler implements KeyboardHandler {
                 game.setNextlevel ( true );
                 break;
             case KeyboardEvent.KEY_UP:
-                if(donut.getPosition().getCol ()*80 == hand.getHandX() && donut.getPosition().getRow ()*80 == hand.getHandY()){
+                System.out.println(donut.getPosition().getCol());
+                System.out.println(donut.getPosition().getRow());
+
+                System.out.println(hand.getHandX()/80);
+                System.out.println(hand.getHandY()/80);
+
+                if(donut.getPosition().getCol ()*80 == hand.getHandX() && donut.getPosition().getRow ()*80 == hand.getHandY()-80){
+                    System.out.println("here");
                     game.setNextlevel( true );
                 }
                 if(hand.getHandY()>0) {
@@ -67,8 +74,9 @@ public class Handler implements KeyboardHandler {
                 }
                 break;
             case KeyboardEvent.KEY_DOWN:
-                if(donut.getPosition().getCol ()*80 == hand.getHandX() && donut.getPosition().getRow ()*80 == hand.getHandY()){
+                if(donut.getPosition().getCol ()*80 == hand.getHandX() && donut.getPosition().getRow ()*80 == hand.getHandY()-80){
                     game.setNextlevel( true );
+                    break;
                 }
                 if(hand.getHandY()<10*80) {
                     System.out.println("Move Down");
@@ -76,7 +84,7 @@ public class Handler implements KeyboardHandler {
                 }
                 break;
             case KeyboardEvent.KEY_LEFT:
-                if(donut.getPosition().getCol ()*80 == hand.getHandX() && donut.getPosition().getRow ()*80 == hand.getHandY()){
+                if(donut.getPosition().getCol ()*80 == hand.getHandX() && donut.getPosition().getRow ()*80 == hand.getHandY()-80){
                     game.setNextlevel( true );
                 }
                 if(hand.getHandX()>0) {
@@ -85,7 +93,7 @@ public class Handler implements KeyboardHandler {
                 }
                 break;
             case KeyboardEvent.KEY_RIGHT:
-                if(donut.getPosition().getCol ()*80 == hand.getHandX() && donut.getPosition().getRow ()*80 == hand.getHandY()){
+                if(donut.getPosition().getCol ()*80 == hand.getHandX() && donut.getPosition().getRow ()*80 == hand.getHandY()-80){
                     game.setNextlevel( true );
                 }
                 if(hand.getHandX()<19*80) {
