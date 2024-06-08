@@ -15,6 +15,8 @@ public class GameScreen {
     int padding = 10;
     int rows;
     int cols;
+    private int x=padding;
+    private int y=padding;
     public GameScreen(int cols, int rows){
         this.cols=cols;
         this.rows = rows;
@@ -43,6 +45,22 @@ public class GameScreen {
     //Creates rectangle objects in 2 dimensional array
 
     public void gridSquares(){
+        for (int i = 0; i < cols; i++) {
+            Rectangle square= new Rectangle(x+padding,y+padding,cellSize,cellSize);
+            square.draw();
+            x+=cellSize;
+
+
+
+        }
+        if(y!=rows*cellSize){
+            //System.out.println("here");
+            x=0;
+            y+=cellSize;
+            gridSquares();
+
+        }
+        /*
         Position position = new Position(0, 0);
         for (int i = 0; i < squares.length; i++) {
             for (int j = 0; j < squares[i].length; j++) {
@@ -56,6 +74,8 @@ public class GameScreen {
             position.setPos(position.getCol()+cellSize,0);
 
         }
+        */
+
     }
 
     public int getWidth(){

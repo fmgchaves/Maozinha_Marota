@@ -29,7 +29,8 @@ public class Game {
         //Desenha
         //Qual o método para desenhar????......
         initScreen.init ();
-        
+        Testgrid testgrid = new Testgrid(cols,rows,80,10);
+        testgrid.gridSquares();
         //Criar níveís
         //Guarda níveis num Array
         this.levelArrayList = gamesInsideArray ( this.levelArrayList );
@@ -47,7 +48,7 @@ public class Game {
                 }
                 
                 while (!nextlevel) {
-                    System.out.println ("Estou aqui");
+                    //System.out.println ("Estou aqui");
                 }
                 
                 setNextlevel ( false );

@@ -1,14 +1,19 @@
 package io.bootcamp.vimtages;
 
+import org.academiadecodigo.simplegraphics.pictures.Picture;
+
 import java.util.LinkedList;
 //Translate positions to directions -width left, + width right this will be implemented in another class
 public class Hand {
     private int numberOfMoves;
     LinkedList<Position> positionLinkedList = new LinkedList<>();
-
+    private Picture hand;
+    String handPic="resources/Item/owl_victory_roll_2_80x80_by_moogleymog-d4nz5kd-1954011555.gif";
     public Hand (Position initialPositionHand) {
         this.positionLinkedList.add(initialPositionHand);
         (this.positionLinkedList.get(0)).setFilled();
+        this.hand = new Picture(9*80,9*80,handPic);
+        hand.draw();
     }
 
     public Position currentHandPosition () {
@@ -27,12 +32,18 @@ public class Hand {
                 this.positionLinkedList.add(tempUp);
                 (this.positionLinkedList.get(this.positionLinkedList.size() - 1)).setFilled();
                 ++this.numberOfMoves;
+                hand.translate(0,-80);
+                Picture harmUp = new Picture(currentHandPosition().getCol()*80-80, currentHandPosition().getRow()*80-160,handPic);
+                harmUp.draw();
                 break;
             case DOWN:
                 Position tempDown = this.positionLinkedList.get(this.positionLinkedList.size() - 1);
                 tempDown.setRow(tempDown.getRow() + 1);
                 this.positionLinkedList.add(tempDown);
                 ++this.numberOfMoves;
+                hand.translate(0,80);
+                Picture harmRight = new Picture(currentHandPosition().getCol()*80-80, currentHandPosition().getRow()*80-160,handPic);
+                harmRight.draw();
                 break;
             case LEFT:
                 Position tempLeft = this.positionLinkedList.get(this.positionLinkedList.size() - 1);
@@ -40,6 +51,9 @@ public class Hand {
                 this.positionLinkedList.add(tempLeft);
                 (this.positionLinkedList.get(this.positionLinkedList.size() - 1)).setFilled();
                 ++this.numberOfMoves;
+                hand.translate(-80,0);
+                Picture harmLeft = new Picture(currentHandPosition().getCol()*80-80, currentHandPosition().getRow()*80-160,handPic);
+                harmLeft.draw();
                 break;
             case RIGHT:
                 Position tempRight = this.positionLinkedList.get(this.positionLinkedList.size() - 1);
@@ -47,6 +61,9 @@ public class Hand {
                 this.positionLinkedList.add(tempRight);
                 (this.positionLinkedList.get(this.positionLinkedList.size() - 1)).setFilled();
                 ++this.numberOfMoves;
+                hand.translate(80,0);
+                Picture harmDown = new Picture(currentHandPosition().getCol()*80-80, currentHandPosition().getRow()*80-160,handPic);
+                harmDown.draw();
                 break;
             default:
                 break;
