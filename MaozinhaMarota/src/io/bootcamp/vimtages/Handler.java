@@ -29,6 +29,26 @@ public class Handler implements KeyboardHandler {
         keyboardEventEnter.setKeyboardEventType(KeyboardEventType.KEY_PRESSED);
         keyboardEventEnter.setKey(KeyboardEvent.KEY_ENTER);
         keyboard.addEventListener(keyboardEventEnter);
+
+        KeyboardEvent keyboardEventUp = new KeyboardEvent();
+        keyboardEventUp.setKeyboardEventType(KeyboardEventType.KEY_PRESSED);
+        keyboardEventUp.setKey(KeyboardEvent.KEY_UP);
+        keyboard.addEventListener(keyboardEventUp);
+
+        KeyboardEvent keyboardEventDown = new KeyboardEvent();
+        keyboardEventDown.setKeyboardEventType(KeyboardEventType.KEY_PRESSED);
+        keyboardEventDown.setKey(KeyboardEvent.KEY_DOWN);
+        keyboard.addEventListener(keyboardEventDown);
+
+        KeyboardEvent keyboardEventLeft = new KeyboardEvent();
+        keyboardEventLeft.setKeyboardEventType(KeyboardEventType.KEY_PRESSED);
+        keyboardEventLeft.setKey(KeyboardEvent.KEY_LEFT);
+        keyboard.addEventListener(keyboardEventLeft);
+
+        KeyboardEvent keyboardEventRight = new KeyboardEvent();
+        keyboardEventRight.setKeyboardEventType(KeyboardEventType.KEY_PRESSED);
+        keyboardEventRight.setKey(KeyboardEvent.KEY_RIGHT);
+        keyboard.addEventListener(keyboardEventRight);
     }
 
 
@@ -37,23 +57,24 @@ public class Handler implements KeyboardHandler {
         switch(keyboardEvent.getKey()){
             case KeyboardEvent.KEY_ENTER:
                 game.setNextlevel ( true );
-               /* if(enterCounter!=1) {
-                    GameScreen newGame = new GameScreen(10, 20);
-                    newGame.init();
-                    Level factory = new Factory(hand);
-                    factory.makeCenario();
-                    factory.runScenario();
-                    //hand.initHand();
-                    enterCounter++;
-                    System.out.println("Here");
-                }
-                break;
-                
-                */
-            case KeyboardEvent.KEY_UP:
-                
                 break;
 
+            case KeyboardEvent.KEY_UP:
+                System.out.println("Move Up");
+                hand.move(Direction.UP);
+                break;
+            case KeyboardEvent.KEY_DOWN:
+                System.out.println("Move Down");
+                hand.move(Direction.DOWN);
+                break;
+            case KeyboardEvent.KEY_LEFT:
+                System.out.println("Move Left");
+                hand.move(Direction.LEFT);
+                break;
+            case KeyboardEvent.KEY_RIGHT:
+                System.out.println("Move Right");
+                hand.move(Direction.RIGHT);
+                break;
 
 
 
