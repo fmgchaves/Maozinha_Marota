@@ -48,7 +48,7 @@ public class Game {
                 }
                 
                 while (!nextlevel) {
-                    //System.out.println ("Estou aqui");
+                    System.out.println ("Waiting");
                 }
                 
                 setNextlevel ( false );

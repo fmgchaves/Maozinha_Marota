@@ -58,7 +58,6 @@ public class Handler implements KeyboardHandler {
             case KeyboardEvent.KEY_ENTER:
                 game.setNextlevel ( true );
                 break;
-
             case KeyboardEvent.KEY_UP:
                 System.out.println("Move Up");
                 hand.move(Direction.UP);

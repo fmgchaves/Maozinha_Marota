@@ -12,7 +12,7 @@ public class Hand {
 	
 
     private Picture hand;
-    String handPic="resources/Item/owl_victory_roll_2_80x80_by_moogleymog-d4nz5kd-1954011555.gif";
+    String handPic="Item/Mao.png";
 
     public Hand (Position initialPositionHand) {
         this.positionLinkedList.add(initialPositionHand);

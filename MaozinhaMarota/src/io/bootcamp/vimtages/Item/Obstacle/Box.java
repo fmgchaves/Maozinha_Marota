@@ -23,6 +23,8 @@ public class Box extends Obstacle{
 
     @Override
     public void erase() {
-
+        //condition if booter true;
+        getPicture().delete();
+        //this object can only be erased with a beer. how do we will implement this?
     }
 }

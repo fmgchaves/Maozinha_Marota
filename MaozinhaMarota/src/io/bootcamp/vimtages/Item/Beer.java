@@ -17,6 +17,6 @@ public class Beer extends Item{
 
 	@Override
 	public void erase() {
-
+		getPicture().delete();
 	}
 }

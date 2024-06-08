@@ -1,6 +1,7 @@
 package io.bootcamp.vimtages.Item;
 
 import io.bootcamp.vimtages.Position;
+import org.academiadecodigo.simplegraphics.pictures.Picture;
 
 public class Coin extends Item{
 	
@@ -10,7 +11,9 @@ public class Coin extends Item{
 
 	@Override
 	public void draw() {
-
+		String Path = "/Item/Mao.png";
+		setPicture(new Picture ((getPosition().getCol()*80)+10,(getPosition().getRow()*80)+10,Path));
+		getPicture().draw();
 	}
 
 	@Override
