@@ -20,7 +20,8 @@ public class Hand {
         this.hand = new Picture(9*80,9*80,handPic);
         hand.draw();
     }
-
+    public int getHandX(){ return this.hand.getX();}
+    public int getHandY(){ return this.hand.getY();}
     public Position currentHandPosition () {
         return this.positionLinkedList.getLast();
     }

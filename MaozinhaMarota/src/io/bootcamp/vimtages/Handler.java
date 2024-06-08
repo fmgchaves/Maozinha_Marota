@@ -5,11 +5,11 @@ import org.academiadecodigo.simplegraphics.keyboard.Keyboard;
 import org.academiadecodigo.simplegraphics.keyboard.KeyboardEvent;
 import org.academiadecodigo.simplegraphics.keyboard.KeyboardEventType;
 import org.academiadecodigo.simplegraphics.keyboard.KeyboardHandler;
+import org.academiadecodigo.simplegraphics.pictures.Picture;
 
 //keyboard mechanics
 public class Handler implements KeyboardHandler {
     public Keyboard keyboard;
-    //public Player player;
     private static int enterCounter = 0;
     public Hand hand;
     public Donut donut;
@@ -59,20 +59,40 @@ public class Handler implements KeyboardHandler {
                 game.setNextlevel ( true );
                 break;
             case KeyboardEvent.KEY_UP:
-                System.out.println("Move Up");
-                hand.move(Direction.UP);
+                if(donut.getPosition().getcol()*80 == hand.getHandY() && donut.getPosition().getrow()*80 == hand.getHandX()){
+                    game.setNextlevel( true );
+                }
+                if(hand.getHandY()>0) {
+                    System.out.println("Move Up");
+                    hand.move(Direction.UP);
+                }
                 break;
             case KeyboardEvent.KEY_DOWN:
-                System.out.println("Move Down");
-                hand.move(Direction.DOWN);
+                if(donut.getPosition().getcol()*80 == hand.getHandY() && donut.getPosition().getrow()*80 == hand.getHandX()){
+                    game.setNextlevel( true );
+                }
+                if(hand.getHandY()<10*80) {
+                    System.out.println("Move Down");
+                    hand.move(Direction.DOWN);
+                }
                 break;
             case KeyboardEvent.KEY_LEFT:
-                System.out.println("Move Left");
-                hand.move(Direction.LEFT);
+                if(donut.getPosition().getcol()*80 == hand.getHandY() && donut.getPosition().getrow()*80 == hand.getHandX()){
+                    game.setNextlevel( true );
+                }
+                if(hand.getHandX()>0) {
+                    System.out.println("Move Left");
+                    hand.move(Direction.LEFT);
+                }
                 break;
             case KeyboardEvent.KEY_RIGHT:
-                System.out.println("Move Right");
-                hand.move(Direction.RIGHT);
+                if(donut.getPosition().getcol()*80 == hand.getHandY() && donut.getPosition().getrow()*80 == hand.getHandX()){
+                    game.setNextlevel( true );
+                }
+                if(hand.getHandX()<19*80) {
+                    System.out.println("Move Right");
+                    hand.move(Direction.RIGHT);
+                }
                 break;
 
 
