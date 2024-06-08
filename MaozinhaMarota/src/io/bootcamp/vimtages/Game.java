@@ -25,7 +25,7 @@ public class Game {
         this.nextlevel = false;
     }
     
-    public void init() {
+    public void init() throws InterruptedException {
         //Desenha
         //Qual o método para desenhar????......
         initScreen.init ();
@@ -34,23 +34,24 @@ public class Game {
         //Criar níveís
         //Guarda níveis num Array
         this.levelArrayList = gamesInsideArray ( this.levelArrayList );
+        
         handler = new Handler(this);
         //Corre nível (Devolve true quando acaba nível)
         
             
             for (Level level : levelArrayList) {
+                handler.setHand ( new Hand (new Position ( 9,9 )) );
                 level.drawScreen ();
-                handler.handDraw ();
+                //handler.handDraw ();
                 //has erase level
                 //level.deleteScenario ();
                 level.makeCenario ();
                 //Quando true dá os resultados
                 if (level.runScenario ()) {
+                    Thread.sleep(5000); //Gives delay to the thread and the game waits xxxx milisecons;
                     level.giveLevelFinalScreen ();
-                    
                 }
-    
-               
+                
                 
                 while (!nextlevel) {
                     System.out.println ("Waiting");

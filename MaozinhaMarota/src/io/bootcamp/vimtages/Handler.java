@@ -17,7 +17,6 @@ public class Handler implements KeyboardHandler {
     private Game game;
 
     public Handler(Game game) {
-        this.hand = new Hand(new Position(10, 11));
         this.donut = new Donut(new Position(10, 2));
         keyboard = new Keyboard(this);
         this.game = game;
@@ -79,6 +78,10 @@ public class Handler implements KeyboardHandler {
 
 
         }
+    }
+    
+    public void setHand (Hand hand) {
+        this.hand = hand;
     }
 
     @Override
