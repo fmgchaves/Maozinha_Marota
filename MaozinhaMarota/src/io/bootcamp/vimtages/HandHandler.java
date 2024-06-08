@@ -27,6 +27,26 @@ public class HandHandler implements KeyboardHandler {
         keyboardEventEnter.setKeyboardEventType(KeyboardEventType.KEY_PRESSED);
         keyboardEventEnter.setKey(KeyboardEvent.KEY_ENTER);
         keyboard.addEventListener(keyboardEventEnter);
+
+        KeyboardEvent keyboardEventUp = new KeyboardEvent();
+        keyboardEventUp.setKeyboardEventType(KeyboardEventType.KEY_PRESSED);
+        keyboardEventEnter.setKey(KeyboardEvent.KEY_UP);
+        keyboard.addEventListener(keyboardEventEnter);
+
+        KeyboardEvent keyboardEventDown = new KeyboardEvent();
+        keyboardEventDown.setKeyboardEventType(KeyboardEventType.KEY_PRESSED);
+        keyboardEventEnter.setKey(KeyboardEvent.KEY_DOWN);
+        keyboard.addEventListener(keyboardEventEnter);
+
+        KeyboardEvent keyboardEventLeft = new KeyboardEvent();
+        keyboardEventLeft.setKeyboardEventType(KeyboardEventType.KEY_PRESSED);
+        keyboardEventLeft.setKey(KeyboardEvent.KEY_LEFT);
+        keyboard.addEventListener(keyboardEventLeft);
+
+        KeyboardEvent keyboardEventRight = new KeyboardEvent();
+        keyboardEventRight.setKeyboardEventType(KeyboardEventType.KEY_PRESSED);
+        keyboardEventRight.setKey(KeyboardEvent.KEY_RIGHT);
+        keyboard.addEventListener(keyboardEventRight);
     }
 
 

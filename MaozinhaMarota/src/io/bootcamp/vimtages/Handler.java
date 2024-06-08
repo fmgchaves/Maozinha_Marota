@@ -13,10 +13,11 @@ public class Handler implements KeyboardHandler {
     public Keyboard keyboard;
     //public Player player;
     private static int enterCounter = 0;
-
-    public Handler() {
+    private Hand hand;
+    public Handler(Hand hand) {
         keyboard = new Keyboard(this);
         createKeyboardEvents();
+        this.hand=hand;
     }
     public int getEnterCounter(){
         return enterCounter;
@@ -26,20 +27,48 @@ public class Handler implements KeyboardHandler {
         keyboardEventEnter.setKeyboardEventType(KeyboardEventType.KEY_PRESSED);
         keyboardEventEnter.setKey(KeyboardEvent.KEY_ENTER);
         keyboard.addEventListener(keyboardEventEnter);
+
+        KeyboardEvent keyboardEventUp = new KeyboardEvent();
+        keyboardEventUp.setKeyboardEventType(KeyboardEventType.KEY_PRESSED);
+        keyboardEventEnter.setKey(KeyboardEvent.KEY_UP);
+        keyboard.addEventListener(keyboardEventEnter);
+
+        KeyboardEvent keyboardEventDown = new KeyboardEvent();
+        keyboardEventDown.setKeyboardEventType(KeyboardEventType.KEY_PRESSED);
+        keyboardEventEnter.setKey(KeyboardEvent.KEY_DOWN);
+        keyboard.addEventListener(keyboardEventEnter);
+
+        KeyboardEvent keyboardEventLeft = new KeyboardEvent();
+        keyboardEventLeft.setKeyboardEventType(KeyboardEventType.KEY_PRESSED);
+        keyboardEventLeft.setKey(KeyboardEvent.KEY_LEFT);
+        keyboard.addEventListener(keyboardEventLeft);
+
+        KeyboardEvent keyboardEventRight = new KeyboardEvent();
+        keyboardEventRight.setKeyboardEventType(KeyboardEventType.KEY_PRESSED);
+        keyboardEventRight.setKey(KeyboardEvent.KEY_RIGHT);
+        keyboard.addEventListener(keyboardEventRight);
     }
 
 
     @Override
     public void keyPressed(KeyboardEvent keyboardEvent) {
         Position handPosition = new Position(10,9);
-        if(keyboardEvent.getKey() == KeyboardEvent.KEY_ENTER && enterCounter == 0) {
-            Game.gameScreenInit();
-            Level factory = Game.initFactoryLevel();
-            factory.runScenario();
-            Hand hand = factory.getHand();
-            hand.runScenario(handPosition);
-            System.out.println("Here");
-            enterCounter++;
+         switch (keyboardEvent.getKey()){
+             case KeyboardEvent.KEY_ENTER:
+                if(enterCounter == 0) {
+                    Game.gameScreenInit();
+                    System.out.println("Here");
+                    enterCounter++;
+                }
+                break;
+             case KeyboardEvent.KEY_UP:
+                 hand.move(Direction.UP);
+                 hand.runScenario(hand.currentHandPosition());
+                 break;
+
+                 case KeyboardEvent.KEY_UP:
+                 hand.move(Direction.UP);
+                 hand.runScenario(hand.currentHandPosition());
 
 
         }
