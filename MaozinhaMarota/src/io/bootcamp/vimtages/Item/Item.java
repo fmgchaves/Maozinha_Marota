@@ -1,6 +1,6 @@
 package io.bootcamp.vimtages.Item;
 
-import com.sun.javafx.binding.StringFormatter;
+
 import io.bootcamp.vimtages.Position;
 import org.academiadecodigo.simplegraphics.pictures.Picture;
 

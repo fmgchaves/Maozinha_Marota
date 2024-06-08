@@ -58,19 +58,7 @@ public class Handler implements KeyboardHandler {
             case KeyboardEvent.KEY_ENTER:
                 game.setNextlevel ( true );
                 break;
-               /* if(enterCounter!=1) {
-                    GameScreen newGame = new GameScreen(10, 20);
-                    newGame.init();
-                    Level factory = new Factory(hand);
-                    factory.makeCenario();
-                    factory.runScenario();
-                    //hand.initHand();
-                    enterCounter++;
-                    System.out.println("Here");
-                }
-                break;
-                
-                */
+
             case KeyboardEvent.KEY_UP:
                 System.out.println("Move Up");
                 hand.move(Direction.UP);
