@@ -10,7 +10,7 @@ public class Box extends Obstacle{
 
     @Override
     public void draw() {
-        String Path = "Item/mona80-3955503419.jpeg";
+        String Path = "Item/Caixa bar_resized.png";
         setPicture
                 (new Picture
                         ((getPosition()

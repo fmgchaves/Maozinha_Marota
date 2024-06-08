@@ -7,7 +7,7 @@ public class JavaFxItem{
     private Picture donnut;
 
     public JavaFxItem(Picture donnut) {
-        this.donnut =  new Picture(40, 40,"resources/donut.avif" );
+        this.donnut =  new Picture(40, 40,"/Item/donut_resized.png" );
         this.donnut.draw();
     }
 

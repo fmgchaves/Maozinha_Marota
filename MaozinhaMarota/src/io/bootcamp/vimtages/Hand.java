@@ -6,6 +6,7 @@ public class Hand {
     private int numberOfMoves;
     LinkedList<Position> positionLinkedList = new LinkedList<>();
 
+	
     public Hand (Position initialPositionHand) {
         this.positionLinkedList.add(initialPositionHand);
         (this.positionLinkedList.get(0)).setFilled();
