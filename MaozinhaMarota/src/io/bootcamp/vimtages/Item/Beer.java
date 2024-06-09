@@ -4,6 +4,9 @@ import io.bootcamp.vimtages.Position;
 import org.academiadecodigo.simplegraphics.pictures.Picture;
 
 public class Beer extends Item{
+
+	private Position position;
+
 	public Beer (Position position) {
 		super ( position );
 	}
@@ -23,5 +26,9 @@ public class Beer extends Item{
 	@Override
 	public void erase() {
 		getPicture().delete();
+	}
+
+	public Position getBeerPosition(){
+		return position;
 	}
 }

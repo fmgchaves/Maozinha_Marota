@@ -1,13 +1,18 @@
 package io.bootcamp.vimtages;
 
+import io.bootcamp.vimtages.Item.Beer;
 import org.academiadecodigo.simplegraphics.pictures.Picture;
 
 import java.util.LinkedList;
 //Translate positions to directions -width left, + width right this will be implemented in another class
 public class Hand {
+
+    private Beer beer;
+
     private int numberOfMoves;
     LinkedList<Position> positionLinkedList = new LinkedList<>();
 
+    private boolean hasBoost;
 
 	
 
@@ -92,6 +97,18 @@ public class Hand {
     public void draw() {
         hand.draw();
     }
-    
+
+    public void erase(){
+        hand.delete();
+    }
+
+    public boolean hasBoost(){
+            hasBoost = true;
+            erase();
+            Picture handBooster = new Picture (608,400, "Item/star.png");//change the hand picture to hand with a beer review image and position with a getCurrentPosition
+            handBooster.draw();
+            return hasBoost;
+    }
+
     //ordem reversa do movimento do braço usando um iterador
 }

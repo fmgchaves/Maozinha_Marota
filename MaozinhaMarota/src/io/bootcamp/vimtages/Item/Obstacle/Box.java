@@ -1,9 +1,15 @@
 package io.bootcamp.vimtages.Item.Obstacle;
 
+import io.bootcamp.vimtages.Hand;
 import io.bootcamp.vimtages.Position;
 import org.academiadecodigo.simplegraphics.pictures.Picture;
 
 public class Box extends Obstacle{
+
+    private boolean canBreak;
+
+    private Position position;
+
     public Box(Position position) {
         super(position);
     }
@@ -28,8 +34,16 @@ public class Box extends Obstacle{
 
     @Override
     public void erase() {
-        //condition if booter true;
+        //condition if booster true;
         getPicture().delete();
         //this object can only be erased with a beer. how do we will implement this?
     }
+
+    public void breakBox(Hand hand){
+        if(hand.hasBoost()){
+             canBreak = true;
+             erase();
+        }
+    }
+
 }
