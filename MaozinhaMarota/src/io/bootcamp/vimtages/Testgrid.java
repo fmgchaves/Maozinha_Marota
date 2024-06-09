@@ -9,7 +9,7 @@ public class Testgrid {
     private int padding;
     private int x = padding;
     private int y = padding;
-    public Testgrid(int col, int row, int cellSize, int padding) {
+    public Testgrid(int row, int col, int cellSize, int padding) {
         this.col = col;
         this.row = row;
         this.cellSize = cellSize;

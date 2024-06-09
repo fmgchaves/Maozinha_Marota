@@ -11,16 +11,16 @@ public class GameScreen {
     //Canvas canvas;
     //Shape grid;
     Shape[][] squares;
-    int cellSize = 80;
-    int padding = 10;
-    int rows;
-    int cols;
-    private int x=padding;
-    private int y=padding;
+    private static final int cellSize =Game.getCellSize();
+    private static final int padding = Game.getPadding();
+
+    private static int rows;
+    private static int cols;
+    private static int x=padding;
+    private static int y=padding;
     public GameScreen(int cols, int rows){
         this.cols=cols;
         this.rows = rows;
-        this.squares=new Shape[getWidth()/cellSize][getHeight()/cellSize];
     }
 
     public void init() {

@@ -17,7 +17,7 @@ public class Hand {
     public Hand (Position initialPositionHand) {
         this.positionLinkedList.add(initialPositionHand);
         (this.positionLinkedList.get(0)).setFilled();
-        this.hand = new Picture(9*80,9*80,handPic);
+        this.hand = new Picture(9*Game.getCellSize(),9*Game.getCellSize(),handPic);
         //hand.draw();
     }
     public int getHandX(){ return this.hand.getX();}
@@ -38,8 +38,8 @@ public class Hand {
                 this.positionLinkedList.add(tempUp);
                 (this.positionLinkedList.get(this.positionLinkedList.size() - 1)).setFilled();
                 ++this.numberOfMoves;
-                hand.translate(0,-80);
-                Picture harmUp = new Picture(currentHandPosition().getCol()*80-80, currentHandPosition().getRow()*80-160,handPic);
+                hand.translate(0,-Game.getCellSize());
+                Picture harmUp = new Picture(currentHandPosition().getCol()*Game.getCellSize()-Game.getCellSize(), currentHandPosition().getRow()*Game.getCellSize()-Game.getCellSize()*2,handPic);
                 harmUp.draw();
                 break;
             case DOWN:
@@ -47,9 +47,9 @@ public class Hand {
                 tempDown.setRow(tempDown.getRow() + 1);
                 this.positionLinkedList.add(tempDown);
                 ++this.numberOfMoves;
-                hand.translate(0,80);
-                Picture harmRight = new Picture(currentHandPosition().getCol()*80-80, currentHandPosition().getRow()*80-160,handPic);
-                harmRight.draw();
+                hand.translate(0,Game.getCellSize());
+                Picture harmDown = new Picture(currentHandPosition().getCol()*Game.getCellSize()-Game.getCellSize(), currentHandPosition().getRow()*Game.getCellSize()-Game.getCellSize()*2,handPic);
+                harmDown.draw();
                 break;
             case LEFT:
                 Position tempLeft = this.positionLinkedList.get(this.positionLinkedList.size() - 1);
@@ -57,8 +57,8 @@ public class Hand {
                 this.positionLinkedList.add(tempLeft);
                 (this.positionLinkedList.get(this.positionLinkedList.size() - 1)).setFilled();
                 ++this.numberOfMoves;
-                hand.translate(-80,0);
-                Picture harmLeft = new Picture(currentHandPosition().getCol()*80-80, currentHandPosition().getRow()*80-160,handPic);
+                hand.translate(-Game.getCellSize(),0);
+                Picture harmLeft = new Picture(currentHandPosition().getCol()*Game.getCellSize()-Game.getCellSize(), currentHandPosition().getRow()*Game.getCellSize()-Game.getCellSize()*2,handPic);
                 harmLeft.draw();
                 break;
             case RIGHT:
@@ -67,9 +67,9 @@ public class Hand {
                 this.positionLinkedList.add(tempRight);
                 (this.positionLinkedList.get(this.positionLinkedList.size() - 1)).setFilled();
                 ++this.numberOfMoves;
-                hand.translate(80,0);
-                Picture harmDown = new Picture(currentHandPosition().getCol()*80-80, currentHandPosition().getRow()*80-160,handPic);
-                harmDown.draw();
+                hand.translate(Game.getCellSize(),0);
+                Picture harmRight = new Picture(currentHandPosition().getCol()*Game.getCellSize()-Game.getCellSize(), currentHandPosition().getRow()*Game.getCellSize()-Game.getCellSize()*2,handPic);
+                harmRight.draw();
                 break;
             default:
                 break;

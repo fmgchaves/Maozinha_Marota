@@ -5,6 +5,8 @@ import io.bootcamp.vimtages.Level.*;
 import java.util.ArrayList;
 
 public class Game {
+    private static int cellSize;
+    private static int padding;
     private static int cols;
     private static int rows;
     private InitScreen initScreen;
@@ -16,20 +18,36 @@ public class Game {
     private static Position initHandPosition;
     
     private Handler handler;
-    public Game (int cols, int rows){
+    public Game (int cols, int rows,int cellSize, int padding){
         this.cols=cols;
         this.rows=rows;
+        this.cellSize = cellSize;
+        this.padding = padding;
         initHandPosition = new Position(10,10);
         this.initScreen = new InitScreen ( this.cols, this.rows);
         levelArrayList = new ArrayList<> ();
         this.nextlevel = false;
     }
-    
+    public static int getRows() {
+        return rows;
+    }
+
+    public static int getCellSize() {
+        return cellSize;
+    }
+
+    public static int getPadding() {
+        return padding;
+    }
+
+    public static int getCols() {
+        return cols;
+    }
+
     public void init() throws InterruptedException {
 
         initScreen.init ();
-        Testgrid testgrid = new Testgrid(cols,rows,80,10);
-        testgrid.gridSquares();
+
         //Criar níveís
         //Guarda níveis num Array
         this.levelArrayList = gamesInsideArray ( this.levelArrayList );
@@ -41,6 +59,8 @@ public class Game {
             for (Level level : levelArrayList) {
                 handler.setHand ( new Hand (new Position ( 9,9 )) );
                 level.drawScreen ();
+                //Testgrid testgrid = new Testgrid(cols,rows,cellSize,padding);
+                //testgrid.gridSquares();
                 //handler.handDraw ();
                 //has erase level
                 //level.deleteScenario ();
@@ -53,7 +73,10 @@ public class Game {
                 
                 
                 while (!nextlevel) {
-                    System.out.println ("Waiting");
+                    //System.out.println ("Waiting");
+                    try { Thread.sleep(1000); } catch (InterruptedException e) {
+                        System.out.println("Next Level");
+                    }
                 }
     
                 level.deleteScenario ();
@@ -81,9 +104,7 @@ public class Game {
         return levelArrayList;
     }
     
-    public static int getRows() {
-        return rows;
-    }
+
     
     public static InitScreen startScreen(){
    InitScreen initScreen = new InitScreen(rows,cols);
