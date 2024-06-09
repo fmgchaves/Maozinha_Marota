@@ -60,8 +60,8 @@ public class Handler implements KeyboardHandler {
                 //System.out.println("Donut Col: "+ donut.getPosition().getCol());
                 //System.out.println("Donut Row: " + donut.getPosition().getRow());
 
-                System.out.println("Hand col: " + hand.getHandX()/Game.getCellSize());
-                System.out.println("Hand row: " + hand.getHandY()/Game.getCellSize());
+                //System.out.println("Hand col: " + hand.getHandX()/Game.getCellSize());
+                //System.out.println("Hand row: " + hand.getHandY()/Game.getCellSize());
 
              /*   if(donut.getPosition().getCol ()*Game.getCellSize() >= hand.getHandX() && donut.getPosition().getRow ()*Game.getCellSize() >= hand.getHandY()-Game.getCellSize()){
                     System.out.println("Found My Donnut");
@@ -69,7 +69,7 @@ public class Handler implements KeyboardHandler {
                 }
                 
               */
-                if(hand.getHandY()>Game.getCellSize()*2) {
+                if(hand.getX()>Game.getCellSize()*2) {
                     System.out.println("Move Up");
                     hand.move(Direction.UP);
                     setHand ( hand );
@@ -79,8 +79,8 @@ public class Handler implements KeyboardHandler {
                 //System.out.println("Donut Col: "+ donut.getPosition().getCol());
                 //System.out.println("Donut Row: " + donut.getPosition().getRow());
 
-                System.out.println("Hand col: " + hand.getHandX()/Game.getCellSize());
-                System.out.println("Hand row: " + hand.getHandY()/Game.getCellSize());
+                //System.out.println("Hand col: " + hand.getHandX()/Game.getCellSize());
+                //System.out.println("Hand row: " + hand.getHandY()/Game.getCellSize());
                /*
                 if(donut.getPosition().getCol ()*Game.getCellSize() == hand.getHandX() && donut.getPosition().getRow ()*Game.getCellSize() == hand.getHandY()-Game.getCellSize()){
                     System.out.println("Found My Donnut");
@@ -89,7 +89,7 @@ public class Handler implements KeyboardHandler {
                 }
                 
                 */
-                if(hand.getHandY()< Game.getCols()*Game.getCellSize()+Game.getCellSize()*2) {
+                if(hand.getY()< Game.getCols()*Game.getCellSize()+Game.getCellSize()*2) {
                     System.out.println("Move Down");
                     hand.move(Direction.DOWN);
                     setHand ( hand );
@@ -99,8 +99,8 @@ public class Handler implements KeyboardHandler {
                 //System.out.println("Donut Col: "+ donut.getPosition().getCol());
                 //System.out.println("Donut Row: " + donut.getPosition().getRow());
 
-                System.out.println("Hand col: " + hand.getHandX()/Game.getCellSize());
-                System.out.println("Hand row: " + hand.getHandY()/Game.getCellSize());
+                //System.out.println("Hand col: " + hand.getHandX()/Game.getCellSize());
+               // System.out.println("Hand row: " + hand.getHandY()/Game.getCellSize());
                /*
                 if(donut.getPosition().getCol ()*Game.getCellSize() == hand.getHandX() && donut.getPosition().getRow ()*Game.getCellSize() == hand.getHandY()-Game.getCellSize()){
                     System.out.println("Found My Donnut");
@@ -108,7 +108,7 @@ public class Handler implements KeyboardHandler {
                 }
                 
                 */
-                if(hand.getHandX()>Game.getCellSize()) {
+                if(hand.getX()>Game.getCellSize()) {
                     System.out.println("Move Left");
                     hand.move(Direction.LEFT);
                     setHand ( hand );
@@ -118,8 +118,8 @@ public class Handler implements KeyboardHandler {
                // System.out.println("Donut Col: "+ donut.getPosition().getCol());
                 //System.out.println("Donut Row: " + donut.getPosition().getRow());
 
-                System.out.println("Hand col: " + hand.getHandX()/Game.getCellSize());
-                System.out.println("Hand row: " + hand.getHandY()/Game.getCellSize());
+                //.out.println("Hand col: " + hand.getHandX()/Game.getCellSize());
+                //System.out.println("Hand row: " + hand.getHandY()/Game.getCellSize());
                /*
                 if(donut.getPosition().getCol ()*Game.getCellSize() == hand.getHandX() && donut.getPosition().getRow ()*Game.getCellSize() == hand.getHandY()-Game.getCellSize()){
                     System.out.println("Found My Donnut");
@@ -127,7 +127,7 @@ public class Handler implements KeyboardHandler {
                 }
                 
                 */
-                if(hand.getHandX()<Game.getRows()*Game.getCellSize()) {
+                if(hand.getX()<Game.getRows()*Game.getCellSize()) {
                     System.out.println("Move Right");
                     hand.move(Direction.RIGHT);
                     setHand ( hand );
@@ -139,9 +139,6 @@ public class Handler implements KeyboardHandler {
         this.hand = hand;
     }
     
-    public Hand getHand() {
-        return this.hand;
-    }
     
     @Override
     public void keyReleased(KeyboardEvent keyboardEvent) {

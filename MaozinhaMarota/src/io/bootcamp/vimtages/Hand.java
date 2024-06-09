@@ -4,7 +4,8 @@ import org.academiadecodigo.simplegraphics.graphics.Color;
 import org.academiadecodigo.simplegraphics.graphics.Rectangle;
 import org.academiadecodigo.simplegraphics.pictures.Picture;
 //Translate positions to directions -width left, + width right this will be implemented in another class
-public class Hand {
+public class Hand extends Picture {
+
     private int numberOfMoves;
     
     private Picture hand;
@@ -13,18 +14,7 @@ public class Hand {
     public Hand (Integer x, Integer y) {
         this.hand = new Picture ( x + Game.getPadding (), y + Game.getPadding (), handPic );
     }
-    
-    public int getHandX () {
-        return this.hand.getX ();
-    }
-    
-    public int getHandY () {
-        return this.hand.getY ();
-    }
-    
-    public void draw () {
-        hand.draw ();
-    }
+
     
     public void Fill (Integer x, Integer y) {
         Rectangle rectangle = new Rectangle (x, y, Game.getCellSize (), Game.getCellSize ());
