@@ -10,21 +10,21 @@ import org.academiadecodigo.simplegraphics.pictures.Picture;
 import java.util.ArrayList;
 
 public class Garden extends Level {
-    
+    String treeImage="Item/Arvoreresized.png";
     //Instanciar a mão
     private static Integer numberofTree = 5;
-    private ArrayList<Position> TreePositions;
+    private ArrayList<Picture> TreePositions;
     
     public Garden (Hand hand) {
         super ( hand );
     }
     
-    Tree tree1 = new Tree ( new Position ( 3, 2 ) );
-    Tree tree2 = new Tree ( new Position ( 6, 6 ) );
-    Tree tree3 = new Tree ( new Position ( 12, 7 ) );
-    Tree tree4 = new Tree ( new Position ( 15, 3 ) );
-    Tree tree5 = new Tree ( new Position ( 18, 5 ) );
-    Donut donut = new Donut ( new Position ( 0, 0) );
+    Tree tree1 = new Tree ( 3*Game.getCellSize(), 2*Game.getCellSize(),treeImage );
+    Tree tree2 = new Tree (  6*Game.getCellSize(), 6*Game.getCellSize(),treeImage);
+    Tree tree3 = new Tree (  12*Game.getCellSize(), 7*Game.getCellSize(),treeImage);
+    Tree tree4 = new Tree (  15*Game.getCellSize(), 3*Game.getCellSize(),treeImage);
+    Tree tree5 = new Tree ( 18*Game.getCellSize(), 5*Game.getCellSize(), treeImage);
+    Donut donut = new Donut ( 0, 0,treeImage);
     Picture backscreen = new Picture (10,10,"/Levels/Jardim background.png");
     
     @Override
@@ -37,8 +37,8 @@ public class Garden extends Level {
         placeItem ( tree5 );
         for (Integer i = 0; i < numberofTree + 1; i++) {
             System.out.println ( "Object" + getArrayPosIndex ( i ) );
-            System.out.println ( "Position Col" + getArrayPosIndex ( i ).getPosition ().getCol () );
-            System.out.println ( "Position Row" + getArrayPosIndex ( i ).getPosition ().getRow () );
+            System.out.println ( "Position Col" + getArrayPosIndex ( i ).getY() );
+            System.out.println ( "Position Row" + getArrayPosIndex ( i ).getX() );
         }
         
     }
@@ -47,22 +47,22 @@ public class Garden extends Level {
     public boolean runScenario () {
         Hand hand = getHand ();
     
-        ArrayList<Item> temp = getArray();
-        for (Item item : temp) {
-            Item exp = item;
+        ArrayList<Picture> temp = getArray();
+        for (Picture item : temp) {
+            Picture exp = item;
            // if (exp.equals(Radio1)) {
              //   exp.draw("a");
             //}
             exp.draw();
         }
     
-        System.out.println ("donut Col: "+donut.getPosition ().getCol ());
-        System.out.println ("donut Row: "+donut.getPosition ().getRow ());
+        System.out.println ("donut Col: "+donut.getY ());
+        System.out.println ("donut Row: "+donut.getX());
         System.out.println ("hand Col: "+hand.getHandX ()/ Game.getCellSize ());
         System.out.println ("hand Row: "+hand.getHandY ()/Game.getCellSize ());
         
         
-        if (hand.currentHandPosition ().equals(donut.getPosition ())) {
+        if (hand.getHandX()>= donut.getX() && hand.getHandY() >= donut.getY()) {
             return true;
         } else {
             return false;
@@ -71,10 +71,10 @@ public class Garden extends Level {
     
     @Override
     public void deleteScenario () {
-        ArrayList<Item> temp = getArray ();
-        for (Item item : temp) {
-            Item exp = item;
-            exp.erase ();
+        ArrayList<Picture> temp = getArray ();
+        for (Picture item : temp) {
+            Picture exp = item;
+            exp.delete ();
         }
         backscreen.delete ();
     }

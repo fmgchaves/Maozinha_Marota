@@ -12,9 +12,9 @@ import org.academiadecodigo.simplegraphics.pictures.Picture;
 
 import java.util.ArrayList;
 
-public abstract class Level {
+public abstract class Level{
 
-    private ArrayList<Item> array;
+    private ArrayList<Picture> array;
     private boolean win;
 
     private Donut donut;
@@ -25,10 +25,10 @@ public abstract class Level {
 
     public Level(Hand hand) {
         this.hand = hand;
-        this.array = new ArrayList<Item>();
+        this.array = new ArrayList<Picture>();
     }
 
-    public ArrayList<Item> getArray() {
+    public ArrayList<Picture> getArray() {
         return this.array;
     }
 
@@ -37,28 +37,19 @@ public abstract class Level {
     //Given an Item
     //For example hand in the same position of a box or a wall
     //cannot allow a hand to move
-    public Item getItemFromPosition(Position position) {
-        int tempindex;
-        if (this.array.contains(position)) {
-            tempindex = this.array.indexOf(position);
-            return getArrayPosIndex(tempindex);
-        } else {
-            return null;
-        }
-    }
 
     //Gets an Item from an index position
-    public Item getArrayPosIndex(Integer index) {
+    public Picture getArrayPosIndex(Integer index) {
         return this.array.get(index);
     }
 
     //removes an Item from a given position
-    public void removeItem(Item item) {
+    public void removeItem(Picture item) {
         this.array.remove(item);
     }
 
     //Places an Item on a given position
-    public boolean placeItem(Item item) {
+    public boolean placeItem(Picture item) {
         return this.array.add(item);
     }
 
@@ -70,13 +61,9 @@ public abstract class Level {
         this.hand = hand;
     }
 
-    public Position getDonutPosition() {
-        return this.donut.getPosition();
-    }
 
-    public void setDonutPosition(Position position) {
-        this.donut.setPosition(position);
-    }
+
+
 
     //Gets Donut position from the level variable in this method
 

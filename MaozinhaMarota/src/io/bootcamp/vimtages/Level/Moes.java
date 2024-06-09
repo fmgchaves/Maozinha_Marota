@@ -1,5 +1,6 @@
 package io.bootcamp.vimtages.Level;
 
+import io.bootcamp.vimtages.Game;
 import io.bootcamp.vimtages.Hand;
 import io.bootcamp.vimtages.Item.Beer;
 import io.bootcamp.vimtages.Item.Donut;
@@ -14,52 +15,53 @@ public class Moes extends Level {
     public Moes (Hand hand) {
         super ( hand );
     }
-    
-    Donut donut = new Donut ( new Position ( 3, 13 ) );
-    Box box1 = new Box ( new Position ( 5, 1 ) );
-    Box box2 = new Box ( new Position ( 6, 1 ) );
-    Box box3 = new Box ( new Position ( 11, 5 ) );
-    Box box4 = new Box ( new Position ( 8, 1 ) );
-    Box box5 = new Box ( new Position ( 9, 1 ) );
-    Box box6 = new Box ( new Position ( 12, 1 ) );
-    Box box7 = new Box ( new Position ( 13, 1 ) );
-    Box box8 = new Box ( new Position ( 14, 1 ) );
-    Box box9 = new Box ( new Position ( 15, 1 ) );
-    Box box10 = new Box ( new Position ( 16, 1 ) );
-    Box box11 = new Box ( new Position ( 5, 2 ) );
-    Box box12 = new Box ( new Position ( 5, 3 ) );
-    Box box13 = new Box ( new Position ( 5, 4 ) );
-    Box box14 = new Box ( new Position ( 5, 5 ) );
-    Box box15 = new Box ( new Position ( 11, 1 ) );
-    Box box16 = new Box ( new Position ( 6, 4 ) );
-    Box box17 = new Box ( new Position ( 6, 5 ) );
-    Box box18 = new Box ( new Position ( 7, 4 ) );
-    Box box19 = new Box ( new Position ( 7, 5 ) );
-    Box box20 = new Box ( new Position ( 8, 4 ) );
-    Box box21 = new Box ( new Position ( 8, 5 ) );
-    Box box22 = new Box ( new Position ( 9, 4 ) );
-    Box box23 = new Box ( new Position ( 9, 5 ) );
-    Box box24 = new Box ( new Position ( 10, 4 ) );
-    Box box25 = new Box ( new Position ( 10, 5 ) );
-    Box box26 = new Box ( new Position ( 11, 4 ) );
-    Box box27 = new Box ( new Position ( 12, 4 ) );
-    Box box28 = new Box ( new Position ( 12, 5 ) );
-    Box box29 = new Box ( new Position ( 13, 4 ) );
-    Box box30 = new Box ( new Position ( 13, 5 ) );
-    Box box31 = new Box ( new Position ( 14, 4 ) );
-    Box box32 = new Box ( new Position ( 14, 5 ) );
-    Box box33 = new Box ( new Position ( 15, 4 ) );
-    Box box34 = new Box ( new Position ( 15, 5 ) );
-    Box box35 = new Box ( new Position ( 16, 2 ) );
-    Box box36 = new Box ( new Position ( 16, 3 ) );
-    Box box37 = new Box ( new Position ( 16, 4 ) );
-    Box box38 = new Box ( new Position ( 16, 5 ) );
-    Box box39 = new Box ( new Position ( 7, 1 ) );
-    Box box40 = new Box ( new Position ( 15, 9 ) );
-    Box box41 = new Box ( new Position ( 10, 1 ) );
-    Box box42 = new Box ( new Position ( 6, 9 ) );
-    Beer beer1 = new Beer ( new Position ( 5, 9 ) );
-    Beer beer2 = new Beer ( new Position ( 16, 9 ) );
+    Picture backscreen = new Picture(Game.getCellSize(),Game.getCellSize(),"Levels/Bar background.png");
+    String boxImage = "Item/Caixabar.png";
+    Donut donut = new Donut ( 3* Game.getCellSize(), 13* Game.getCellSize() , "Item/Donutresized.png");
+    Box box1 = new Box (  5* Game.getCellSize(), Game.getCellSize(),boxImage);
+    Box box2 = new Box (  6* Game.getCellSize(), Game.getCellSize(),boxImage);
+    Box box3 = new Box (  11* Game.getCellSize(), 5 * Game.getCellSize() ,boxImage);
+    Box box4 = new Box ( 8* Game.getCellSize(), Game.getCellSize(),boxImage);
+    Box box5 = new Box ( 9* Game.getCellSize(), Game.getCellSize(),boxImage );
+    Box box6 = new Box (  12* Game.getCellSize(), 1 * Game.getCellSize(),boxImage);
+    Box box7 = new Box (   13* Game.getCellSize(), 1 * Game.getCellSize(),boxImage);
+    Box box8 = new Box (   14* Game.getCellSize(), 1* Game.getCellSize() ,boxImage);
+    Box box9 = new Box (  15* Game.getCellSize(),  Game.getCellSize() ,boxImage);
+    Box box10 = new Box (  16* Game.getCellSize(),  Game.getCellSize() ,boxImage);
+    Box box11 = new Box (  5* Game.getCellSize(), 2 * Game.getCellSize(),boxImage);
+    Box box12 = new Box (   5* Game.getCellSize(), 3 * Game.getCellSize(),boxImage);
+    Box box13 = new Box (   5* Game.getCellSize(), 4 * Game.getCellSize() ,boxImage);
+    Box box14 = new Box (   5* Game.getCellSize(), 5 * Game.getCellSize() ,boxImage);
+    Box box15 = new Box (   11* Game.getCellSize(), 1* Game.getCellSize()  ,boxImage);
+    Box box16 = new Box (   6* Game.getCellSize(), 4* Game.getCellSize()  ,boxImage);
+    Box box17 = new Box (   6* Game.getCellSize(), 5* Game.getCellSize() ,boxImage);
+    Box box18 = new Box (   7* Game.getCellSize(), 4 * Game.getCellSize() ,boxImage);
+    Box box19 = new Box (   7* Game.getCellSize(), 5 * Game.getCellSize() ,boxImage);
+    Box box20 = new Box (   8* Game.getCellSize(), 4 * Game.getCellSize() ,boxImage);
+    Box box21 = new Box (   8* Game.getCellSize(), 5 * Game.getCellSize() ,boxImage);
+    Box box22 = new Box (   9* Game.getCellSize(), 4 * Game.getCellSize() ,boxImage);
+    Box box23 = new Box (   9* Game.getCellSize(), 5 * Game.getCellSize(),boxImage);
+    Box box24 = new Box (   10* Game.getCellSize(), 4 * Game.getCellSize() ,boxImage);
+    Box box25 = new Box (   10* Game.getCellSize(), 5 * Game.getCellSize() ,boxImage);
+    Box box26 = new Box (   11* Game.getCellSize(), 4 * Game.getCellSize() ,boxImage);
+    Box box27 = new Box (   12* Game.getCellSize(), 4 * Game.getCellSize() ,boxImage);
+    Box box28 = new Box (   12* Game.getCellSize(), 5  * Game.getCellSize(),boxImage);
+    Box box29 = new Box (   13* Game.getCellSize(), 4  * Game.getCellSize(),boxImage);
+    Box box30 = new Box (   13* Game.getCellSize(), 5  * Game.getCellSize(),boxImage);
+    Box box31 = new Box (   14* Game.getCellSize(), 4  * Game.getCellSize(),boxImage);
+    Box box32 = new Box (   14* Game.getCellSize(), 5  * Game.getCellSize(),boxImage);
+    Box box33 = new Box (   15* Game.getCellSize(), 4* Game.getCellSize()  ,boxImage);
+    Box box34 = new Box (   15* Game.getCellSize(), 5  * Game.getCellSize(),boxImage);
+    Box box35 = new Box (   16* Game.getCellSize(), 2  * Game.getCellSize(),boxImage);
+    Box box36 = new Box (   16* Game.getCellSize(), 3  * Game.getCellSize(),boxImage);
+    Box box37 = new Box (   16* Game.getCellSize(), 4  * Game.getCellSize(),boxImage);
+    Box box38 = new Box (   16* Game.getCellSize(), 5  * Game.getCellSize(),boxImage);
+    Box box39 = new Box (   7* Game.getCellSize(), 1* Game.getCellSize()  ,boxImage);
+    Box box40 = new Box (  15* Game.getCellSize(), 9 * Game.getCellSize() ,boxImage);
+    Box box41 = new Box (  10* Game.getCellSize(), 1 * Game.getCellSize(),boxImage);
+    Box box42 = new Box (   6* Game.getCellSize(), 9 * Game.getCellSize(),boxImage);
+    Beer beer1 = new Beer (   5* Game.getCellSize(), 9* Game.getCellSize()  ,boxImage);
+    Beer beer2 = new Beer (   16* Game.getCellSize(), 9 * Game.getCellSize() ,boxImage);
     
     @Override
     public void makeCenario () {
@@ -111,29 +113,30 @@ public class Moes extends Level {
         
         for (Integer i = 0; i < 44; i++) {
             System.out.println ( "Object" + getArrayPosIndex ( i ) );
-            System.out.println ( "Position Col" + getArrayPosIndex ( i ).getPosition ().getCol () );
-            System.out.println ( "Position Row" + getArrayPosIndex ( i ).getPosition ().getRow () );
+            System.out.println ( "Position Col" + getArrayPosIndex ( i ).getY() );
+            System.out.println ( "Position Row" + getArrayPosIndex ( i ).getX() );
         }
         
     }
-    
+
     @Override
-    public boolean runScenario () {
-        ArrayList<Item> temp = getArray ();
-        for (Item item : temp) {
-            Item exp = item;
-            exp.draw ();
+    public boolean runScenario() {
+        ArrayList<Picture> temp = getArray();
+        for (Picture item : temp) {
+            Picture exp = item;
+            exp.delete();
         }
         return true;
     }
-    
+
     @Override
     public void deleteScenario () {
-        ArrayList<Item> temp = getArray ();
-        for (Item item : temp) {
-            Item exp = item;
-            exp.erase ();
+        ArrayList<Picture> temp = getArray();
+        for (Picture item : temp) {
+            Picture exp = item;
+            exp.delete();
         }
+        backscreen.delete ();
     }
     
     @Override

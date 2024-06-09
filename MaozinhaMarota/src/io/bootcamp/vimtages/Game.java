@@ -51,13 +51,16 @@ public class Game {
         
         //Criar níveís
         //Guarda níveis num Array
-        this.levelArrayList = gamesInsideArray ( this.levelArrayList );
+        Hand hand = new Hand(9*cellSize,10*cellSize);
+        this.levelArrayList = gamesInsideArray ( this.levelArrayList,hand );
         
         handler = new Handler ( this );
+
         //Corre nível (Devolve true quando acaba nível)
-        
+
         for (Level level : levelArrayList) {
-            handler.setHand ();
+
+            handler.setHand (hand);
             
             level.drawScreen ();
             //Testgrid testgrid = new Testgrid(cols,rows,cellSize,padding);
@@ -94,12 +97,12 @@ public class Game {
     //Moes in position 2
     //Home in position 3
     //Hell in position 4
-    private ArrayList<Level> gamesInsideArray (ArrayList<Level> levelArrayList) {
-        levelArrayList.add ( new Garden () );
-        levelArrayList.add ( new Factory () );
-        levelArrayList.add ( new Moes () );
-        levelArrayList.add ( new Home () );
-        levelArrayList.add ( new Hell () );
+    private ArrayList<Level> gamesInsideArray (ArrayList<Level> levelArrayList,Hand hand) {
+        levelArrayList.add ( new Garden (hand) );
+        levelArrayList.add ( new Factory (hand) );
+        levelArrayList.add ( new Moes (hand) );
+        levelArrayList.add ( new Home (hand) );
+        levelArrayList.add ( new Hell (hand) );
         return levelArrayList;
     }
 }

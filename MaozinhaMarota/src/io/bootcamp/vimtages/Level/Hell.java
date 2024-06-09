@@ -1,5 +1,6 @@
 package io.bootcamp.vimtages.Level;
 
+import io.bootcamp.vimtages.Game;
 import io.bootcamp.vimtages.Hand;
 import io.bootcamp.vimtages.Item.Donut;
 import io.bootcamp.vimtages.Item.Item;
@@ -12,8 +13,8 @@ public class Hell extends Level {
     public Hell( Hand hand) {
         super(hand);
     }
-
-    Donut donut = new Donut (new Position (10,3));
+    String donutImage = "Item/Donutresized.png";
+    Donut donut = new Donut (10* Game.getCellSize(),3*Game.getCellSize(),donutImage);
     Picture backscreen = new Picture (10,10,"/Levels/Hell background.png");
     
     @Override
@@ -22,28 +23,28 @@ public class Hell extends Level {
     
         for (Integer i = 0; i < 1; i++) {
             System.out.println ("Object" + getArrayPosIndex (i));
-            System.out.println ("Position Col" + getArrayPosIndex ( i ).getPosition ().getCol (  ));
-            System.out.println ("Position Row" + getArrayPosIndex ( i ).getPosition ().getRow (  ));
+            System.out.println ("Position Col" + getArrayPosIndex ( i ).getY());
+            System.out.println ("Position Row" + getArrayPosIndex ( i ).getX());
         }
 
     }
     
     @Override
     public boolean runScenario() {
-        ArrayList<Item> temp = getArray();
-        for (Item item : temp) {
-            Item exp = item;
-            exp.draw();
+        ArrayList<Picture> temp = getArray();
+        for (Picture item : temp) {
+            Picture exp = item;
+            exp.delete();
         }
         return true;
     }
     
     @Override
     public void deleteScenario () {
-        ArrayList<Item> temp = getArray();
-        for (Item item : temp) {
-            Item exp = item;
-            exp.erase();
+        ArrayList<Picture> temp = getArray();
+        for (Picture item : temp) {
+            Picture exp = item;
+            exp.delete();
         }
         backscreen.delete ();
     }

@@ -1,5 +1,6 @@
 package io.bootcamp.vimtages.Level;
 
+import io.bootcamp.vimtages.Game;
 import io.bootcamp.vimtages.Hand;
 import io.bootcamp.vimtages.Item.Donut;
 import io.bootcamp.vimtages.Item.Item;
@@ -13,36 +14,49 @@ public class Home extends Level {
     public Home(Hand hand) {
         super(hand);
     }
-
-    Maggie maggie = new Maggie(new Position(3,7));
-    Donut donut = new Donut (new Position (3,7));
+    Picture backscreen = new Picture(Game.getPadding(),Game.getPadding(),"Levels/defaultImage.jpg");
+    Maggie maggie = new Maggie(3*Game.getCellSize(),7*Game.getCellSize(),"Item/Meggie_resized.png");
+    Donut donut = new Donut (3*Game.getCellSize(),7*Game.getCellSize(),"Item/Donutresized.png");
 
     @Override
     public void makeCenario () {
         placeItem ( donut );
         placeItem (maggie);
     }
-    
-    @Override
-    public boolean runScenario() {
-        drawScreen ();
-        ArrayList<Item> temp = getArray();
-        for (Item item : temp) {
-            Item exp = item;
+
+    public boolean runScenario () {
+        Hand hand = getHand ();
+
+        ArrayList<Picture> temp = getArray();
+        for (Picture item : temp) {
+            Picture exp = item;
+            // if (exp.equals(Radio1)) {
+            //   exp.draw("a");
+            //}
             exp.draw();
         }
-      //  Hand hand =
-      //  if ()
-        return true;
+
+        System.out.println ("donut Col: "+donut.getY ());
+        System.out.println ("donut Row: "+donut.getX());
+        System.out.println ("hand Col: "+hand.getHandX ()/ Game.getCellSize ());
+        System.out.println ("hand Row: "+hand.getHandY ()/Game.getCellSize ());
+
+
+        if (hand.getHandX()>= donut.getX() && hand.getHandY() >= donut.getY()) {
+            return true;
+        } else {
+            return false;
+        }
     }
-    
+
     @Override
     public void deleteScenario () {
-        ArrayList<Item> temp = getArray();
-        for (Item item : temp) {
-            Item exp = item;
-            exp.erase();
+        ArrayList<Picture> temp = getArray ();
+        for (Picture item : temp) {
+            Picture exp = item;
+            exp.delete ();
         }
+        backscreen.delete ();
     }
     
     @Override

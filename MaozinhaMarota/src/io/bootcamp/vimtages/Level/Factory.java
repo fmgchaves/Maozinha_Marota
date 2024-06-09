@@ -1,5 +1,6 @@
 package io.bootcamp.vimtages.Level;
 
+import io.bootcamp.vimtages.Game;
 import io.bootcamp.vimtages.Hand;
 import io.bootcamp.vimtages.Item.Donut;
 import io.bootcamp.vimtages.Item.Item;
@@ -9,38 +10,40 @@ import org.academiadecodigo.simplegraphics.pictures.Picture;
 import java.util.ArrayList;
 
 public class Factory extends Level {
-
+    Picture backscreen = new Picture (10,10,"/Levels/Hell background.png");
+    String radioactiveImage = "Item/Pepita Vertical.png";
+    String donnutImage = "Item/Donutresized.png";
     private static Integer numberofWall = 27;
-    Donut donut = new Donut (new Position (6,5));
-    Radioactive Radio1 = new Radioactive(new Position ( 5,4 ));
-    Radioactive Radio2 = new Radioactive(new Position ( 5,5 ));
-    Radioactive Radio3 = new Radioactive(new Position ( 6,4 ));
-    Radioactive Radio4 = new Radioactive(new Position ( 6,6 ));
-    Radioactive Radio5 = new Radioactive(new Position ( 7,4 ));
-    Radioactive Radio6 = new Radioactive(new Position ( 7,6 ));
-    Radioactive Radio7 = new Radioactive(new Position ( 8,2 ));
-    Radioactive Radio8 = new Radioactive(new Position ( 8,3 ));
-    Radioactive Radio9 = new Radioactive(new Position ( 8,4 ));
-    Radioactive Radio10 = new Radioactive(new Position ( 9,2 ));
-    Radioactive Radio11 = new Radioactive(new Position ( 9,6 ));
-    Radioactive Radio12 = new Radioactive(new Position ( 10,2 ));
-    Radioactive Radio13 = new Radioactive(new Position ( 10,4 ));
-    Radioactive Radio14 = new Radioactive(new Position ( 10,5 ));
-    Radioactive Radio15 = new Radioactive(new Position ( 10,6 ));
-    Radioactive Radio16 = new Radioactive(new Position ( 11,2 ));
-    Radioactive Radio17 = new Radioactive(new Position ( 11,4 ));
-    Radioactive Radio18 = new Radioactive(new Position ( 12,2 ));
-    Radioactive Radio19 = new Radioactive(new Position ( 12,4 ));
-    Radioactive Radio20 = new Radioactive(new Position ( 13,2 ));
-    Radioactive Radio21 = new Radioactive(new Position ( 13,4 ));
-    Radioactive Radio22 = new Radioactive(new Position ( 13,5 ));
-    Radioactive Radio23 = new Radioactive(new Position ( 14,2 ));
-    Radioactive Radio24 = new Radioactive(new Position ( 15,2 ));
-    Radioactive Radio25 = new Radioactive(new Position ( 15,3 ));
-    Radioactive Radio26 = new Radioactive(new Position ( 15,4 ));
-    Radioactive Radio27 = new Radioactive(new Position ( 15,5 ));
-    Radioactive Radio28 = new Radioactive(new Position ( 5,6 ));
-    Radioactive Radio29 = new Radioactive(new Position ( 8,6 ));
+    Donut donut = new Donut (6*Game.getCellSize(),5*Game.getCellSize(),donnutImage);
+    Radioactive Radio1 = new Radioactive(5*Game.getCellSize(),4*Game.getCellSize(),radioactiveImage );
+    Radioactive Radio2 = new Radioactive( 5*Game.getCellSize(),5*Game.getCellSize(),radioactiveImage );
+    Radioactive Radio3 = new Radioactive(6*Game.getCellSize(),4*Game.getCellSize(),radioactiveImage );
+    Radioactive Radio4 = new Radioactive(6*Game.getCellSize(),6*Game.getCellSize() ,radioactiveImage);
+    Radioactive Radio5 = new Radioactive(7*Game.getCellSize(),4*Game.getCellSize(),radioactiveImage );
+    Radioactive Radio6 = new Radioactive( 7*Game.getCellSize(),6 *Game.getCellSize(),radioactiveImage);
+    Radioactive Radio7 = new Radioactive( 8*Game.getCellSize(),2 *Game.getCellSize(),radioactiveImage);
+    Radioactive Radio8 = new Radioactive( 8*Game.getCellSize(),3*Game.getCellSize() ,radioactiveImage);
+    Radioactive Radio9 = new Radioactive( 8*Game.getCellSize(),4 *Game.getCellSize(),radioactiveImage);
+    Radioactive Radio10 = new Radioactive( 9*Game.getCellSize(),2 *Game.getCellSize(),radioactiveImage);
+    Radioactive Radio11 = new Radioactive( 9*Game.getCellSize(),6 *Game.getCellSize(),radioactiveImage);
+    Radioactive Radio12 = new Radioactive( 10*Game.getCellSize(),2*Game.getCellSize() ,radioactiveImage);
+    Radioactive Radio13 = new Radioactive( 10*Game.getCellSize(),4 *Game.getCellSize(),radioactiveImage);
+    Radioactive Radio14 = new Radioactive( 10*Game.getCellSize(),5 *Game.getCellSize(),radioactiveImage);
+    Radioactive Radio15 = new Radioactive( 10*Game.getCellSize(),6 *Game.getCellSize(),radioactiveImage);
+    Radioactive Radio16 = new Radioactive( 11*Game.getCellSize(),2 *Game.getCellSize(),radioactiveImage);
+    Radioactive Radio17 = new Radioactive( 11*Game.getCellSize(),4*Game.getCellSize() ,radioactiveImage);
+    Radioactive Radio18 = new Radioactive( 12*Game.getCellSize(),2 *Game.getCellSize(),radioactiveImage);
+    Radioactive Radio19 = new Radioactive( 12*Game.getCellSize(),4*Game.getCellSize() ,radioactiveImage);
+    Radioactive Radio20 = new Radioactive( 13*Game.getCellSize(),2*Game.getCellSize() ,radioactiveImage);
+    Radioactive Radio21 = new Radioactive( 13*Game.getCellSize(),4*Game.getCellSize() ,radioactiveImage);
+    Radioactive Radio22 = new Radioactive( 13*Game.getCellSize(),5*Game.getCellSize() ,radioactiveImage);
+    Radioactive Radio23 = new Radioactive( 14*Game.getCellSize(),2*Game.getCellSize() ,radioactiveImage);
+    Radioactive Radio24 = new Radioactive( 15*Game.getCellSize(),2 *Game.getCellSize(),radioactiveImage);
+    Radioactive Radio25 = new Radioactive( 15*Game.getCellSize(),3*Game.getCellSize() ,radioactiveImage);
+    Radioactive Radio26 = new Radioactive( 15*Game.getCellSize(),4 *Game.getCellSize(),radioactiveImage);
+    Radioactive Radio27 = new Radioactive( 15*Game.getCellSize(),5*Game.getCellSize() ,radioactiveImage);
+    Radioactive Radio28 = new Radioactive( 5*Game.getCellSize(),6 *Game.getCellSize(),radioactiveImage);
+    Radioactive Radio29 = new Radioactive( 8*Game.getCellSize(),6 *Game.getCellSize(),radioactiveImage);
 
     public Factory(Hand hand) {
         super(hand);
@@ -83,39 +86,46 @@ public class Factory extends Level {
         
         for (Integer i = 0; i < numberofWall; i++) {
             System.out.println ("Object" + getArrayPosIndex (i));
-            System.out.println ("Position Col" + getArrayPosIndex ( i ).getPosition ().getCol (  ));
-            System.out.println ("Position Row" + getArrayPosIndex ( i ).getPosition ().getRow (  ));
+            System.out.println ("Position Col" + getArrayPosIndex ( i ).getY( ));
+            System.out.println ("Position Row" + getArrayPosIndex ( i ).getX());
         }
     }
-    
-    @Override
-    public boolean runScenario() {
+
+    public boolean runScenario () {
         Hand hand = getHand ();
-        
-        ArrayList<Item> temp = getArray();
-        for (Item item : temp) {
-            Item exp = item;
-            if (exp.equals(Radio1)) {
-                exp.draw("a");
-            }
+
+        ArrayList<Picture> temp = getArray();
+        for (Picture item : temp) {
+            Picture exp = item;
+            // if (exp.equals(Radio1)) {
+            //   exp.draw("a");
+            //}
             exp.draw();
         }
-        if (hand.currentHandPosition ().equals(getDonutPosition ())) {
-            System.out.println ("I'm here");
+
+        System.out.println ("donut Col: "+donut.getY ());
+        System.out.println ("donut Row: "+donut.getX());
+        System.out.println ("hand Col: "+hand.getHandX ()/ Game.getCellSize ());
+        System.out.println ("hand Row: "+hand.getHandY ()/Game.getCellSize ());
+
+
+        if (hand.getHandX()>= donut.getX() && hand.getHandY() >= donut.getY()) {
             return true;
         } else {
             return false;
         }
     }
-    
+
     @Override
     public void deleteScenario () {
-        ArrayList<Item> temp = getArray();
-        for (Item item : temp) {
-            Item exp = item;
-            exp.erase();
+        ArrayList<Picture> temp = getArray ();
+        for (Picture item : temp) {
+            Picture exp = item;
+            exp.delete ();
         }
+        backscreen.delete ();
     }
+
     
     @Override
     public void giveLevelFinalScreen () {

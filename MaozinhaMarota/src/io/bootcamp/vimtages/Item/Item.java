@@ -3,7 +3,7 @@ package io.bootcamp.vimtages.Item;
 
 import org.academiadecodigo.simplegraphics.pictures.Picture;
 
-public abstract class Item {
+public abstract class Item extends Picture{
     
     private Picture item;
     
