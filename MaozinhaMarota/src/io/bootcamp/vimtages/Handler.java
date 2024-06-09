@@ -16,7 +16,7 @@ public class Handler implements KeyboardHandler {
     private Game game;
 
     public Handler(Game game) {
-        this.donut = new Donut(new Position(10, 2));
+        //this.donut = new Donut(new Position(10, 2));
         keyboard = new Keyboard(this);
         this.game = game;
         createKeyboardEvents();
@@ -57,86 +57,93 @@ public class Handler implements KeyboardHandler {
                 game.setNextlevel ( true );
                 break;
             case KeyboardEvent.KEY_UP:
-                System.out.println("Donut Col: "+ donut.getPosition().getCol());
-                System.out.println("Donut Row: " + donut.getPosition().getRow());
+                //System.out.println("Donut Col: "+ donut.getPosition().getCol());
+                //System.out.println("Donut Row: " + donut.getPosition().getRow());
 
                 System.out.println("Hand col: " + hand.getHandX()/Game.getCellSize());
                 System.out.println("Hand row: " + hand.getHandY()/Game.getCellSize());
 
-                if(donut.getPosition().getCol ()*Game.getCellSize() >= hand.getHandX() && donut.getPosition().getRow ()*Game.getCellSize() >= hand.getHandY()-Game.getCellSize()){
+             /*   if(donut.getPosition().getCol ()*Game.getCellSize() >= hand.getHandX() && donut.getPosition().getRow ()*Game.getCellSize() >= hand.getHandY()-Game.getCellSize()){
                     System.out.println("Found My Donnut");
                     game.setNextlevel( true );
                 }
+                
+              */
                 if(hand.getHandY()>Game.getCellSize()*2) {
                     System.out.println("Move Up");
                     hand.move(Direction.UP);
+                    setHand ( hand );
                 }
                 break;
             case KeyboardEvent.KEY_DOWN:
-                System.out.println("Donut Col: "+ donut.getPosition().getCol());
-                System.out.println("Donut Row: " + donut.getPosition().getRow());
+                //System.out.println("Donut Col: "+ donut.getPosition().getCol());
+                //System.out.println("Donut Row: " + donut.getPosition().getRow());
 
                 System.out.println("Hand col: " + hand.getHandX()/Game.getCellSize());
                 System.out.println("Hand row: " + hand.getHandY()/Game.getCellSize());
+               /*
                 if(donut.getPosition().getCol ()*Game.getCellSize() == hand.getHandX() && donut.getPosition().getRow ()*Game.getCellSize() == hand.getHandY()-Game.getCellSize()){
                     System.out.println("Found My Donnut");
-                    game.setNextlevel( true );
+                    //game.setNextlevel( true );
                     break;
                 }
+                
+                */
                 if(hand.getHandY()< Game.getCols()*Game.getCellSize()+Game.getCellSize()*2) {
                     System.out.println("Move Down");
                     hand.move(Direction.DOWN);
+                    setHand ( hand );
                 }
                 break;
             case KeyboardEvent.KEY_LEFT:
-                System.out.println("Donut Col: "+ donut.getPosition().getCol());
-                System.out.println("Donut Row: " + donut.getPosition().getRow());
+                //System.out.println("Donut Col: "+ donut.getPosition().getCol());
+                //System.out.println("Donut Row: " + donut.getPosition().getRow());
 
                 System.out.println("Hand col: " + hand.getHandX()/Game.getCellSize());
                 System.out.println("Hand row: " + hand.getHandY()/Game.getCellSize());
+               /*
                 if(donut.getPosition().getCol ()*Game.getCellSize() == hand.getHandX() && donut.getPosition().getRow ()*Game.getCellSize() == hand.getHandY()-Game.getCellSize()){
                     System.out.println("Found My Donnut");
                     game.setNextlevel( true );
                 }
+                
+                */
                 if(hand.getHandX()>Game.getCellSize()) {
                     System.out.println("Move Left");
                     hand.move(Direction.LEFT);
+                    setHand ( hand );
                 }
                 break;
             case KeyboardEvent.KEY_RIGHT:
-                System.out.println("Donut Col: "+ donut.getPosition().getCol());
-                System.out.println("Donut Row: " + donut.getPosition().getRow());
+               // System.out.println("Donut Col: "+ donut.getPosition().getCol());
+                //System.out.println("Donut Row: " + donut.getPosition().getRow());
 
                 System.out.println("Hand col: " + hand.getHandX()/Game.getCellSize());
                 System.out.println("Hand row: " + hand.getHandY()/Game.getCellSize());
+               /*
                 if(donut.getPosition().getCol ()*Game.getCellSize() == hand.getHandX() && donut.getPosition().getRow ()*Game.getCellSize() == hand.getHandY()-Game.getCellSize()){
                     System.out.println("Found My Donnut");
                     game.setNextlevel( true );
                 }
+                
+                */
                 if(hand.getHandX()<Game.getRows()*Game.getCellSize()) {
                     System.out.println("Move Right");
                     hand.move(Direction.RIGHT);
+                    setHand ( hand );
                 }
                 break;
-
-
-
-
         }
     }
-    
     public void setHand (Hand hand) {
         this.hand = hand;
     }
-
-    @Override
-    public void keyReleased(KeyboardEvent keyboardEvent) {
-
+    
+    public Hand getHand() {
+        return this.hand;
     }
     
-    public void handDraw() {
-        hand.draw();
+    @Override
+    public void keyReleased(KeyboardEvent keyboardEvent) {
     }
-
-
 }

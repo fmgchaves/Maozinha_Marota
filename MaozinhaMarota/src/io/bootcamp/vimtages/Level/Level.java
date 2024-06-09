@@ -5,9 +5,9 @@ package io.bootcamp.vimtages.Level;
 //Serve para posicionar os objetos e saber o que fazer com eles
 
 import io.bootcamp.vimtages.Hand;
+import io.bootcamp.vimtages.Handler;
 import io.bootcamp.vimtages.Item.Donut;
 import io.bootcamp.vimtages.Item.Item;
-import io.bootcamp.vimtages.Position;
 import org.academiadecodigo.simplegraphics.pictures.Picture;
 
 import java.util.ArrayList;
@@ -21,6 +21,7 @@ public abstract class Level {
     private Hand hand;
     
     private Picture screen;
+    private Handler handler;
 
     public Level(Hand hand) {
         this.hand = hand;
@@ -80,14 +81,6 @@ public abstract class Level {
     //Gets Donut position from the level variable in this method
 
     //Verifies if the Player has won
-    public boolean didWin() {
-        if (this.hand.currentHandPosition().equals(getDonutPosition())) {
-            setWin();
-            return this.win;
-        } else {
-            return this.win;
-        }
-    }
 
     public abstract void makeCenario();
 

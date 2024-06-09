@@ -1,16 +1,17 @@
 package io.bootcamp.vimtages.Level;
 
+import io.bootcamp.vimtages.Game;
 import io.bootcamp.vimtages.Hand;
 import io.bootcamp.vimtages.Item.Donut;
 import io.bootcamp.vimtages.Item.Item;
 import io.bootcamp.vimtages.Item.Obstacle.Tree;
-import io.bootcamp.vimtages.Position;
 import org.academiadecodigo.simplegraphics.pictures.Picture;
 
 import java.util.ArrayList;
 
 public class Garden extends Level {
     
+    //Instanciar a mão
     private static Integer numberofTree = 5;
     private ArrayList<Position> TreePositions;
     
@@ -44,13 +45,28 @@ public class Garden extends Level {
     
     @Override
     public boolean runScenario () {
-        //drawScreen ();
-        ArrayList<Item> temp = getArray ();
+        Hand hand = getHand ();
+    
+        ArrayList<Item> temp = getArray();
         for (Item item : temp) {
             Item exp = item;
-            exp.draw ();
+           // if (exp.equals(Radio1)) {
+             //   exp.draw("a");
+            //}
+            exp.draw();
         }
-        return true;
+    
+        System.out.println ("donut Col: "+donut.getPosition ().getCol ());
+        System.out.println ("donut Row: "+donut.getPosition ().getRow ());
+        System.out.println ("hand Col: "+hand.getHandX ()/ Game.getCellSize ());
+        System.out.println ("hand Row: "+hand.getHandY ()/Game.getCellSize ());
+        
+        
+        if (hand.currentHandPosition ().equals(donut.getPosition ())) {
+            return true;
+        } else {
+            return false;
+        }
     }
     
     @Override

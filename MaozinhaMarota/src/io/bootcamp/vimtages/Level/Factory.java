@@ -4,7 +4,6 @@ import io.bootcamp.vimtages.Hand;
 import io.bootcamp.vimtages.Item.Donut;
 import io.bootcamp.vimtages.Item.Item;
 import io.bootcamp.vimtages.Item.Obstacle.Radioactive;
-import io.bootcamp.vimtages.Position;
 import org.academiadecodigo.simplegraphics.pictures.Picture;
 
 import java.util.ArrayList;
@@ -91,6 +90,8 @@ public class Factory extends Level {
     
     @Override
     public boolean runScenario() {
+        Hand hand = getHand ();
+        
         ArrayList<Item> temp = getArray();
         for (Item item : temp) {
             Item exp = item;
@@ -99,13 +100,12 @@ public class Factory extends Level {
             }
             exp.draw();
         }
-
-       // Item exp = getArrayPosIndex(0);
-       // exp.draw();
-        //exp.erase();
-        
-        
-        return true;
+        if (hand.currentHandPosition ().equals(getDonutPosition ())) {
+            System.out.println ("I'm here");
+            return true;
+        } else {
+            return false;
+        }
     }
     
     @Override

@@ -3,8 +3,7 @@ package io.bootcamp.vimtages.Level;
 import io.bootcamp.vimtages.Hand;
 import io.bootcamp.vimtages.Item.Donut;
 import io.bootcamp.vimtages.Item.Item;
-import io.bootcamp.vimtages.Item.Obstacle.Characters.Maggie;
-import io.bootcamp.vimtages.Position;
+import io.bootcamp.vimtages.Item.Maggie;
 import org.academiadecodigo.simplegraphics.pictures.Picture;
 
 import java.util.ArrayList;
@@ -32,6 +31,8 @@ public class Home extends Level {
             Item exp = item;
             exp.draw();
         }
+      //  Hand hand =
+      //  if ()
         return true;
     }
     

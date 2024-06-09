@@ -6,7 +6,4 @@ public enum Direction {
     DOWN,
     LEFT,
     RIGHT;
-
-    private Direction() {
-    }
 }
