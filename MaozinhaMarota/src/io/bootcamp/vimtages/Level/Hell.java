@@ -31,12 +31,19 @@ public class Hell extends Level {
     
     @Override
     public boolean runScenario() {
+        Hand hand = getHand ();
+
         ArrayList<Picture> temp = getArray();
         for (Picture item : temp) {
             Picture exp = item;
-            exp.delete();
+            exp.draw();
         }
-        return true;
+
+        if (hand.getX()>= donut.getX() && hand.getY() >= donut.getY()) {
+            return true;
+        } else {
+            return false;
+        }
     }
     
     @Override

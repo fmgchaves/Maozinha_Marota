@@ -138,7 +138,7 @@ public class Handler implements KeyboardHandler {
     public void setHand (Hand hand) {
         this.hand = hand;
     }
-    
+
     
     @Override
     public void keyReleased(KeyboardEvent keyboardEvent) {

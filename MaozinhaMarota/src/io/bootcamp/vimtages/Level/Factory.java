@@ -105,11 +105,11 @@ public class Factory extends Level {
 
         System.out.println ("donut Col: "+donut.getY ());
         System.out.println ("donut Row: "+donut.getX());
-        System.out.println ("hand Col: "+hand.getHandX ()/ Game.getCellSize ());
-        System.out.println ("hand Row: "+hand.getHandY ()/Game.getCellSize ());
+        System.out.println ("hand Col: "+hand.getX()/ Game.getCellSize ());
+        System.out.println ("hand Row: "+hand.getY ()/Game.getCellSize ());
 
 
-        if (hand.getHandX()>= donut.getX() && hand.getHandY() >= donut.getY()) {
+        if (hand.getX()>= donut.getX() && hand.getY() >= donut.getY()) {
             return true;
         } else {
             return false;
