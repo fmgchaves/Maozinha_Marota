@@ -16,7 +16,10 @@ public class Handler implements KeyboardHandler {
     private static int enterCounter = 0;
     public Hand hand;
     public Donut donut;
-
+    private String handLeft= "Item/HandLeft.png";
+    private String handRight="Item/handRight.png";
+    private String handDown = "Item/HandDown.png";
+    private String handUp="Item/MaoUp.png";
     private Game game;
     private ArrayList<Picture> levelArrayList;
 
@@ -61,12 +64,13 @@ public class Handler implements KeyboardHandler {
 
     @Override
     public void keyPressed(KeyboardEvent keyboardEvent) {
-        boosted();
+
         switch(keyboardEvent.getKey()){
             case KeyboardEvent.KEY_ENTER:
                 game.setNextlevel ( true );
                 break;
             case KeyboardEvent.KEY_UP:
+                boosted();
                 
                 //System.out.println("Donut Col: "+ donut.getPosition().getCol());
                 //System.out.println("Donut Row: " + donut.getPosition().getRow());
@@ -80,15 +84,19 @@ public class Handler implements KeyboardHandler {
                 }
                 
               */
-                if(hand.getHandY()>=Game.getCellSize()+10 && isFilled(Direction.UP)) {
+                if(hand.getHandY()>=Game.getCellSize()+10 && isFilled(Direction.UP)|| hand.isBoosted()) {
+
                     System.out.println("Move Up");
                     hand.move(Direction.UP);
+                    hand.changePic(handUp);
                     setHand ( hand );
                     hand.draw();
                     
                 }
+
                 break;
             case KeyboardEvent.KEY_DOWN:
+                boosted();
                 //System.out.println("Donut Col: "+ donut.getPosition().getCol());
                 //System.out.println("Donut Row: " + donut.getPosition().getRow());
 
@@ -102,14 +110,16 @@ public class Handler implements KeyboardHandler {
                 }
                 
                 */
-                if(hand.getHandY() < Game.getCols()*Game.getCellSize()-Game.getPadding()&&isFilled(Direction.DOWN)) {
+                if(hand.getHandY() < Game.getCols()*Game.getCellSize()-Game.getPadding()&&isFilled(Direction.DOWN)||hand.isBoosted()) {
                     System.out.println("Move Down");
-                    hand.move(Direction.DOWN);
-                    setHand ( hand );
-                    hand.draw();
+                        hand.move(Direction.DOWN);
+                        hand.changePic(handDown);
+                        setHand ( hand );
+                        hand.draw();
                 }
                 break;
             case KeyboardEvent.KEY_LEFT:
+                boosted();
                 //System.out.println("Donut Col: "+ donut.getPosition().getCol());
                 //System.out.println("Donut Row: " + donut.getPosition().getRow());
 
@@ -122,14 +132,16 @@ public class Handler implements KeyboardHandler {
                 }
                 
                 */
-                if(hand.getHandX()>Game.getPadding()&&isFilled(Direction.LEFT)) {
+                if(hand.getHandX()>Game.getPadding()&&isFilled(Direction.LEFT)||hand.isBoosted()) {
                     System.out.println("Move Left");
                     hand.move(Direction.LEFT);
+                    hand.changePic(handLeft);
                     setHand ( hand );
                     hand.draw();
                 }
                 break;
             case KeyboardEvent.KEY_RIGHT:
+                boosted();
                // System.out.println("Donut Col: "+ donut.getPosition().getCol());
                 //System.out.println("Donut Row: " + donut.getPosition().getRow());
 
@@ -142,9 +154,10 @@ public class Handler implements KeyboardHandler {
                 }
                 
                 */
-                if(hand.getHandX()<Game.getRows()*Game.getCellSize()-Game.getCellSize()&&isFilled(Direction.RIGHT)) {
+                if(hand.getHandX()<Game.getRows()*Game.getCellSize()-Game.getCellSize()&&isFilled(Direction.RIGHT)||hand.isBoosted()) {
                     System.out.println("Move Right");
                     hand.move(Direction.RIGHT);
+                    hand.changePic(handRight);
                     setHand ( hand );
                     hand.draw();
                 }
@@ -169,7 +182,8 @@ public class Handler implements KeyboardHandler {
         switch(direction) {
             case DOWN:
                 for (Picture object : levelArrayList) {
-                    if(object.getY() == hand.getHandY()+Game.getCellSize() && object.getX()==hand.getHandX()&&!(object.getClass().equals(Donut.class))){
+                    if(object.getY() == hand.getHandY()+Game.getCellSize() && object.getX()==hand.getHandX()&&!(object.getClass().equals(Donut.class))&&!(object.getClass().equals(Beer.class))){
+
                         return false;
                     }
                  //   if (object.getX() == hand.getHandX()+Game.getCellSize()&& object.getY()==hand.getHandY()&&(object.getClass().equals(Box.class))&&hand.isBoosted()){
@@ -179,7 +193,8 @@ public class Handler implements KeyboardHandler {
                 break;
             case UP:
                 for (Picture object : levelArrayList) {
-                    if(object.getY() == hand.getHandY()-Game.getCellSize()&& object.getX()==hand.getHandX()&&!(object.getClass().equals(Donut.class))){
+                    if(object.getY() == hand.getHandY()-Game.getCellSize()&& object.getX()==hand.getHandX()&&!(object.getClass().equals(Donut.class))&&!(object.getClass().equals(Beer.class))){
+
                         return false;
                     }
                   //  if (object.getX() == hand.getHandX()+Game.getCellSize()&& object.getY()==hand.getHandY()&&(object.getClass().equals(Box.class))&&hand.isBoosted()){
@@ -189,7 +204,7 @@ public class Handler implements KeyboardHandler {
                 break;
             case LEFT:
                 for (Picture object : levelArrayList) {
-                    if(object.getX() == hand.getHandX()-Game.getCellSize()&& object.getY()==hand.getHandY()&&!(object.getClass().equals(Donut.class))){
+                    if(object.getX() == hand.getHandX()-Game.getCellSize()&& object.getY()==hand.getHandY()&&!(object.getClass().equals(Donut.class))&&!(object.getClass().equals(Beer.class))){
                         return false;
                     }
                   //  if (object.getX() == hand.getHandX()+Game.getCellSize()&& object.getY()==hand.getHandY()&&(object.getClass().equals(Box.class))&&hand.isBoosted()){
@@ -199,7 +214,8 @@ public class Handler implements KeyboardHandler {
                 break;
             case RIGHT:
                 for (Picture object : levelArrayList) {
-                    if(object.getX() == hand.getHandX()+Game.getCellSize()&& object.getY()==hand.getHandY()&&!(object.getClass().equals(Donut.class))){
+                    if(object.getX() == hand.getHandX()+Game.getCellSize()&& object.getY()==hand.getHandY()&&!(object.getClass().equals(Donut.class))&&!(object.getClass().equals(Beer.class))){
+
                         return false;
                     }
                  //   if (object.getX() == hand.getHandX()+Game.getCellSize()&& object.getY()==hand.getHandY()&&(object.getClass().equals(Box.class))&&hand.isBoosted()){
@@ -216,7 +232,7 @@ public class Handler implements KeyboardHandler {
                             && (object.getClass().equals(Beer.class))
                             )
                     {
-                        hand.setBoosted(true);
+                        getHand().setBoosted(true);
                     }
                 }
         }
