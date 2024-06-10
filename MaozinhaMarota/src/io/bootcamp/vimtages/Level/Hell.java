@@ -2,6 +2,7 @@ package io.bootcamp.vimtages.Level;
 
 import io.bootcamp.vimtages.Game;
 import io.bootcamp.vimtages.Hand;
+import io.bootcamp.vimtages.Item.Beer;
 import io.bootcamp.vimtages.Item.Donut;
 import io.bootcamp.vimtages.Item.Flanders;
 import io.bootcamp.vimtages.Item.Obstacle.Box;
@@ -63,6 +64,10 @@ public class Hell extends Level {
     int box19y = 1 + (int)(Math.random() * ((10 - 1) + 1));
     int box20x = 1 + (int)(Math.random() * ((20 - 1) + 1));
     int box20y = 1 + (int)(Math.random() * ((10 - 1) + 1));
+    //int beer1x = 1 + (int)(Math.random() * ((20 - 1) + 1));
+    //int beer1y = 1 + (int)(Math.random() * ((10 - 1) + 1));
+    //int beer2x = 1 + (int)(Math.random() * ((20 - 1) + 1));
+    //int beer2y = 1 + (int)(Math.random() * ((10 - 1) + 1));
 
 
 
@@ -86,8 +91,9 @@ public class Hell extends Level {
     Box box18 = new Box(box18x* Game.getCellSize()+Game.getPadding(), box18y* Game.getCellSize()+Game.getPadding(), "Item/Caixabar.png");
     Box box19 = new Box(box19x* Game.getCellSize()+Game.getPadding(), box19y* Game.getCellSize()+Game.getPadding(), "Item/Caixabar.png");
     Box box20 = new Box(box20x* Game.getCellSize()+Game.getPadding(), box20y* Game.getCellSize()+Game.getPadding(), "Item/Caixabar.png");
+    //Beer beer1 = new Beer(beer1x*Game.getCellSize()*Game.getPadding(),beer1y*Game.getCellSize()*Game.getPadding(),"Item/Cerveja_resized.png");
+    //Beer beer2 = new Beer(beer2x*Game.getCellSize()*Game.getPadding(),beer2y*Game.getCellSize()*Game.getPadding(),"Item/Cerveja_resized.png");
 
-    
     @Override
     public void makeCenario () {
         Hand hand = getHand ();
@@ -114,10 +120,13 @@ public class Hell extends Level {
         placeItem (box18);
         placeItem (box19);
         placeItem (box20);
+        //placeItem(beer1);
+        //placeItem(beer2);
 
         ArrayList<Picture> temp = getArray();
         for (Picture item : temp) {
             if (item.getClass ().equals(donut.getClass ()) || item.getClass().equals(Box.class)) {
+
                 continue;
             }
             item.draw();

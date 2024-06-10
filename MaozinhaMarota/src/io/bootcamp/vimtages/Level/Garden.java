@@ -71,6 +71,7 @@ public class Garden extends Level {
     @Override
     public void deleteScenario () throws IOException {
             Hand hand = getHand();
+            this.getHand().changePic("Item/HandLeft.png");
             ArrayList<Picture> temp = getArray ();
             for (Picture item : temp) {
                 item.delete ();
@@ -82,6 +83,7 @@ public class Garden extends Level {
             hand.translateInitialPosition(20*80+10 - dx, 9*80+10 - dy);
             setHand(hand);
             sound.stopSound();
+
         }
     
     @Override

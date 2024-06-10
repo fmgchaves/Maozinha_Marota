@@ -22,7 +22,7 @@ public class Hand {
     public Hand (Integer x, Integer y) {
         this.hand = new Picture ( x + Game.getPadding (), y + Game.getPadding (), handPic );
     }
-    public void changePic(String image){hand.load(image);}
+    public void changePic(String image){this.hand.load(image);}
     public int getHandX () {
         return this.hand.getX ();
     }

@@ -150,6 +150,7 @@ public class Moes extends Level {
     @Override
     public void deleteScenario () {
         Hand hand = getHand();
+        hand.changePic("Item/HandLeft.png");
         ArrayList<Picture> temp = getArray ();
         for (Picture item : temp) {
             item.delete ();
@@ -160,7 +161,7 @@ public class Moes extends Level {
         int dx = hand.getHandX();
         int dy = hand.getHandY();
         hand.translateInitialPosition(19*80+10 - dx, 9*80+10 - dy);
-
+        hand.setBoosted(false);
        setHand(hand);
     }
     
