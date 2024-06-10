@@ -27,7 +27,7 @@ public class Hand {
     }
     
     public void Fill (Integer x, Integer y) {
-        Rectangle rectangle = new Rectangle (x, y, Game.getCellSize (), Game.getCellSize ());
+        Rectangle rectangle = new Rectangle (x+Game.getPadding(), y+Game.getPadding(), Game.getCellSize (), Game.getCellSize ());
         rectangle.setColor ( Color.YELLOW );
         rectangle.fill ();
     }
