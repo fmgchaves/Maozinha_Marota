@@ -4,6 +4,7 @@ import io.bootcamp.vimtages.Game;
 import io.bootcamp.vimtages.Hand;
 import io.bootcamp.vimtages.Item.Donut;
 import io.bootcamp.vimtages.Item.Maggie;
+import io.bootcamp.vimtages.Item.Obstacle.Box;
 import org.academiadecodigo.simplegraphics.pictures.Picture;
 
 import java.util.ArrayList;
@@ -17,22 +18,62 @@ public class Home extends Level {
     private String backscreenpath = "Levels/Casa background.png";
     private String maggiepath = "Item/Meggie_resized.png";
     private String donutpath = "Item/Donutresized.png";
+
+    private String boxImage = "Item/Caixabar.png";
     Picture backscreen = new Picture(Game.getPadding(),Game.getPadding(),backscreenpath);
     Maggie maggie = new Maggie(3*Game.getCellSize(),7*Game.getCellSize(),maggiepath);
     Donut donut = new Donut (3*Game.getCellSize()+Game.getPadding (),7*Game.getCellSize()+Game.getPadding (),donutpath);
+
+    Box box1 = new Box(10*Game.getCellSize()+Game.getPadding (), 9*Game.getCellSize()+Game.getPadding (),boxImage);
+    Box box2 = new Box(9*Game.getCellSize()+Game.getPadding (), 9*Game.getCellSize()+Game.getPadding (),boxImage);
+    Box box3 = new Box(10*Game.getCellSize()+Game.getPadding (), 8*Game.getCellSize()+Game.getPadding (),boxImage);
+    Box box4 = new Box(9*Game.getCellSize()+Game.getPadding (), 8*Game.getCellSize()+Game.getPadding (),boxImage);
+    Box box5 = new Box(10*Game.getCellSize()+Game.getPadding (), 7*Game.getCellSize()+Game.getPadding (),boxImage);
+    Box box6 = new Box(9*Game.getCellSize()+Game.getPadding (), 7*Game.getCellSize()+Game.getPadding (),boxImage);
+    Box box7 = new Box(8*Game.getCellSize()+Game.getPadding (), 7*Game.getCellSize()+Game.getPadding (),boxImage);
+    Box box8 = new Box(9*Game.getCellSize()+Game.getPadding (), 6*Game.getCellSize()+Game.getPadding (),boxImage);
+    Box box9 = new Box(8*Game.getCellSize()+Game.getPadding (), 6*Game.getCellSize()+Game.getPadding (),boxImage);
+    Box box10 = new Box(9*Game.getCellSize()+Game.getPadding (), 5*Game.getCellSize()+Game.getPadding (),boxImage);
+    Box box11 = new Box(8*Game.getCellSize()+Game.getPadding (), 5*Game.getCellSize()+Game.getPadding (),boxImage);
+    Box box12 = new Box(9*Game.getCellSize()+Game.getPadding (), 4*Game.getCellSize()+Game.getPadding (),boxImage);
+    Box box13 = new Box(8*Game.getCellSize()+Game.getPadding (), 4*Game.getCellSize()+Game.getPadding (),boxImage);
+    Box box14 = new Box(9*Game.getCellSize()+Game.getPadding (), 3*Game.getCellSize()+Game.getPadding (),boxImage);
+    Box box15 = new Box(8*Game.getCellSize()+Game.getPadding (), 3*Game.getCellSize()+Game.getPadding (),boxImage);
+    Box box16 = new Box(8*Game.getCellSize()+Game.getPadding (), 2*Game.getCellSize()+Game.getPadding (),boxImage);
+
 
     @Override
     public void makeCenario () {
         placeItem (maggie);
         placeItem ( donut );
+        placeItem(box1);
+        placeItem(box2);
+        placeItem(box3);
+        placeItem(box4);
+        placeItem(box5);
+        placeItem(box6);
+        placeItem(box7);
+        placeItem(box8);
+        placeItem(box9);
+        placeItem(box10);
+        placeItem(box11);
+        placeItem(box12);
+        placeItem(box13);
+        placeItem(box14);
+        placeItem(box15);
+        placeItem(box16);
+
         Hand hand = getHand();
         hand.erase ();
         ArrayList<Picture> temp = getArray();
         for (Picture item : temp) {
-            if (item.getClass ().equals(donut.getClass ())) {
+            if (item.getClass ().equals(donut.getClass ()) || item.getClass().equals(Box.class)) {
                 continue;
+            } else {
+               item.draw();
             }
-            item.draw();
+
+
         }
     
         hand.draw ();
