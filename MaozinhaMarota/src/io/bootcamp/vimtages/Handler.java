@@ -1,10 +1,14 @@
 package io.bootcamp.vimtages;
 
 import io.bootcamp.vimtages.Item.Donut;
+import io.bootcamp.vimtages.Level.Level;
 import org.academiadecodigo.simplegraphics.keyboard.Keyboard;
 import org.academiadecodigo.simplegraphics.keyboard.KeyboardEvent;
 import org.academiadecodigo.simplegraphics.keyboard.KeyboardEventType;
 import org.academiadecodigo.simplegraphics.keyboard.KeyboardHandler;
+import org.academiadecodigo.simplegraphics.pictures.Picture;
+
+import java.util.ArrayList;
 
 //keyboard mechanics
 public class Handler implements KeyboardHandler {
@@ -14,6 +18,11 @@ public class Handler implements KeyboardHandler {
     public Donut donut;
 
     private Game game;
+    private ArrayList<Picture> levelArrayList;
+
+    public void getLevelArrayList(ArrayList<Picture> levelArrayList) {
+        this.levelArrayList = levelArrayList;
+    }
 
     public Handler(Game game) {
         //this.donut = new Donut(new Position(10, 2));
@@ -70,7 +79,7 @@ public class Handler implements KeyboardHandler {
                 }
                 
               */
-                if(hand.getHandY()>=Game.getCellSize()+10) {
+                if(hand.getHandY()>=Game.getCellSize()+10 && isFilled(Direction.UP)) {
                     System.out.println("Move Up");
                     hand.move(Direction.UP);
                     hand.draw();
@@ -91,7 +100,7 @@ public class Handler implements KeyboardHandler {
                 }
                 
                 */
-                if(hand.getHandY() < Game.getCols()*Game.getCellSize()-Game.getPadding()) {
+                if(hand.getHandY() < Game.getCols()*Game.getCellSize()-Game.getPadding()&&isFilled(Direction.DOWN)) {
                     System.out.println("Move Down");
                     hand.move(Direction.DOWN);
                     hand.draw();
@@ -111,7 +120,7 @@ public class Handler implements KeyboardHandler {
                 }
                 
                 */
-                if(hand.getHandX()>Game.getPadding()) {
+                if(hand.getHandX()>Game.getPadding()&&isFilled(Direction.LEFT)) {
                     System.out.println("Move Left");
                     hand.move(Direction.LEFT);
                     hand.draw();
@@ -131,7 +140,7 @@ public class Handler implements KeyboardHandler {
                 }
                 
                 */
-                if(hand.getHandX()<Game.getRows()*Game.getCellSize()-Game.getCellSize()) {
+                if(hand.getHandX()<Game.getRows()*Game.getCellSize()-Game.getCellSize()&&isFilled(Direction.RIGHT)) {
                     System.out.println("Move Right");
                     hand.move(Direction.RIGHT);
                     hand.draw();
@@ -150,5 +159,39 @@ public class Handler implements KeyboardHandler {
     
     @Override
     public void keyReleased(KeyboardEvent keyboardEvent) {
+    }
+    private boolean isFilled(Direction direction){
+
+        switch(direction) {
+            case DOWN:
+                for (Picture object : levelArrayList) {
+                    if(object.getY() == hand.getHandY()+Game.getCellSize() && object.getX()==hand.getHandX()&& !(object.getClass().equals(Donut.class))){
+                        return false;
+                    }
+                }
+                break;
+            case UP:
+                for (Picture object : levelArrayList) {
+                    if(object.getY() == hand.getHandY()-Game.getCellSize()&& object.getX()==hand.getHandX()&&!(object.getClass().equals(Donut.class))x){
+                        return false;
+                    }
+                }
+                break;
+            case LEFT:
+                for (Picture object : levelArrayList) {
+                    if(object.getX() == hand.getHandX()-Game.getCellSize()&& object.getY()==hand.getHandY()&&!(object.getClass().equals(Donut.class))){
+                        return false;
+                    }
+                }
+                break;
+            case RIGHT:
+                for (Picture object : levelArrayList) {
+                    if(object.getX() == hand.getHandX()+Game.getCellSize()&& object.getY()==hand.getHandY()&&!(object.getClass().equals(Donut.class))){
+                        return false;
+                    }
+                }
+                break;
+        }
+       return true;
     }
 }

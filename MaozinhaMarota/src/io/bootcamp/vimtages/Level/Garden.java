@@ -21,10 +21,10 @@ public class Garden extends Level {
     }
     
     Tree tree1 = new Tree ( 10, 10,treeImage);
-    Tree tree2 = new Tree (  6*Game.getCellSize(), 6*Game.getCellSize(),treeImage);
-    Tree tree3 = new Tree (  12*Game.getCellSize(), 7*Game.getCellSize(),treeImage);
-    Tree tree4 = new Tree (  15*Game.getCellSize(), 3*Game.getCellSize(),treeImage);
-    Tree tree5 = new Tree ( 18*Game.getCellSize(), 5*Game.getCellSize(), treeImage);
+    Tree tree2 = new Tree (  6*Game.getCellSize()+Game.getPadding(), 6*Game.getCellSize()+Game.getPadding(),treeImage);
+    Tree tree3 = new Tree (  12*Game.getCellSize()+Game.getPadding(), 7*Game.getCellSize()+Game.getPadding(),treeImage);
+    Tree tree4 = new Tree (  15*Game.getCellSize()+Game.getPadding(), 3*Game.getCellSize()+Game.getPadding(),treeImage);
+    Tree tree5 = new Tree ( 18*Game.getCellSize()+Game.getPadding(), 5*Game.getCellSize()+Game.getPadding(), treeImage);
     Donut donut = new Donut ( 5*Game.getCellSize()+Game.getPadding (), 5*Game.getCellSize()+Game.getPadding (),"Item/Donutresized.png");
     Picture backscreen = new Picture (10,10,"/Levels/Jardim background.png");
     
