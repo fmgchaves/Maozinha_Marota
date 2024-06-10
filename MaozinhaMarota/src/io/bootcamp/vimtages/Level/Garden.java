@@ -85,7 +85,7 @@ public class Garden extends Level {
     @Override
     public void giveLevelFinalScreen () {
         int min1 = 20;
-        int min2 = 40;
+        int min2 = 30;
     
         Hand hand = getHand ();
         Picture star1 = new Picture (608,400, "Item/star.png");

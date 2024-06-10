@@ -14,7 +14,7 @@ public class Home extends Level {
         super(hand);
     }
     
-    private String backscreenpath = "Levels/Jardim background.png";
+    private String backscreenpath = "Levels/Casa background.png";
     private String maggiepath = "Item/Meggie_resized.png";
     private String donutpath = "Item/Donutresized.png";
     Picture backscreen = new Picture(Game.getPadding(),Game.getPadding(),backscreenpath);
@@ -70,15 +70,15 @@ public class Home extends Level {
 
         int dx = hand.getHandX();
         int dy = hand.getHandY();
-        hand.translateInitialPosition(10 - dx, 10 - dy);
+        hand.translateInitialPosition(10*80+10 - dx, 7*80+10 - dy);
 
         setHand(hand);
     }
     
     @Override
     public void giveLevelFinalScreen () {
-        int min1 = 20;
-        int min2 = 40;
+        int min1 = 40;
+        int min2 = 60;
         
         Hand hand = getHand ();
         Picture star1 = new Picture (608,400, "Item/star.png");

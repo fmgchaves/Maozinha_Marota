@@ -160,15 +160,15 @@ public class Moes extends Level {
 
         int dx = hand.getHandX();
         int dy = hand.getHandY();
-        hand.translateInitialPosition(10 - dx, 10 - dy);
+        hand.translateInitialPosition(19*80+10 - dx, 9*80+10 - dy);
 
         setHand(hand);
     }
     
     @Override
     public void giveLevelFinalScreen () {
-        int min1 = 20;
-        int min2 = 40;
+        int min1 = 50;
+        int min2 = 70;
     
         Hand hand = getHand ();
         Picture star1 = new Picture (608,400, "Item/star.png");
