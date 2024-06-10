@@ -44,7 +44,9 @@ public class Game {
     public static int getCols () {
         return cols;
     }
-    
+
+
+
     public void init () throws InterruptedException {
         
         initAndFinalScreen.init ();
@@ -55,24 +57,29 @@ public class Game {
         //Guarda níveis num Array
         Hand hand = new Hand(9*cellSize,10*cellSize);
         this.levelArrayList = gamesInsideArray ( this.levelArrayList,hand );
-        
+
         handler = new Handler ( this );
 
         //Corre nível (Devolve true quando acaba nível)
 
         for (Level level : levelArrayList) {
             handler.setHand (hand);
-            
-            level.drawScreen ();
-            level.makeCenario ();
 
+            handler.getLevelArrayList(level.getArray());         
+            
+          level.drawScreen ();
+            level.makeCenario ();
+            //hand.translateInitialPosition(19*cellSize - hand.getHandX(),9*cellSize - hand.getHandY());
             //Quando true dá os resultados
 
          while (!level.getLevelComplete()) {
 
+      
               level.setHand(handler.getHand());
               level.runScenario ();
             //System.out.println("Running");
+
+
          }
 
             level.setnewLevel();
@@ -84,6 +91,7 @@ public class Game {
             }
             
             level.deleteScenario ();
+
             setNextlevel ( false );
             hand.setNumberOfMoves();
             
@@ -109,4 +117,5 @@ public class Game {
         levelArrayList.add ( new Hell (hand) );
         return levelArrayList;
     }
+
 }

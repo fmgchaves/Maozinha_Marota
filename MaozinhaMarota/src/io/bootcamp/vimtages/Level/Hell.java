@@ -56,13 +56,21 @@ public class Hell extends Level {
     
     @Override
     public void deleteScenario () {
-        ArrayList<Picture> temp = getArray();
-        for (Picture item : temp) {
-            Picture exp = item;
-            exp.delete();
+            Hand hand = getHand();
+            ArrayList<Picture> temp = getArray ();
+            for (Picture item : temp) {
+                Picture exp = item;
+                exp.delete ();
+            }
+            backscreen.delete ();
+
+
+            int dx = hand.getHandX();
+            int dy = hand.getHandY();
+            hand.translateInitialPosition(10 - dx, 10 - dy);
+
+            setHand(hand);
         }
-        backscreen.delete ();
-    }
     
     @Override
     public void giveLevelFinalScreen () {

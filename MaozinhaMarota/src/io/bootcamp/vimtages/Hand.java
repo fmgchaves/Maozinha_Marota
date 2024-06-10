@@ -9,7 +9,16 @@ public class Hand {
     
     private Picture hand;
     private String handPic = "Item/Mao.png";
-    
+    private boolean boosted;
+
+    public boolean isBoosted() {
+        return boosted;
+    }
+
+    public void setBoosted(boolean boosted) {
+        this.boosted = boosted;
+    }
+
     public Hand (Integer x, Integer y) {
         this.hand = new Picture ( x + Game.getPadding (), y + Game.getPadding (), handPic );
     }
@@ -17,7 +26,7 @@ public class Hand {
     public int getHandX () {
         return this.hand.getX ();
     }
-    
+
     public int getHandY () {
         return this.hand.getY ();
     }
@@ -27,7 +36,7 @@ public class Hand {
     }
     
     public void Fill (Integer x, Integer y) {
-        Rectangle rectangle = new Rectangle (x, y, Game.getCellSize (), Game.getCellSize ());
+        Rectangle rectangle = new Rectangle (x+Game.getPadding()*2,y+Game.getPadding()-5, Game.getCellSize (), Game.getCellSize ());
         rectangle.setColor ( Color.YELLOW );
         rectangle.fill ();
     }
@@ -70,4 +79,9 @@ public class Hand {
                 break;
         }
     }
+
+    public void translateInitialPosition(int x, int y){
+        hand.translate(x, y);
+    }
+
 }
