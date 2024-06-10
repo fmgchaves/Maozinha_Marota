@@ -10,7 +10,7 @@ import org.academiadecodigo.simplegraphics.pictures.Picture;
 import java.util.ArrayList;
 
 public class Factory extends Level {
-    Picture backscreen = new Picture (10,10,"/Levels/Hell background.png");
+    Picture backscreen = new Picture (10,10,"Levels/Factory background.png");
     String radioactiveImage = "Item/Pepita Vertical.png";
     String donnutImage = "Item/Donutresized.png";
     private static Integer numberofWall = 27;
@@ -113,12 +113,20 @@ public class Factory extends Level {
 
     @Override
     public void deleteScenario () {
+        Hand hand = getHand();
         ArrayList<Picture> temp = getArray ();
         for (Picture item : temp) {
             Picture exp = item;
             exp.delete ();
         }
         backscreen.delete ();
+
+
+        int dx = hand.getHandX();
+        int dy = hand.getHandY();
+        hand.translateInitialPosition(10 - dx, 10 - dy);
+
+        setHand(hand);
     }
 
     
@@ -146,6 +154,6 @@ public class Factory extends Level {
     
     @Override
     public void drawScreen () {
-    
+
     }
 }

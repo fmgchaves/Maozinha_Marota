@@ -26,7 +26,7 @@ public class Hand {
     public int getHandX () {
         return this.hand.getX ();
     }
-    
+
     public int getHandY () {
         return this.hand.getY ();
     }
@@ -78,6 +78,10 @@ public class Hand {
             default:
                 break;
         }
+    }
+
+    public void translateInitialPosition(int x, int y){
+        hand.translate(x, y);
     }
 
 }

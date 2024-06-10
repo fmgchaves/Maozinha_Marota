@@ -147,12 +147,20 @@ public class Moes extends Level {
 
     @Override
     public void deleteScenario () {
-        ArrayList<Picture> temp = getArray();
+        Hand hand = getHand();
+        ArrayList<Picture> temp = getArray ();
         for (Picture item : temp) {
             Picture exp = item;
-            exp.delete();
+            exp.delete ();
         }
         backscreen.delete ();
+
+
+        int dx = hand.getHandX();
+        int dy = hand.getHandY();
+        hand.translateInitialPosition(10 - dx, 10 - dy);
+
+        setHand(hand);
     }
     
     @Override
