@@ -2,15 +2,18 @@ package io.bootcamp.vimtages.Level;
 
 import io.bootcamp.vimtages.Game;
 import io.bootcamp.vimtages.Hand;
-import io.bootcamp.vimtages.Item.Beer;
 import io.bootcamp.vimtages.Item.Donut;
 import io.bootcamp.vimtages.Item.Flanders;
 import io.bootcamp.vimtages.Item.Obstacle.Box;
+import io.bootcamp.vimtages.Sound;
 import org.academiadecodigo.simplegraphics.pictures.Picture;
 
+import java.io.IOException;
 import java.util.ArrayList;
 
 public class Hell extends Level {
+    
+    Sound sound = new Sound ();
 
     public Hell( Hand hand) {
         super(hand);
@@ -93,6 +96,9 @@ public class Hell extends Level {
 
     @Override
     public void makeCenario () {
+        
+        sound.playSound ( "MaozinhaMarota/resources/Sound/Simpsons1.wav" );
+        
         Hand hand = getHand ();
         hand.erase ();
         placeItem (flanders);
@@ -123,7 +129,6 @@ public class Hell extends Level {
         ArrayList<Picture> temp = getArray();
         for (Picture item : temp) {
             if (item.getClass ().equals(donut.getClass ()) || item.getClass().equals(Box.class)) {
-
                 continue;
             }
             item.draw();
@@ -133,7 +138,7 @@ public class Hell extends Level {
     }
     
     @Override
-    public void runScenario () {
+    public void runScenario () throws IOException {
         Hand hand = getHand();
 
         System.out.println("hand X: "+hand.getHandX());
@@ -142,8 +147,10 @@ public class Hell extends Level {
         System.out.println("donut Y: "+donut.getX());
         
         if ((hand.getHandX() == donut.getX()) && (hand.getHandY() == donut.getY())) {
+            sound.stopSound ();
             donut.draw();
             setLevelComplete();
+            sound.playSound ( "MaozinhaMarota/resources/Sound/Voicy_Hmm_donuts.mp3" );
         }
     }
     

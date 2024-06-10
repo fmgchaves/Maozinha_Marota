@@ -4,11 +4,14 @@ import io.bootcamp.vimtages.Game;
 import io.bootcamp.vimtages.Hand;
 import io.bootcamp.vimtages.Item.Donut;
 import io.bootcamp.vimtages.Item.Obstacle.Radioactive;
+import io.bootcamp.vimtages.Sound;
 import org.academiadecodigo.simplegraphics.pictures.Picture;
 
+import java.io.IOException;
 import java.util.ArrayList;
 
 public class Factory extends Level {
+    Sound sound = new Sound ();
     Picture backscreen = new Picture (10,10,"Levels/Factory background.png");
     String radioactiveImage = "Item/Pepita Vertical.png";
     String donnutImage = "Item/Donutresized.png";
@@ -52,6 +55,8 @@ public class Factory extends Level {
     public void makeCenario () {
         Hand hand = getHand();
         hand.erase ();
+        
+        sound.playSound ( "MaozinhaMarota/resources/Sound/Simpsons1.wav" );
         placeItem (donut);
         placeItem (Radio1);
         placeItem (Radio2);
@@ -92,7 +97,7 @@ public class Factory extends Level {
     }
 
     @Override
-    public void runScenario () {
+    public void runScenario () throws IOException {
         Hand hand = getHand();
         System.out.println("hand X: "+hand.getHandX());
         System.out.println("donut X: "+donut.getX());
@@ -100,7 +105,9 @@ public class Factory extends Level {
         System.out.println("donut Y: "+donut.getX());
 
         if ((hand.getHandX() == donut.getX()) && (hand.getHandY() == donut.getY())) {
+            sound.stopSound ();
             setLevelComplete();
+            sound.playSound ( "MaozinhaMarota/resources/Sound/Voicy_Hmm_donuts.mp3");
         }
     }
 

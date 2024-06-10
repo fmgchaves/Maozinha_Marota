@@ -2,6 +2,7 @@ package io.bootcamp.vimtages;
 
 import io.bootcamp.vimtages.Level.*;
 
+import java.io.IOException;
 import java.util.ArrayList;
 
 public class Game {
@@ -47,7 +48,7 @@ public class Game {
 
 
 
-    public void init () throws InterruptedException {
+    public void init () throws InterruptedException, IOException {
         
         initAndFinalScreen.init ();
         Thread.sleep ( 2000 );

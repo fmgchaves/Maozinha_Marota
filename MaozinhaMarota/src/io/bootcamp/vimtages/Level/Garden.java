@@ -4,11 +4,14 @@ import io.bootcamp.vimtages.Game;
 import io.bootcamp.vimtages.Hand;
 import io.bootcamp.vimtages.Item.Donut;
 import io.bootcamp.vimtages.Item.Obstacle.Tree;
+import io.bootcamp.vimtages.Sound;
 import org.academiadecodigo.simplegraphics.pictures.Picture;
 
+import java.io.IOException;
 import java.util.ArrayList;
 
 public class Garden extends Level {
+    private Sound sound = new Sound ();
     private String treeImage = "Item/Arvoreresized.png";
 
     private boolean levelComplete;
@@ -29,6 +32,7 @@ public class Garden extends Level {
     
     @Override
     public void makeCenario () {
+        sound.playSound ( "MaozinhaMarota/resources/Sound/Simpsons1.wav" );
         Hand hand = getHand();
         hand.erase ();
         placeItem ( donut );
@@ -48,7 +52,7 @@ public class Garden extends Level {
     }
 
     @Override
-    public void runScenario () {
+    public void runScenario () throws IOException {
         Hand hand = getHand();
 
         System.out.println("hand X: "+hand.getHandX());
@@ -57,7 +61,9 @@ public class Garden extends Level {
         System.out.println("donut Y: "+donut.getX());
 
         if ((hand.getHandX() == donut.getX()) && (hand.getHandY() == donut.getY())) {
+            sound.stopSound ();
             setLevelComplete();
+            sound.playSound ( "MaozinhaMarota/resources/Sound/Voicy_Hmm_donuts.wav");
         }
     }
     

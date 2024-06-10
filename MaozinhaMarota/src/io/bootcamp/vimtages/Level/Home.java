@@ -5,11 +5,15 @@ import io.bootcamp.vimtages.Hand;
 import io.bootcamp.vimtages.Item.Donut;
 import io.bootcamp.vimtages.Item.Maggie;
 import io.bootcamp.vimtages.Item.Obstacle.Box;
+import io.bootcamp.vimtages.Sound;
 import org.academiadecodigo.simplegraphics.pictures.Picture;
 
+import java.io.IOException;
 import java.util.ArrayList;
 
 public class Home extends Level {
+    
+    Sound sound = new Sound ();
 
     public Home(Hand hand) {
         super(hand);
@@ -44,6 +48,7 @@ public class Home extends Level {
 
     @Override
     public void makeCenario () {
+        sound.playSound ( "MaozinhaMarota/resources/Sound/Simpsons1.wav" );
         placeItem (maggie);
         placeItem ( donut );
         placeItem(box1);
@@ -81,7 +86,7 @@ public class Home extends Level {
     }
 
     @Override
-    public void runScenario () {
+    public void runScenario () throws IOException {
         Hand hand = getHand();
 
     
@@ -91,8 +96,10 @@ public class Home extends Level {
         System.out.println("donut Y: "+donut.getX());
 
         if (hand.getHandX() == donut.getX() && hand.getHandY() == donut.getY()) {
+            sound.stopSound ();
             donut.draw();
             setLevelComplete();
+            sound.playSound ( "MaozinhaMarota/resources/Sound/Simpsons1.wav" );
         }
     }
 
