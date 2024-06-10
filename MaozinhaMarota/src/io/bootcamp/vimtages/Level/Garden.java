@@ -4,8 +4,10 @@ import io.bootcamp.vimtages.Game;
 import io.bootcamp.vimtages.Hand;
 import io.bootcamp.vimtages.Item.Donut;
 import io.bootcamp.vimtages.Item.Obstacle.Tree;
+import io.bootcamp.vimtages.Sound;
 import org.academiadecodigo.simplegraphics.pictures.Picture;
 
+import java.io.IOException;
 import java.util.ArrayList;
 
 public class Garden extends Level {
@@ -27,6 +29,7 @@ public class Garden extends Level {
     Donut donut = new Donut ( 5*Game.getCellSize()+Game.getPadding (), 5*Game.getCellSize()+Game.getPadding (),"Item/Donutresized.png");
     Picture backscreen = new Picture (10,10,"/Levels/Jardim background.png");
     
+    private Sound sound = new Sound ();
     @Override
     public void makeCenario () {
         Hand hand = getHand();
@@ -43,12 +46,14 @@ public class Garden extends Level {
             item.draw();
         }
     
+        sound.playSound ( "MaozinhaMarota/resources/Sound/Simpsons1.wav");
+        
         hand.draw ();
         
     }
 
     @Override
-    public void runScenario () {
+    public void runScenario () throws IOException {
         Hand hand = getHand();
 
         System.out.println("hand X: "+hand.getHandX());
@@ -57,12 +62,14 @@ public class Garden extends Level {
         System.out.println("donut Y: "+donut.getX());
 
         if ((hand.getHandX() == donut.getX()) && (hand.getHandY() == donut.getY())) {
+            sound.stopSound ();
+            sound.playSound ("MaozinhaMarota/resources/Sound/Voicy-Hmm-donuts.wav");
             setLevelComplete();
         }
     }
     
     @Override
-    public void deleteScenario () {
+    public void deleteScenario () throws IOException {
             Hand hand = getHand();
             ArrayList<Picture> temp = getArray ();
             for (Picture item : temp) {
@@ -73,7 +80,8 @@ public class Garden extends Level {
             int dx = hand.getHandX();
             int dy = hand.getHandY();
             hand.translateInitialPosition(20*80+10 - dx, 9*80+10 - dy);
-            //setHand(hand);
+            setHand(hand);
+            sound.stopSound();
         }
     
     @Override

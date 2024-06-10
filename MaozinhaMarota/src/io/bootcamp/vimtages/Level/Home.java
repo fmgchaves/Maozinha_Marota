@@ -5,8 +5,10 @@ import io.bootcamp.vimtages.Hand;
 import io.bootcamp.vimtages.Item.Donut;
 import io.bootcamp.vimtages.Item.Maggie;
 import io.bootcamp.vimtages.Item.Obstacle.Box;
+import io.bootcamp.vimtages.Sound;
 import org.academiadecodigo.simplegraphics.pictures.Picture;
 
+import java.io.IOException;
 import java.util.ArrayList;
 
 public class Home extends Level {
@@ -40,7 +42,8 @@ public class Home extends Level {
     Box box14 = new Box(9*Game.getCellSize()+Game.getPadding (), 3*Game.getCellSize()+Game.getPadding (),boxImage);
     Box box15 = new Box(8*Game.getCellSize()+Game.getPadding (), 3*Game.getCellSize()+Game.getPadding (),boxImage);
     Box box16 = new Box(8*Game.getCellSize()+Game.getPadding (), 2*Game.getCellSize()+Game.getPadding (),boxImage);
-
+    
+    private Sound sound = new Sound ();
 
     @Override
     public void makeCenario () {
@@ -72,7 +75,8 @@ public class Home extends Level {
             } else {
                item.draw();
             }
-
+    
+            sound.playSound ( "MaozinhaMarota/resources/Sound/Simpsons1.wav");
 
         }
     
@@ -81,7 +85,7 @@ public class Home extends Level {
     }
 
     @Override
-    public void runScenario () {
+    public void runScenario () throws IOException {
         Hand hand = getHand();
     
         System.out.println("hand X: "+hand.getHandX());
@@ -90,13 +94,15 @@ public class Home extends Level {
         System.out.println("donut Y: "+donut.getX());
 
         if (hand.getHandX() == donut.getX() && hand.getHandY() == donut.getY()) {
+            sound.stopSound ();
+            sound.playSound ("MaozinhaMarota/resources/Sound/Voicy-Hmm-donuts.wav");
             donut.draw();
             setLevelComplete();
         }
     }
 
     @Override
-    public void deleteScenario () {
+    public void deleteScenario () throws IOException {
         Hand hand = getHand();
         ArrayList<Picture> temp = getArray ();
         for (Picture item : temp) {
@@ -110,7 +116,7 @@ public class Home extends Level {
 
         hand.translateInitialPosition(10*80+10 - dx, 7*80+10 - dy);
 
-
+        sound.stopSound();
        setHand(hand);
     }
     
