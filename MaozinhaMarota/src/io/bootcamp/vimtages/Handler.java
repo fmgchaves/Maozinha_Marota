@@ -70,7 +70,7 @@ public class Handler implements KeyboardHandler {
                 }
                 
               */
-                if(hand.getHandY()>=Game.getCellSize()) {
+                if(hand.getHandY()>=Game.getCellSize()+10) {
                     System.out.println("Move Up");
                     hand.move(Direction.UP);
                     hand.draw();
@@ -91,7 +91,7 @@ public class Handler implements KeyboardHandler {
                 }
                 
                 */
-                if(hand.getHandY()< Game.getCols()*Game.getCellSize()+Game.getPadding()) {
+                if(hand.getHandY() < Game.getCols()*Game.getCellSize()-Game.getPadding()) {
                     System.out.println("Move Down");
                     hand.move(Direction.DOWN);
                     hand.draw();
