@@ -70,7 +70,7 @@ public class Handler implements KeyboardHandler {
                 }
                 
               */
-                if(hand.getHandY()>Game.getCellSize()*2) {
+                if(hand.getHandY()>=Game.getCellSize()) {
                     System.out.println("Move Up");
                     hand.move(Direction.UP);
                     hand.draw();
@@ -91,7 +91,7 @@ public class Handler implements KeyboardHandler {
                 }
                 
                 */
-                if(hand.getHandY()< Game.getCols()*Game.getCellSize()+Game.getCellSize()*2) {
+                if(hand.getHandY()< Game.getCols()*Game.getCellSize()+Game.getPadding()) {
                     System.out.println("Move Down");
                     hand.move(Direction.DOWN);
                     hand.draw();
@@ -111,7 +111,7 @@ public class Handler implements KeyboardHandler {
                 }
                 
                 */
-                if(hand.getHandX()>Game.getCellSize()) {
+                if(hand.getHandX()>Game.getPadding()) {
                     System.out.println("Move Left");
                     hand.move(Direction.LEFT);
                     hand.draw();
@@ -131,7 +131,7 @@ public class Handler implements KeyboardHandler {
                 }
                 
                 */
-                if(hand.getHandX()<Game.getRows()*Game.getCellSize()) {
+                if(hand.getHandX()<Game.getRows()*Game.getCellSize()-Game.getCellSize()) {
                     System.out.println("Move Right");
                     hand.move(Direction.RIGHT);
                     hand.draw();
