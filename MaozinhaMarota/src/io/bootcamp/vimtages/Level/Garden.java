@@ -24,7 +24,7 @@ public class Garden extends Level {
     Tree tree3 = new Tree (  12*Game.getCellSize(), 7*Game.getCellSize(),treeImage);
     Tree tree4 = new Tree (  15*Game.getCellSize(), 3*Game.getCellSize(),treeImage);
     Tree tree5 = new Tree ( 18*Game.getCellSize(), 5*Game.getCellSize(), treeImage);
-    Donut donut = new Donut ( 0, 0,treeImage);
+    Tree donut = new Tree ( 0, 0,treeImage);
     Picture backscreen = new Picture (10,10,"/Levels/Jardim background.png");
     
     @Override
@@ -46,7 +46,7 @@ public class Garden extends Level {
     @Override
     public boolean runScenario () {
         Hand hand = getHand ();
-    
+
         ArrayList<Picture> temp = getArray();
         for (Picture item : temp) {
             Picture exp = item;
@@ -55,7 +55,8 @@ public class Garden extends Level {
             //}
             exp.draw();
         }
-    
+
+
         System.out.println ("donut Col: "+donut.getY ());
         System.out.println ("donut Row: "+donut.getX());
         System.out.println ("hand Col: "+hand.getX()/ Game.getCellSize ());

@@ -12,7 +12,7 @@ import org.academiadecodigo.simplegraphics.pictures.Picture;
 
 import java.util.ArrayList;
 
-public abstract class Level{
+public abstract class Level {
 
     private ArrayList<Picture> array;
     private boolean win;

@@ -11,8 +11,8 @@ public class Hand extends Picture {
     private Picture hand;
     private String handPic = "Item/Mao.png";
     
-    public Hand (Integer x, Integer y) {
-        this.hand = new Picture ( x + Game.getPadding (), y + Game.getPadding (), handPic );
+    public Hand (Integer x, Integer y,String handPic) {
+        super(x,y,handPic);
     }
 
     
@@ -30,26 +30,26 @@ public class Hand extends Picture {
         switch (dir) {
             case UP:
                 ++this.numberOfMoves;
-                Fill(hand.getX (), hand.getY());
-                hand.translate ( 0, -Game.getCellSize () );
+                Fill(this.getX (), this.getY());
+                this.translate ( 0, -Game.getCellSize () );
                 //harmUp.draw();
                 break;
             case DOWN:
                 ++this.numberOfMoves;
-                Fill(hand.getX (), hand.getY());
-                hand.translate ( 0, Game.getCellSize () );
+                Fill(this.getX (), this.getY());
+                this.translate ( 0, Game.getCellSize () );
                 //harmDown.draw();
                 break;
             case LEFT:
                 ++this.numberOfMoves;
-                Fill(hand.getX (), hand.getY());
-                hand.translate ( -Game.getCellSize (), 0 );
+                Fill(this.getX (), this.getY());
+                this.translate ( -Game.getCellSize (), 0 );
                 //harmLeft.draw();
                 break;
             case RIGHT:
                 ++this.numberOfMoves;
-                Fill(hand.getX (), hand.getY());
-                hand.translate ( Game.getCellSize (), 0 );
+                Fill(this.getX (), this.getY());
+                this.translate ( Game.getCellSize (), 0 );
                 //harmRight.draw();
                 break;
             default:

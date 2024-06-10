@@ -47,21 +47,21 @@ public class Game {
         
         initAndFinalScreen.init ();
         Thread.sleep ( 2000 );
-        
-        
+
+        String handPic = "Item/Mao.png";
         //Criar níveís
         //Guarda níveis num Array
-        Hand hand = new Hand(9*cellSize,10*cellSize);
+        Hand hand = new Hand(9*cellSize,10*cellSize,handPic);
         this.levelArrayList = gamesInsideArray ( this.levelArrayList,hand );
         
-        handler = new Handler ( this );
+
 
         //Corre nível (Devolve true quando acaba nível)
 
         for (Level level : levelArrayList) {
 
-            handler.setHand (hand);
-            
+
+
             level.drawScreen ();
             //Testgrid testgrid = new Testgrid(cols,rows,cellSize,padding);
             //testgrid.gridSquares();
@@ -70,14 +70,18 @@ public class Game {
             //level.deleteScenario ();
             level.makeCenario ();
             //Quando true dá os resultados
-            
+            level.setHand(hand);
+            handler = new Handler ( this ,hand);
+            handler.setHand (level.getHand());
+            hand.draw();
             while (!level.runScenario ()) {
                 Thread.sleep ( 5000 ); //Gives delay to the thread and the game waits xxxx milisecons;
                 level.giveLevelFinalScreen ();
             }
             
             while (!nextlevel) {
-                System.out.println ( "Waiting" );
+                Thread.sleep((1000));
+                //System.out.println ( "Waiting" );
             }
             
             level.deleteScenario ();
