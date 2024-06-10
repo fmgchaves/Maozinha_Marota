@@ -1,6 +1,8 @@
 package io.bootcamp.vimtages;
 
+import io.bootcamp.vimtages.Item.Beer;
 import io.bootcamp.vimtages.Item.Donut;
+import io.bootcamp.vimtages.Item.Obstacle.Box;
 import io.bootcamp.vimtages.Level.Level;
 import org.academiadecodigo.simplegraphics.keyboard.Keyboard;
 import org.academiadecodigo.simplegraphics.keyboard.KeyboardEvent;
@@ -61,6 +63,7 @@ public class Handler implements KeyboardHandler {
 
     @Override
     public void keyPressed(KeyboardEvent keyboardEvent) {
+        boosted();
         switch(keyboardEvent.getKey()){
             case KeyboardEvent.KEY_ENTER:
                 game.setNextlevel ( true );
@@ -165,22 +168,31 @@ public class Handler implements KeyboardHandler {
         switch(direction) {
             case DOWN:
                 for (Picture object : levelArrayList) {
-                    if(object.getY() == hand.getHandY()+Game.getCellSize() && object.getX()==hand.getHandX()&& !(object.getClass().equals(Donut.class))){
+                    if(object.getY() == hand.getHandY()+Game.getCellSize() && object.getX()==hand.getHandX()&&!(object.getClass().equals(Donut.class))&& hand.isBoosted()){
                         return false;
+                    }
+                    if (object.getX() == hand.getHandX()+Game.getCellSize()&& object.getY()==hand.getHandY()&&(object.getClass().equals(Box.class))&&hand.isBoosted()){
+                        return true;
                     }
                 }
                 break;
             case UP:
                 for (Picture object : levelArrayList) {
-                    if(object.getY() == hand.getHandY()-Game.getCellSize()&& object.getX()==hand.getHandX()&&!(object.getClass().equals(Donut.class))x){
+                    if(object.getY() == hand.getHandY()-Game.getCellSize()&& object.getX()==hand.getHandX()&&!(object.getClass().equals(Donut.class))&& hand.isBoosted()){
                         return false;
+                    }
+                    if (object.getX() == hand.getHandX()+Game.getCellSize()&& object.getY()==hand.getHandY()&&(object.getClass().equals(Box.class))&&hand.isBoosted()){
+                        return true;
                     }
                 }
                 break;
             case LEFT:
                 for (Picture object : levelArrayList) {
-                    if(object.getX() == hand.getHandX()-Game.getCellSize()&& object.getY()==hand.getHandY()&&!(object.getClass().equals(Donut.class))){
+                    if(object.getX() == hand.getHandX()-Game.getCellSize()&& object.getY()==hand.getHandY()&&!(object.getClass().equals(Donut.class))&& hand.isBoosted()){
                         return false;
+                    }
+                    if (object.getX() == hand.getHandX()+Game.getCellSize()&& object.getY()==hand.getHandY()&&(object.getClass().equals(Box.class))&&hand.isBoosted()){
+                        return true;
                     }
                 }
                 break;
@@ -189,9 +201,22 @@ public class Handler implements KeyboardHandler {
                     if(object.getX() == hand.getHandX()+Game.getCellSize()&& object.getY()==hand.getHandY()&&!(object.getClass().equals(Donut.class))){
                         return false;
                     }
+                    if (object.getX() == hand.getHandX()+Game.getCellSize()&& object.getY()==hand.getHandY()&&(object.getClass().equals(Box.class))&&hand.isBoosted()){
+                        return true;
+                    }
                 }
                 break;
         }
        return true;
     }
-}
+    private void boosted(){
+                for (Picture object : levelArrayList) {
+                    if(object.getY() == hand.getHandY() && object.getX()==hand.getHandX()
+                            && (object.getClass().equals(Beer.class))
+                            )
+                    {
+                        hand.setBoosted(true);
+                    }
+                }
+        }
+    }

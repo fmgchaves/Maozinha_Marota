@@ -9,7 +9,16 @@ public class Hand {
     
     private Picture hand;
     private String handPic = "Item/Mao.png";
-    
+    private boolean boosted;
+
+    public boolean isBoosted() {
+        return boosted;
+    }
+
+    public void setBoosted(boolean boosted) {
+        this.boosted = boosted;
+    }
+
     public Hand (Integer x, Integer y) {
         this.hand = new Picture ( x + Game.getPadding (), y + Game.getPadding (), handPic );
     }
@@ -70,4 +79,5 @@ public class Hand {
                 break;
         }
     }
+
 }
