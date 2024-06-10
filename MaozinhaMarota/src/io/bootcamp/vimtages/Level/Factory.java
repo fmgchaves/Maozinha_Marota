@@ -4,10 +4,8 @@ import io.bootcamp.vimtages.Game;
 import io.bootcamp.vimtages.Hand;
 import io.bootcamp.vimtages.Item.Donut;
 import io.bootcamp.vimtages.Item.Obstacle.Radioactive;
-import io.bootcamp.vimtages.Sound;
 import org.academiadecodigo.simplegraphics.pictures.Picture;
 
-import java.io.IOException;
 import java.util.ArrayList;
 
 public class Factory extends Level {
@@ -15,7 +13,6 @@ public class Factory extends Level {
     String radioactiveImage = "Item/Pepita Vertical.png";
     String donnutImage = "Item/Donutresized.png";
     private static Integer numberofWall = 27;
-    private Sound sound = new Sound ();
     Donut donut = new Donut (6*Game.getCellSize()+Game.getPadding(),5*Game.getCellSize()+Game.getPadding(),donnutImage);
     Radioactive Radio1 = new Radioactive(5*Game.getCellSize()+Game.getPadding(),4*Game.getCellSize()+Game.getPadding(),radioactiveImage );
     Radioactive Radio2 = new Radioactive( 5*Game.getCellSize()+Game.getPadding(),5*Game.getCellSize()+Game.getPadding(),radioactiveImage );
@@ -85,9 +82,7 @@ public class Factory extends Level {
         placeItem (Radio27);
         placeItem (Radio28);
         placeItem (Radio29);
-    
-        sound.playSound ( "MaozinhaMarota/resources/Sound/Simpsons1.wav");
-        
+
         ArrayList<Picture> temp = getArray();
         for (Picture item : temp) {
             item.draw();
@@ -97,26 +92,20 @@ public class Factory extends Level {
     }
 
     @Override
-    public void runScenario () throws IOException {
+    public void runScenario () {
         Hand hand = getHand();
-
-        
-       // System.out.println("hand X: "+hand.getHandX());
-       // System.out.println("donut X: "+donut.getX());
-       // System.out.println("hand Y: "+hand.getHandX());
-       // System.out.println("donut Y: "+donut.getX());
-
-        
+        System.out.println("hand X: "+hand.getHandX());
+        System.out.println("donut X: "+donut.getX());
+        System.out.println("hand Y: "+hand.getHandX());
+        System.out.println("donut Y: "+donut.getX());
 
         if ((hand.getHandX() == donut.getX()) && (hand.getHandY() == donut.getY())) {
-            sound.stopSound ();
-            sound.playSound ("MaozinhaMarota/resources/Sound/Voicy-Hmm-donuts.wav");
             setLevelComplete();
         }
     }
 
     @Override
-    public void deleteScenario () throws IOException {
+    public void deleteScenario () {
         Hand hand = getHand();
         hand.changePic("Item/HandLeft.png");
         ArrayList<Picture> temp = getArray ();
@@ -134,8 +123,6 @@ public class Factory extends Level {
         hand.translateInitialPosition(10*80+10 - dx, 9*80+10 - dy);
 
         setHand(hand);
-    
-        sound.stopSound();
 
     }
 

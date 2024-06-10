@@ -16,7 +16,6 @@ public class Handler implements KeyboardHandler {
     private static int enterCounter = 0;
     public Hand hand;
     public Donut donut;
-    public Sound sound = new Sound ();
     private String handLeft= "Item/HandLeft.png";
     private String handRight="Item/handRight.png";
     private String handDown = "Item/HandDown.png";
@@ -92,8 +91,7 @@ public class Handler implements KeyboardHandler {
                     hand.changePic(handUp);
                     setHand ( hand );
                     hand.draw();
-                } else {
-                    sound.playSound ("MaozinhaMarota/resources/Sound/doh1.wav");
+                    
                 }
 
                 break;
@@ -118,11 +116,7 @@ public class Handler implements KeyboardHandler {
                         hand.changePic(handDown);
                         setHand ( hand );
                         hand.draw();
-                } else {
-                        sound.playSound ("MaozinhaMarota/resources/Sound/doh1.wav");
                 }
-                
-                
                 break;
             case KeyboardEvent.KEY_LEFT:
                 boosted();
@@ -144,10 +138,7 @@ public class Handler implements KeyboardHandler {
                     hand.changePic(handLeft);
                     setHand ( hand );
                     hand.draw();
-                 } else {
-                    sound.playSound ("MaozinhaMarota/resources/Sound/doh1.wav");
                 }
-                
                 break;
             case KeyboardEvent.KEY_RIGHT:
                 boosted();
@@ -169,9 +160,8 @@ public class Handler implements KeyboardHandler {
                     hand.changePic(handRight);
                     setHand ( hand );
                     hand.draw();
-                } else {
-                    sound.playSound ("MaozinhaMarota/resources/Sound/doh1.wav");
                 }
+                
                 
                 break;
         }
