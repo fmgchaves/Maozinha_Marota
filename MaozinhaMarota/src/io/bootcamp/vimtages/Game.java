@@ -44,7 +44,9 @@ public class Game {
     public static int getCols () {
         return cols;
     }
-    
+
+
+
     public void init () throws InterruptedException {
         
         initAndFinalScreen.init ();
@@ -55,15 +57,17 @@ public class Game {
         //Guarda níveis num Array
         Hand hand = new Hand(9*cellSize,10*cellSize);
         this.levelArrayList = gamesInsideArray ( this.levelArrayList,hand );
-        
+
         handler = new Handler ( this );
 
         //Corre nível (Devolve true quando acaba nível)
 
         for (Level level : levelArrayList) {
             handler.setHand (hand);
-            level.getClass().equals(Factory.class);
-            level.drawScreen ();
+
+            handler.getLevelArrayList(level.getArray());         
+            
+          level.drawScreen ();
             level.makeCenario ();
             //hand.translateInitialPosition(19*cellSize - hand.getHandX(),9*cellSize - hand.getHandY());
             //Quando true dá os resultados
