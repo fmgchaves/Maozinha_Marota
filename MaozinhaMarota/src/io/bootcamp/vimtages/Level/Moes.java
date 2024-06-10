@@ -68,7 +68,9 @@ public class Moes extends Level {
     
     @Override
     public void makeCenario () {
-
+        Hand hand = getHand();
+        hand.erase ();
+        
         placeItem ( donut );
         placeItem ( box1 );
         placeItem ( box2 );
@@ -121,21 +123,13 @@ public class Moes extends Level {
             System.out.println(item);
             exp.draw();
         }
-        
-        for (Integer i = 0; i < 45; i++) {
-            System.out.println ( "Object" + getArrayPosIndex ( i ) );
-            System.out.println ( "Position Col" + getArrayPosIndex ( i ).getY() );
-            System.out.println ( "Position Row" + getArrayPosIndex ( i ).getX() );
-        }
-
-        
-        
+        hand.draw ();
     }
 
     @Override
     public void runScenario () {
         Hand hand = getHand();
-
+        
         System.out.println("hand X: "+hand.getHandX());
         System.out.println("donut X: "+donut.getX());
         System.out.println("hand Y: "+hand.getHandX());
@@ -152,8 +146,7 @@ public class Moes extends Level {
         Hand hand = getHand();
         ArrayList<Picture> temp = getArray ();
         for (Picture item : temp) {
-            Picture exp = item;
-            exp.delete ();
+            item.delete ();
         }
         backscreen.delete ();
 
@@ -162,7 +155,7 @@ public class Moes extends Level {
         int dy = hand.getHandY();
         hand.translateInitialPosition(10 - dx, 10 - dy);
 
-        setHand(hand);
+       setHand(hand);
     }
     
     @Override

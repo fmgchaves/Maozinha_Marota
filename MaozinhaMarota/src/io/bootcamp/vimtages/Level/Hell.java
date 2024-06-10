@@ -15,12 +15,14 @@ public class Hell extends Level {
     }
     private String donutImage = "Item/Donutresized.png";
     private String flandersImage = "Item/Devil_Flanders.png";
-    private Donut donut = new Donut (13* Game.getCellSize()+Game.getPadding(),3*Game.getCellSize()+Game.getPadding(),donutImage);
+    private Donut donut = new Donut (13* Game.getCellSize()+Game.getPadding(),2*Game.getCellSize()+Game.getPadding(),donutImage);
     private Flanders flanders = new Flanders (13* Game.getCellSize()-25, 3* Game.getCellSize()-30, "Item/Devil_Flanders.png");
     private Picture backscreen = new Picture (10,10,"Levels/Hell background.png");
     
     @Override
     public void makeCenario () {
+        Hand hand = getHand ();
+        hand.erase ();
         placeItem (flanders);
         placeItem (donut);
     
@@ -31,12 +33,8 @@ public class Hell extends Level {
             }
             item.draw();
         }
-    
-        for (Integer i = 0; i < 2; i++) {
-            System.out.println ("Object" + getArrayPosIndex (i));
-            System.out.println ("Position Col" + getArrayPosIndex ( i ).getY());
-            System.out.println ("Position Row" + getArrayPosIndex ( i ).getX());
-        }
+        
+        hand.draw ();
     }
     
     @Override
@@ -59,8 +57,7 @@ public class Hell extends Level {
             Hand hand = getHand();
             ArrayList<Picture> temp = getArray ();
             for (Picture item : temp) {
-                Picture exp = item;
-                exp.delete ();
+                item.delete ();
             }
             backscreen.delete ();
 
@@ -69,7 +66,7 @@ public class Hell extends Level {
             int dy = hand.getHandY();
             hand.translateInitialPosition(10 - dx, 10 - dy);
 
-            setHand(hand);
+           setHand(hand);
         }
     
     @Override

@@ -3,7 +3,6 @@ package io.bootcamp.vimtages.Level;
 import io.bootcamp.vimtages.Game;
 import io.bootcamp.vimtages.Hand;
 import io.bootcamp.vimtages.Item.Donut;
-import io.bootcamp.vimtages.Item.Item;
 import io.bootcamp.vimtages.Item.Obstacle.Radioactive;
 import org.academiadecodigo.simplegraphics.pictures.Picture;
 
@@ -51,7 +50,8 @@ public class Factory extends Level {
 
     @Override
     public void makeCenario () {
-
+        Hand hand = getHand();
+        hand.erase ();
         placeItem (donut);
         placeItem (Radio1);
         placeItem (Radio2);
@@ -85,22 +85,16 @@ public class Factory extends Level {
 
         ArrayList<Picture> temp = getArray();
         for (Picture item : temp) {
-            Picture exp = item;
-            System.out.println(item);
-            exp.draw();
+            item.draw();
         }
-        // for (Integer i = 0; i < numberofTree; i++) {
-        //      System.out.println ( "Object" + getArrayPosIndex ( i ) );
-        //       System.out.println ( "Position Col" + getArrayPosIndex ( i ).getY() );
-        //      System.out.println ( "Position Row" + getArrayPosIndex ( i ).getX() );
-        //   }
-
+        
+        hand.draw ();
     }
 
     @Override
     public void runScenario () {
         Hand hand = getHand();
-
+        
         System.out.println("hand X: "+hand.getHandX());
         System.out.println("donut X: "+donut.getX());
         System.out.println("hand Y: "+hand.getHandX());
@@ -116,17 +110,16 @@ public class Factory extends Level {
         Hand hand = getHand();
         ArrayList<Picture> temp = getArray ();
         for (Picture item : temp) {
-            Picture exp = item;
-            exp.delete ();
+            item.delete ();
         }
         backscreen.delete ();
-
-
+        hand.erase();
+        setHand(hand);
         int dx = hand.getHandX();
         int dy = hand.getHandY();
         hand.translateInitialPosition(10 - dx, 10 - dy);
-
-        setHand(hand);
+        hand.draw();
+        
     }
 
     
@@ -154,6 +147,6 @@ public class Factory extends Level {
     
     @Override
     public void drawScreen () {
-
+        backscreen.draw();
     }
 }
