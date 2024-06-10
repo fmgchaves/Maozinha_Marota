@@ -6,8 +6,10 @@ import io.bootcamp.vimtages.Item.Beer;
 import io.bootcamp.vimtages.Item.Donut;
 import io.bootcamp.vimtages.Item.Flanders;
 import io.bootcamp.vimtages.Item.Obstacle.Box;
+import io.bootcamp.vimtages.Sound;
 import org.academiadecodigo.simplegraphics.pictures.Picture;
 
+import java.io.IOException;
 import java.util.ArrayList;
 
 public class Hell extends Level {
@@ -17,6 +19,7 @@ public class Hell extends Level {
     }
     private String donutImage = "Item/Donutresized.png";
     private String flandersImage = "Item/Devil_Flanders.png";
+    private Sound sound = new Sound ();
     private Donut donut = new Donut (13* Game.getCellSize()+Game.getPadding(),2*Game.getCellSize()+Game.getPadding(),donutImage);
     private Flanders flanders = new Flanders (13* Game.getCellSize()-25, 3* Game.getCellSize()-30, "Item/Devil_Flanders.png");
     private Picture backscreen = new Picture (10,10,"Levels/Hell background.png");
@@ -128,12 +131,14 @@ public class Hell extends Level {
             }
             item.draw();
         }
+    
+        sound.playSound ( "MaozinhaMarota/resources/Sound/Simpsons1.wav");
         
         hand.draw ();
     }
     
     @Override
-    public void runScenario () {
+    public void runScenario () throws IOException {
         Hand hand = getHand();
 
         System.out.println("hand X: "+hand.getHandX());
@@ -142,13 +147,15 @@ public class Hell extends Level {
         System.out.println("donut Y: "+donut.getX());
         
         if ((hand.getHandX() == donut.getX()) && (hand.getHandY() == donut.getY())) {
+            sound.stopSound ();
+            sound.playSound ("MaozinhaMarota/resources/Sound/Voicy-Hmm-donuts.wav");
             donut.draw();
             setLevelComplete();
         }
     }
     
     @Override
-    public void deleteScenario () {
+    public void deleteScenario () throws IOException {
             Hand hand = getHand();
             ArrayList<Picture> temp = getArray ();
             for (Picture item : temp) {
@@ -160,7 +167,7 @@ public class Hell extends Level {
             int dx = hand.getHandX();
             int dy = hand.getHandY();
             hand.translateInitialPosition(10 - dx, 10 - dy);
-
+            sound.stopSound();
            setHand(hand);
         }
     

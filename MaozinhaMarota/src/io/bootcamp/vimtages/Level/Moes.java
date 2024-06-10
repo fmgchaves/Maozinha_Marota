@@ -5,13 +5,16 @@ import io.bootcamp.vimtages.Hand;
 import io.bootcamp.vimtages.Item.Beer;
 import io.bootcamp.vimtages.Item.Donut;
 import io.bootcamp.vimtages.Item.Obstacle.Box;
+import io.bootcamp.vimtages.Sound;
 import org.academiadecodigo.simplegraphics.pictures.Picture;
 
+import java.io.IOException;
 import java.util.ArrayList;
 
 public class Moes extends Level {
 
     private boolean levelComplete;
+    private Sound sound = new Sound ();
 
     public Moes (Hand hand) {
         super ( hand );
@@ -70,6 +73,7 @@ public class Moes extends Level {
     public void makeCenario () {
         Hand hand = getHand();
         hand.erase ();
+        sound.playSound ( "MaozinhaMarota/resources/Sound/Simpsons1.wav");
         
         placeItem ( donut );
         placeItem ( box1 );
@@ -127,7 +131,7 @@ public class Moes extends Level {
     }
 
     @Override
-    public void runScenario () {
+    public void runScenario () throws IOException {
         Hand hand = getHand();
         
         System.out.println("hand X: "+hand.getHandX());
@@ -137,6 +141,8 @@ public class Moes extends Level {
         System.out.println(getLevelComplete());
 
         if ((hand.getHandX() == donut.getX()) && (hand.getHandY() == donut.getY())) {
+            sound.stopSound ();
+            sound.playSound ("MaozinhaMarota/resources/Sound/Voicy-Hmm-donuts.wav");
             setLevelComplete();
         }
     }

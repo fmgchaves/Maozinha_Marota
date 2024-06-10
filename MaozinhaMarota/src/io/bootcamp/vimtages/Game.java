@@ -2,9 +2,11 @@ package io.bootcamp.vimtages;
 
 import io.bootcamp.vimtages.Level.*;
 
+import java.io.IOException;
 import java.util.ArrayList;
 
 public class Game {
+    private Sound sound = new Sound ();
     private static int cellSize;
     private static int padding;
     private static int cols;
@@ -47,7 +49,7 @@ public class Game {
 
 
 
-    public void init () throws InterruptedException {
+    public void init () throws InterruptedException, IOException {
         
         initAndFinalScreen.init ();
         Thread.sleep ( 2000 );
@@ -82,6 +84,7 @@ public class Game {
       
               level.setHand(handler.getHand());
               level.runScenario ();
+              
             }
 
             level.setnewLevel();
@@ -111,7 +114,9 @@ public class Game {
     //Home in position 3
     //Hell in position 4
     private ArrayList<Level> gamesInsideArray (ArrayList<Level> levelArrayList,Hand hand) {
+
         levelArrayList.add ( new Garden (hand) );
+
         levelArrayList.add ( new Factory (hand) );
         levelArrayList.add ( new Moes (hand) );
         levelArrayList.add ( new Home (hand) );
