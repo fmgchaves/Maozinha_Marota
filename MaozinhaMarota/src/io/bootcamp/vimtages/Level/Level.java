@@ -10,7 +10,6 @@ import io.bootcamp.vimtages.Item.Donut;
 import io.bootcamp.vimtages.Item.Item;
 import org.academiadecodigo.simplegraphics.pictures.Picture;
 
-import java.io.IOException;
 import java.util.ArrayList;
 
 public abstract class Level {
@@ -81,9 +80,9 @@ public abstract class Level {
 
     public abstract void makeCenario();
 
-    public abstract void runScenario() throws IOException;
+    public abstract void runScenario();
     
-    public abstract void deleteScenario() throws IOException;
+    public abstract void deleteScenario();
     
     public abstract void giveLevelFinalScreen();
 
