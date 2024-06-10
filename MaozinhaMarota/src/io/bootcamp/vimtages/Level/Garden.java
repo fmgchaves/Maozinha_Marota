@@ -72,13 +72,13 @@ public class Garden extends Level {
 
             int dx = hand.getHandX();
             int dy = hand.getHandY();
-            hand.translateInitialPosition(10 - dx, 10 - dy);
+            hand.translateInitialPosition(20*80+10 - dx, 9*80+10 - dy);
             //setHand(hand);
         }
     
     @Override
     public void giveLevelFinalScreen () {
-        int min1 = 20;
+        int min1 = 25;
         int min2 = 30;
     
         Hand hand = getHand ();
