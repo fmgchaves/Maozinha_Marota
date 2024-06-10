@@ -169,7 +169,7 @@ public class Handler implements KeyboardHandler {
         switch(direction) {
             case DOWN:
                 for (Picture object : levelArrayList) {
-                    if(object.getY() == hand.getHandY()+Game.getCellSize() && object.getX()==hand.getHandX()&&!(object.getClass().equals(Donut.class))&& hand.isBoosted()){
+                    if(object.getY() == hand.getHandY()+Game.getCellSize() && object.getX()==hand.getHandX()&&!(object.getClass().equals(Donut.class))){
                         return false;
                     }
                  //   if (object.getX() == hand.getHandX()+Game.getCellSize()&& object.getY()==hand.getHandY()&&(object.getClass().equals(Box.class))&&hand.isBoosted()){
@@ -179,7 +179,7 @@ public class Handler implements KeyboardHandler {
                 break;
             case UP:
                 for (Picture object : levelArrayList) {
-                    if(object.getY() == hand.getHandY()-Game.getCellSize()&& object.getX()==hand.getHandX()&&!(object.getClass().equals(Donut.class))&& hand.isBoosted()){
+                    if(object.getY() == hand.getHandY()-Game.getCellSize()&& object.getX()==hand.getHandX()&&!(object.getClass().equals(Donut.class))){
                         return false;
                     }
                   //  if (object.getX() == hand.getHandX()+Game.getCellSize()&& object.getY()==hand.getHandY()&&(object.getClass().equals(Box.class))&&hand.isBoosted()){
@@ -189,7 +189,7 @@ public class Handler implements KeyboardHandler {
                 break;
             case LEFT:
                 for (Picture object : levelArrayList) {
-                    if(object.getX() == hand.getHandX()-Game.getCellSize()&& object.getY()==hand.getHandY()&&!(object.getClass().equals(Donut.class))&& hand.isBoosted()){
+                    if(object.getX() == hand.getHandX()-Game.getCellSize()&& object.getY()==hand.getHandY()&&!(object.getClass().equals(Donut.class))){
                         return false;
                     }
                   //  if (object.getX() == hand.getHandX()+Game.getCellSize()&& object.getY()==hand.getHandY()&&(object.getClass().equals(Box.class))&&hand.isBoosted()){
