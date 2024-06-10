@@ -94,7 +94,6 @@ public class Factory extends Level {
     @Override
     public void runScenario () {
         Hand hand = getHand();
-        
         System.out.println("hand X: "+hand.getHandX());
         System.out.println("donut X: "+donut.getX());
         System.out.println("hand Y: "+hand.getHandX());
@@ -108,15 +107,18 @@ public class Factory extends Level {
     @Override
     public void deleteScenario () {
         Hand hand = getHand();
+        hand.changePic("Item/HandLeft.png");
         ArrayList<Picture> temp = getArray ();
         for (Picture item : temp) {
             item.delete ();
         }
         backscreen.delete ();
+
         hand.erase();
         setHand(hand);
         int dx = hand.getHandX();
         int dy = hand.getHandY();
+
 
         hand.translateInitialPosition(10*80+10 - dx, 9*80+10 - dy);
 

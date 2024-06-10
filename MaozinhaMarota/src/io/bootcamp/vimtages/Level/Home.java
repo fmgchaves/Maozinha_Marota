@@ -83,6 +83,7 @@ public class Home extends Level {
     @Override
     public void runScenario () {
         Hand hand = getHand();
+
     
         System.out.println("hand X: "+hand.getHandX());
         System.out.println("donut X: "+donut.getX());
@@ -98,6 +99,7 @@ public class Home extends Level {
     @Override
     public void deleteScenario () {
         Hand hand = getHand();
+        hand.changePic("Item/HandLeft.png");
         ArrayList<Picture> temp = getArray ();
         for (Picture item : temp) {
             item.delete ();
