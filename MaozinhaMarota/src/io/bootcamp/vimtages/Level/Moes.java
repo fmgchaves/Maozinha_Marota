@@ -4,7 +4,6 @@ import io.bootcamp.vimtages.Game;
 import io.bootcamp.vimtages.Hand;
 import io.bootcamp.vimtages.Item.Beer;
 import io.bootcamp.vimtages.Item.Donut;
-import io.bootcamp.vimtages.Item.Item;
 import io.bootcamp.vimtages.Item.Obstacle.Box;
 import org.academiadecodigo.simplegraphics.pictures.Picture;
 
@@ -18,8 +17,10 @@ public class Moes extends Level {
         super ( hand );
     }
     Picture backscreen = new Picture(10,10,"Levels/Bar background.png");
-    String boxImage = "Item/Caixabar.png";
-    Donut donut = new Donut ( 3* Game.getCellSize()+Game.getPadding(), 13* Game.getCellSize()+Game.getPadding() , "Item/Donutresized.png");
+    private String boxImage = "Item/Caixabar.png";
+    private String beerImage= "Item/Cerveja_resized.png";
+    
+    Donut donut = new Donut ( 13* Game.getCellSize()+Game.getPadding(), 2* Game.getCellSize()+Game.getPadding() , "Item/Donutresized.png");
     Box box1 = new Box (  5* Game.getCellSize(), Game.getCellSize(),boxImage);
     Box box2 = new Box (  6* Game.getCellSize(), Game.getCellSize(),boxImage);
     Box box3 = new Box (  11* Game.getCellSize(), 5 * Game.getCellSize() ,boxImage);
@@ -62,8 +63,8 @@ public class Moes extends Level {
     Box box40 = new Box (  15* Game.getCellSize(), 9 * Game.getCellSize() ,boxImage);
     Box box41 = new Box (  10* Game.getCellSize(),  Game.getCellSize(),boxImage);
     Box box42 = new Box (   6* Game.getCellSize(), 9 * Game.getCellSize(),boxImage);
-    Beer beer1 = new Beer (   5* Game.getCellSize(), 9* Game.getCellSize()  ,boxImage);
-    Beer beer2 = new Beer (   16* Game.getCellSize(), 9 * Game.getCellSize() ,boxImage);
+    Beer beer1 = new Beer (   5* Game.getCellSize(), 9* Game.getCellSize()  ,beerImage);
+    Beer beer2 = new Beer (   16* Game.getCellSize(), 9 * Game.getCellSize() ,beerImage);
     
     @Override
     public void makeCenario () {
@@ -113,19 +114,21 @@ public class Moes extends Level {
         placeItem ( box42 );
         placeItem ( beer1 );
         placeItem ( beer2 );
-        
-        for (Integer i = 0; i < 44; i++) {
-            System.out.println ( "Object" + getArrayPosIndex ( i ) );
-            System.out.println ( "Position Col" + getArrayPosIndex ( i ).getY() );
-            System.out.println ( "Position Row" + getArrayPosIndex ( i ).getX() );
-        }
-
+    
         ArrayList<Picture> temp = getArray();
         for (Picture item : temp) {
             Picture exp = item;
             System.out.println(item);
             exp.draw();
         }
+        
+        for (Integer i = 0; i < 45; i++) {
+            System.out.println ( "Object" + getArrayPosIndex ( i ) );
+            System.out.println ( "Position Col" + getArrayPosIndex ( i ).getY() );
+            System.out.println ( "Position Row" + getArrayPosIndex ( i ).getX() );
+        }
+
+        
         
     }
 
@@ -141,7 +144,6 @@ public class Moes extends Level {
 
         if ((hand.getHandX() == donut.getX()) && (hand.getHandY() == donut.getY())) {
             setLevelComplete();
-            System.out.println("True");
         }
     }
 

@@ -3,7 +3,6 @@ package io.bootcamp.vimtages.Level;
 import io.bootcamp.vimtages.Game;
 import io.bootcamp.vimtages.Hand;
 import io.bootcamp.vimtages.Item.Donut;
-import io.bootcamp.vimtages.Item.Item;
 import io.bootcamp.vimtages.Item.Obstacle.Tree;
 import org.academiadecodigo.simplegraphics.pictures.Picture;
 
@@ -38,18 +37,13 @@ public class Garden extends Level {
         placeItem ( tree5 );
 
         ArrayList<Picture> temp = getArray();
-        System.out.println(temp.get(0));
         for (Picture item : temp) {
             Picture exp = item;
             System.out.println(item);
             exp.draw();
         }
 
-       for (Integer i = 0; i < numberofTree; i++) {
-           System.out.println ( "Object" + getArrayPosIndex ( i ) );
-           System.out.println ( "Position Col" + getArrayPosIndex ( i ).getY() );
-           System.out.println ( "Position Row" + getArrayPosIndex ( i ).getX() );
-        }
+       
         
     }
 
