@@ -29,6 +29,8 @@ public class Garden extends Level {
     
     @Override
     public void makeCenario () {
+        Hand hand = getHand();
+        hand.erase ();
         placeItem ( donut );
         placeItem ( tree1 );
         placeItem ( tree2 );
@@ -38,20 +40,16 @@ public class Garden extends Level {
 
         ArrayList<Picture> temp = getArray();
         for (Picture item : temp) {
-            Picture exp = item;
-            System.out.println(item);
-            exp.draw();
+            item.draw();
         }
-
-       
+    
+        hand.draw ();
         
     }
 
     @Override
     public void runScenario () {
         Hand hand = getHand();
-
-        //hand.translateInitialPosition(9*Game.getCellSize(), 10*Game.getCellSize());
 
         System.out.println("hand X: "+hand.getHandX());
         System.out.println("donut X: "+donut.getX());
@@ -64,22 +62,18 @@ public class Garden extends Level {
     }
     
     @Override
-    public void deleteScenario ()
-        {
+    public void deleteScenario () {
             Hand hand = getHand();
             ArrayList<Picture> temp = getArray ();
             for (Picture item : temp) {
-                Picture exp = item;
-                exp.delete ();
+                item.delete ();
             }
             backscreen.delete ();
-
 
             int dx = hand.getHandX();
             int dy = hand.getHandY();
             hand.translateInitialPosition(10 - dx, 10 - dy);
-
-            setHand(hand);
+            //setHand(hand);
         }
     
     @Override

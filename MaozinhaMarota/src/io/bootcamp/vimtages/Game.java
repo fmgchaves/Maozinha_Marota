@@ -68,7 +68,7 @@ public class Game {
             handler.getLevelArrayList(level.getArray());         
             
           level.drawScreen ();
-            level.makeCenario ();
+          level.makeCenario ();
             //hand.translateInitialPosition(19*cellSize - hand.getHandX(),9*cellSize - hand.getHandY());
             //Quando true dá os resultados
 
@@ -77,13 +77,10 @@ public class Game {
       
               level.setHand(handler.getHand());
               level.runScenario ();
-            //System.out.println("Running");
-
-
-         }
+            }
 
             level.setnewLevel();
-            Thread.sleep ( 5000 ); //Gives delay to the thread and the game waits xxxx milisecons;
+            Thread.sleep ( 1000 ); //Gives delay to the thread and the game waits xxxx milisecons;
             level.giveLevelFinalScreen ();
 
             while (!nextlevel) {
@@ -91,7 +88,6 @@ public class Game {
             }
             
             level.deleteScenario ();
-
             setNextlevel ( false );
             hand.setNumberOfMoves();
             
