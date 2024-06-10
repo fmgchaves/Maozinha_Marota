@@ -20,7 +20,7 @@ public class Garden extends Level {
         super ( hand );
     }
     
-    Tree tree1 = new Tree ( 10, 10,"Item/Bola de fogo.png");
+    Tree tree1 = new Tree ( 10, 10,treeImage);
     Tree tree2 = new Tree (  6*Game.getCellSize(), 6*Game.getCellSize(),treeImage);
     Tree tree3 = new Tree (  12*Game.getCellSize(), 7*Game.getCellSize(),treeImage);
     Tree tree4 = new Tree (  15*Game.getCellSize(), 3*Game.getCellSize(),treeImage);
@@ -38,11 +38,13 @@ public class Garden extends Level {
         placeItem ( tree5 );
 
         ArrayList<Picture> temp = getArray();
+        System.out.println(temp.get(0));
         for (Picture item : temp) {
             Picture exp = item;
             System.out.println(item);
             exp.draw();
         }
+
        for (Integer i = 0; i < numberofTree; i++) {
            System.out.println ( "Object" + getArrayPosIndex ( i ) );
            System.out.println ( "Position Col" + getArrayPosIndex ( i ).getY() );

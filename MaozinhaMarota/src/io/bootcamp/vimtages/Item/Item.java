@@ -10,10 +10,10 @@ public abstract class Item extends Picture {
     }
 
     public int getX () {
-        return this.getX();
+        return super.getX();
     }
     
     public int getY () {
-        return this.getY ();
+        return super.getY();
     }
 }

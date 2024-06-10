@@ -11,11 +11,13 @@ import org.academiadecodigo.simplegraphics.pictures.Picture;
 import java.util.ArrayList;
 
 public class Moes extends Level {
-    
+
+    private boolean levelComplete;
+
     public Moes (Hand hand) {
         super ( hand );
     }
-    Picture backscreen = new Picture(Game.getCellSize(),Game.getCellSize(),"Levels/Bar background.png");
+    Picture backscreen = new Picture(10,10,"Levels/Bar background.png");
     String boxImage = "Item/Caixabar.png";
     Donut donut = new Donut ( 3* Game.getCellSize()+Game.getPadding(), 13* Game.getCellSize()+Game.getPadding() , "Item/Donutresized.png");
     Box box1 = new Box (  5* Game.getCellSize(), Game.getCellSize(),boxImage);
@@ -23,16 +25,16 @@ public class Moes extends Level {
     Box box3 = new Box (  11* Game.getCellSize(), 5 * Game.getCellSize() ,boxImage);
     Box box4 = new Box ( 8* Game.getCellSize(), Game.getCellSize(),boxImage);
     Box box5 = new Box ( 9* Game.getCellSize(), Game.getCellSize(),boxImage );
-    Box box6 = new Box (  12* Game.getCellSize(), 1 * Game.getCellSize(),boxImage);
-    Box box7 = new Box (   13* Game.getCellSize(), 1 * Game.getCellSize(),boxImage);
-    Box box8 = new Box (   14* Game.getCellSize(), 1* Game.getCellSize() ,boxImage);
+    Box box6 = new Box (  12* Game.getCellSize(), Game.getCellSize(),boxImage);
+    Box box7 = new Box (   13* Game.getCellSize(), Game.getCellSize(),boxImage);
+    Box box8 = new Box (   14* Game.getCellSize(), Game.getCellSize() ,boxImage);
     Box box9 = new Box (  15* Game.getCellSize(),  Game.getCellSize() ,boxImage);
     Box box10 = new Box (  16* Game.getCellSize(),  Game.getCellSize() ,boxImage);
     Box box11 = new Box (  5* Game.getCellSize(), 2 * Game.getCellSize(),boxImage);
     Box box12 = new Box (   5* Game.getCellSize(), 3 * Game.getCellSize(),boxImage);
     Box box13 = new Box (   5* Game.getCellSize(), 4 * Game.getCellSize() ,boxImage);
     Box box14 = new Box (   5* Game.getCellSize(), 5 * Game.getCellSize() ,boxImage);
-    Box box15 = new Box (   11* Game.getCellSize(), 1* Game.getCellSize()  ,boxImage);
+    Box box15 = new Box (   11* Game.getCellSize(), Game.getCellSize()  ,boxImage);
     Box box16 = new Box (   6* Game.getCellSize(), 4* Game.getCellSize()  ,boxImage);
     Box box17 = new Box (   6* Game.getCellSize(), 5* Game.getCellSize() ,boxImage);
     Box box18 = new Box (   7* Game.getCellSize(), 4 * Game.getCellSize() ,boxImage);
@@ -56,16 +58,17 @@ public class Moes extends Level {
     Box box36 = new Box (   16* Game.getCellSize(), 3  * Game.getCellSize(),boxImage);
     Box box37 = new Box (   16* Game.getCellSize(), 4  * Game.getCellSize(),boxImage);
     Box box38 = new Box (   16* Game.getCellSize(), 5  * Game.getCellSize(),boxImage);
-    Box box39 = new Box (   7* Game.getCellSize(), 1* Game.getCellSize()  ,boxImage);
+    Box box39 = new Box (   7* Game.getCellSize(), Game.getCellSize()  ,boxImage);
     Box box40 = new Box (  15* Game.getCellSize(), 9 * Game.getCellSize() ,boxImage);
-    Box box41 = new Box (  10* Game.getCellSize(), 1 * Game.getCellSize(),boxImage);
+    Box box41 = new Box (  10* Game.getCellSize(),  Game.getCellSize(),boxImage);
     Box box42 = new Box (   6* Game.getCellSize(), 9 * Game.getCellSize(),boxImage);
     Beer beer1 = new Beer (   5* Game.getCellSize(), 9* Game.getCellSize()  ,boxImage);
     Beer beer2 = new Beer (   16* Game.getCellSize(), 9 * Game.getCellSize() ,boxImage);
     
     @Override
     public void makeCenario () {
-        
+
+        placeItem ( donut );
         placeItem ( box1 );
         placeItem ( box2 );
         placeItem ( box3 );
@@ -134,9 +137,11 @@ public class Moes extends Level {
         System.out.println("donut X: "+donut.getX());
         System.out.println("hand Y: "+hand.getHandX());
         System.out.println("donut Y: "+donut.getX());
+        System.out.println(getLevelComplete());
 
         if ((hand.getHandX() == donut.getX()) && (hand.getHandY() == donut.getY())) {
             setLevelComplete();
+            System.out.println("True");
         }
     }
 
@@ -174,8 +179,7 @@ public class Moes extends Level {
     
     @Override
     public void drawScreen () {
-        Picture homescreen = new Picture (10,10,"/Levels/Bar background.png");
-        homescreen.draw();
+        backscreen.draw();
     }
 }
 

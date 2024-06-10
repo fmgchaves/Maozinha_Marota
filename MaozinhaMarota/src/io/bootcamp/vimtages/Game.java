@@ -68,12 +68,12 @@ public class Game {
 
             //Quando true dá os resultados
 
-         //  while (!level.getLevelComplete()) {
+         while (!level.getLevelComplete()) {
 
-          //     level.setHand(handler.getHand());
-         //      level.runScenario ();
-        //       System.out.println("Running");
-        //   }
+              level.setHand(handler.getHand());
+              level.runScenario ();
+            System.out.println("Running");
+         }
 
             level.setnewLevel();
             Thread.sleep ( 5000 ); //Gives delay to the thread and the game waits xxxx milisecons;
