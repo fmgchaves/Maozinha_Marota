@@ -3,7 +3,6 @@ package io.bootcamp.vimtages.Level;
 import io.bootcamp.vimtages.Game;
 import io.bootcamp.vimtages.Hand;
 import io.bootcamp.vimtages.Item.Donut;
-import io.bootcamp.vimtages.Item.Item;
 import io.bootcamp.vimtages.Item.Maggie;
 import org.academiadecodigo.simplegraphics.pictures.Picture;
 
@@ -14,35 +13,46 @@ public class Home extends Level {
     public Home(Hand hand) {
         super(hand);
     }
-    Picture backscreen = new Picture(Game.getPadding(),Game.getPadding(),"Levels/defaultImage.jpg");
-    Maggie maggie = new Maggie(3*Game.getCellSize(),7*Game.getCellSize(),"Item/Meggie_resized.png");
-    Donut donut = new Donut (3*Game.getCellSize(),7*Game.getCellSize(),"Item/Donutresized.png");
+    
+    private String backscreenpath = "Levels/Jardim background.png";
+    private String maggiepath = "Item/Meggie_resized.png";
+    private String donutpath = "Item/Donutresized.png";
+    Picture backscreen = new Picture(Game.getPadding(),Game.getPadding(),backscreenpath);
+    Maggie maggie = new Maggie(3*Game.getCellSize(),7*Game.getCellSize(),maggiepath);
+    Donut donut = new Donut (3*Game.getCellSize()+Game.getPadding (),7*Game.getCellSize()+Game.getPadding (),donutpath);
 
     @Override
     public void makeCenario () {
-        placeItem ( donut );
         placeItem (maggie);
+        placeItem ( donut );
+    
+        ArrayList<Picture> temp = getArray();
+        for (Picture item : temp) {
+            if (item.getClass ().equals(donut.getClass ())) {
+                continue;
+            }
+            item.draw();
+        }
+    
+        for (Integer i = 0; i < 2; i++) {
+            System.out.println ( "Object" + getArrayPosIndex ( i ) );
+            System.out.println ( "Position Col" + getArrayPosIndex ( i ).getY() );
+            System.out.println ( "Position Row" + getArrayPosIndex ( i ).getX() );
+        }
+        
     }
 
     @Override
     public void runScenario () {
         Hand hand = getHand();
-
-        ArrayList<Picture> temp = getArray();
-        for (Picture item : temp) {
-            Picture exp = item;
-            // if (exp.equals(Radio1)) {
-            //   exp.draw("a");
-            //}
-            exp.draw();
-        }
-
-        System.out.println ("donut Col: "+donut.getX ());
-        System.out.println ("donut Row: "+donut.getY());
-        System.out.println ("hand Col: "+hand.getHandX ()/ Game.getCellSize ());
-        System.out.println ("hand Row: "+hand.getHandY ()/Game.getCellSize ());
+    
+        System.out.println("hand X: "+hand.getHandX());
+        System.out.println("donut X: "+donut.getX());
+        System.out.println("hand Y: "+hand.getHandX());
+        System.out.println("donut Y: "+donut.getX());
 
         if (hand.getHandX() == donut.getX() && hand.getHandY() == donut.getY()) {
+            donut.draw();
             setLevelComplete();
         }
     }
@@ -82,46 +92,9 @@ public class Home extends Level {
     
     @Override
     public void drawScreen () {
-        Picture homescreen = new Picture (10,10,"/Levels/Jardim background.png");
-        homescreen.draw();
+        backscreen.draw();
     }
     
-    /*
-    private class Star extends Item{
-        
-        private Picture picture;
-        
-        private Star(Position position){
-            super(position);
-            String Path = "./resources/item/star.png";
-            setPicture(new Picture(getPosition().getCol(),getPosition().getRow(),Path));
-            getPicture().draw();
-        }
-    }
-    
-    private class PressSpace extends Item{
-        
-        private Picture picture;
-        
-        public PressSpace(Position position) {
-            super(position);
-            String Path = "./resources/item/pressSpace.png";
-            setPicture(new Picture (getPosition().getCol(),getPosition().getRow(),Path));
-            getPicture().draw();
-        }
-        
-        @Override
-        public void draw() {
-        
-        }
-        
-        @Override
-        public void erase() {
-        
-        }
-    }
-    
-     */
 }
 
 

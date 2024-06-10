@@ -3,7 +3,7 @@ package io.bootcamp.vimtages.Level;
 import io.bootcamp.vimtages.Game;
 import io.bootcamp.vimtages.Hand;
 import io.bootcamp.vimtages.Item.Donut;
-import io.bootcamp.vimtages.Item.Item;
+import io.bootcamp.vimtages.Item.Flanders;
 import org.academiadecodigo.simplegraphics.pictures.Picture;
 
 import java.util.ArrayList;
@@ -13,20 +13,30 @@ public class Hell extends Level {
     public Hell( Hand hand) {
         super(hand);
     }
-    String donutImage = "Item/Donutresized.png";
-    Donut donut = new Donut (10* Game.getCellSize()+Game.getPadding(),3*Game.getCellSize()+Game.getPadding(),donutImage);
-    Picture backscreen = new Picture (10,10,"/Levels/Hell background.png");
+    private String donutImage = "Item/Donutresized.png";
+    private String flandersImage = "Item/Devil_Flanders.png";
+    private Donut donut = new Donut (13* Game.getCellSize()+Game.getPadding(),3*Game.getCellSize()+Game.getPadding(),donutImage);
+    private Flanders flanders = new Flanders (13* Game.getCellSize()-25, 3* Game.getCellSize()-30, "Item/Devil_Flanders.png");
+    private Picture backscreen = new Picture (10,10,"Levels/Hell background.png");
     
     @Override
     public void makeCenario () {
+        placeItem (flanders);
         placeItem (donut);
     
-        for (Integer i = 0; i < 1; i++) {
+        ArrayList<Picture> temp = getArray();
+        for (Picture item : temp) {
+            if (item.getClass ().equals(donut.getClass ())) {
+                continue;
+            }
+            item.draw();
+        }
+    
+        for (Integer i = 0; i < 2; i++) {
             System.out.println ("Object" + getArrayPosIndex (i));
             System.out.println ("Position Col" + getArrayPosIndex ( i ).getY());
             System.out.println ("Position Row" + getArrayPosIndex ( i ).getX());
         }
-
     }
     
     @Override
@@ -37,8 +47,9 @@ public class Hell extends Level {
         System.out.println("donut X: "+donut.getX());
         System.out.println("hand Y: "+hand.getHandX());
         System.out.println("donut Y: "+donut.getX());
-
+        
         if ((hand.getHandX() == donut.getX()) && (hand.getHandY() == donut.getY())) {
+            donut.draw();
             setLevelComplete();
         }
     }

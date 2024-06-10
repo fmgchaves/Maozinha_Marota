@@ -72,7 +72,7 @@ public class Game {
 
               level.setHand(handler.getHand());
               level.runScenario ();
-            System.out.println("Running");
+            //System.out.println("Running");
          }
 
             level.setnewLevel();
@@ -102,10 +102,10 @@ public class Game {
     //Home in position 3
     //Hell in position 4
     private ArrayList<Level> gamesInsideArray (ArrayList<Level> levelArrayList,Hand hand) {
-        levelArrayList.add ( new Garden (hand) );
-        levelArrayList.add ( new Factory (hand) );
-        levelArrayList.add ( new Moes (hand) );
-        levelArrayList.add ( new Home (hand) );
+        //levelArrayList.add ( new Garden (hand) );
+        //levelArrayList.add ( new Factory (hand) );
+        //levelArrayList.add ( new Moes (hand) );
+        //levelArrayList.add ( new Home (hand) );
         levelArrayList.add ( new Hell (hand) );
         return levelArrayList;
     }
