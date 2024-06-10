@@ -8,7 +8,7 @@ public class Hand {
     private int numberOfMoves = 0;
     
     private Picture hand;
-    private String handPic = "Item/Mao.png";
+    private String handPic = "Item/MaoUp.png";
     private boolean boosted;
 
     public boolean isBoosted() {
@@ -22,7 +22,7 @@ public class Hand {
     public Hand (Integer x, Integer y) {
         this.hand = new Picture ( x + Game.getPadding (), y + Game.getPadding (), handPic );
     }
-    
+    public void changePic(String image){hand.load(image);}
     public int getHandX () {
         return this.hand.getX ();
     }

@@ -63,8 +63,8 @@ public class Moes extends Level {
     Box box40 = new Box (  15* Game.getCellSize()+Game.getPadding(), 9 * Game.getCellSize() +Game.getPadding(),boxImage);
     Box box41 = new Box (  10* Game.getCellSize()+Game.getPadding(),  Game.getCellSize()+Game.getPadding(),boxImage);
     Box box42 = new Box (   6* Game.getCellSize()+Game.getPadding(), 9 * Game.getCellSize()+Game.getPadding(),boxImage);
-    Beer beer1 = new Beer (   5* Game.getCellSize()+Game.getPadding(), 9* Game.getCellSize()  +Game.getPadding(),beerImage);
-    Beer beer2 = new Beer (   16* Game.getCellSize()+Game.getPadding(), 9 * Game.getCellSize() +Game.getPadding(),beerImage);
+    Beer beer1 = new Beer (   5* Game.getCellSize()+Game.getPadding(), 9* Game.getCellSize() +Game.getPadding(),beerImage);
+    Beer beer2 = new Beer (   16* Game.getCellSize()+Game.getPadding(), 9 * Game.getCellSize()+Game.getPadding(),beerImage);
     
     @Override
     public void makeCenario () {

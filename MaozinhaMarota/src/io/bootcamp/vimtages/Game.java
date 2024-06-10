@@ -10,7 +10,7 @@ public class Game {
     private static int cols;
     private static int rows;
     private InitAndFinalScreen initAndFinalScreen;
-    
+    private Sound simpsonsIntro;
     private ArrayList<Level> levelArrayList;
     
     private Boolean nextlevel;
@@ -51,12 +51,17 @@ public class Game {
         
         initAndFinalScreen.init ();
         Thread.sleep ( 2000 );
-        
-        
+
+
         //Criar níveís
         //Guarda níveis num Array
         Hand hand = new Hand(12*cellSize,10*cellSize);
         this.levelArrayList = gamesInsideArray ( this.levelArrayList,hand );
+
+
+        simpsonsIntro = new Sound();
+        simpsonsIntro.playSound("resources/Sound/Simpsons1.wav");
+        simpsonsIntro.loopSound(3);
 
         handler = new Handler ( this );
 
