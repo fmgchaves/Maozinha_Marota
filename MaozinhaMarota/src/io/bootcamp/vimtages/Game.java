@@ -16,6 +16,8 @@ public class Game {
     private Boolean nextlevel;
     
     private Handler handler;
+
+    private Boolean levelcomplete;
     
     public Game (int cols, int rows, int cellSize, int padding) {
         this.cols = cols;
@@ -59,35 +61,37 @@ public class Game {
         //Corre nível (Devolve true quando acaba nível)
 
         for (Level level : levelArrayList) {
-
             handler.setHand (hand);
             
             level.drawScreen ();
-            //Testgrid testgrid = new Testgrid(cols,rows,cellSize,padding);
-            //testgrid.gridSquares();
-            //handler.handDraw ();
-            //has erase level
-            //level.deleteScenario ();
             level.makeCenario ();
+
             //Quando true dá os resultados
-            
-            while (!level.runScenario ()) {
-                Thread.sleep ( 5000 ); //Gives delay to the thread and the game waits xxxx milisecons;
-                level.giveLevelFinalScreen ();
-            }
-            
+
+         //  while (!level.getLevelComplete()) {
+
+          //     level.setHand(handler.getHand());
+         //      level.runScenario ();
+        //       System.out.println("Running");
+        //   }
+
+            level.setnewLevel();
+            Thread.sleep ( 5000 ); //Gives delay to the thread and the game waits xxxx milisecons;
+            level.giveLevelFinalScreen ();
+
             while (!nextlevel) {
                 System.out.println ( "Waiting" );
             }
             
             level.deleteScenario ();
             setNextlevel ( false );
+            hand.setNumberOfMoves();
             
             //Próximo nível
         }
         initAndFinalScreen.finalScreen ();
     }
-    
+
     public void setNextlevel (Boolean yesOrno) {
         this.nextlevel = yesOrno;
     }

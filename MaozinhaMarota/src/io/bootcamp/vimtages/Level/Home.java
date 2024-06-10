@@ -24,8 +24,9 @@ public class Home extends Level {
         placeItem (maggie);
     }
 
-    public boolean runScenario () {
-        Hand hand = getHand ();
+    @Override
+    public void runScenario () {
+        Hand hand = getHand();
 
         ArrayList<Picture> temp = getArray();
         for (Picture item : temp) {
@@ -36,16 +37,13 @@ public class Home extends Level {
             exp.draw();
         }
 
-        System.out.println ("donut Col: "+donut.getY ());
-        System.out.println ("donut Row: "+donut.getX());
+        System.out.println ("donut Col: "+donut.getX ());
+        System.out.println ("donut Row: "+donut.getY());
         System.out.println ("hand Col: "+hand.getHandX ()/ Game.getCellSize ());
         System.out.println ("hand Row: "+hand.getHandY ()/Game.getCellSize ());
 
-
-        if (hand.getHandX()>= donut.getX() && hand.getHandY() >= donut.getY()) {
-            return true;
-        } else {
-            return false;
+        if (hand.getHandX() == donut.getX() && hand.getHandY() == donut.getY()) {
+            setLevelComplete();
         }
     }
 

@@ -15,7 +15,7 @@ import java.util.ArrayList;
 public abstract class Level{
 
     private ArrayList<Picture> array;
-    private boolean win;
+    private boolean levelComplete;
 
     private Donut donut;
     private Hand hand;
@@ -57,13 +57,22 @@ public abstract class Level{
         return this.hand;
     }
 
-    public void setHand(Hand hand) {
+    public boolean setHand(Hand hand) {
         this.hand = hand;
+        return false;
     }
 
+    public void setLevelComplete() {
+        this.levelComplete = true;
+    }
 
+    public boolean getLevelComplete() {
+        return this.levelComplete;
+    }
 
-
+    public void setnewLevel() {
+        this.levelComplete = false;
+    }
 
     //Gets Donut position from the level variable in this method
 
@@ -71,13 +80,9 @@ public abstract class Level{
 
     public abstract void makeCenario();
 
-    public abstract boolean runScenario();
+    public abstract void runScenario();
     
     public abstract void deleteScenario();
-
-    public boolean setWin() {
-        return this.win = true;
-    }
     
     public abstract void giveLevelFinalScreen();
 

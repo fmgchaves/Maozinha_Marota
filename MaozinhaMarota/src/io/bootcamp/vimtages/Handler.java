@@ -57,6 +57,7 @@ public class Handler implements KeyboardHandler {
                 game.setNextlevel ( true );
                 break;
             case KeyboardEvent.KEY_UP:
+                
                 //System.out.println("Donut Col: "+ donut.getPosition().getCol());
                 //System.out.println("Donut Row: " + donut.getPosition().getRow());
 
@@ -72,6 +73,7 @@ public class Handler implements KeyboardHandler {
                 if(hand.getHandY()>Game.getCellSize()*2) {
                     System.out.println("Move Up");
                     hand.move(Direction.UP);
+                    hand.draw();
                     setHand ( hand );
                 }
                 break;
@@ -92,6 +94,7 @@ public class Handler implements KeyboardHandler {
                 if(hand.getHandY()< Game.getCols()*Game.getCellSize()+Game.getCellSize()*2) {
                     System.out.println("Move Down");
                     hand.move(Direction.DOWN);
+                    hand.draw();
                     setHand ( hand );
                 }
                 break;
@@ -111,6 +114,7 @@ public class Handler implements KeyboardHandler {
                 if(hand.getHandX()>Game.getCellSize()) {
                     System.out.println("Move Left");
                     hand.move(Direction.LEFT);
+                    hand.draw();
                     setHand ( hand );
                 }
                 break;
@@ -130,6 +134,7 @@ public class Handler implements KeyboardHandler {
                 if(hand.getHandX()<Game.getRows()*Game.getCellSize()) {
                     System.out.println("Move Right");
                     hand.move(Direction.RIGHT);
+                    hand.draw();
                     setHand ( hand );
                 }
                 break;

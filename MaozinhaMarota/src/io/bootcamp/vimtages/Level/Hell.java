@@ -14,7 +14,7 @@ public class Hell extends Level {
         super(hand);
     }
     String donutImage = "Item/Donutresized.png";
-    Donut donut = new Donut (10* Game.getCellSize(),3*Game.getCellSize(),donutImage);
+    Donut donut = new Donut (10* Game.getCellSize()+Game.getPadding(),3*Game.getCellSize()+Game.getPadding(),donutImage);
     Picture backscreen = new Picture (10,10,"/Levels/Hell background.png");
     
     @Override
@@ -30,13 +30,17 @@ public class Hell extends Level {
     }
     
     @Override
-    public boolean runScenario() {
-        ArrayList<Picture> temp = getArray();
-        for (Picture item : temp) {
-            Picture exp = item;
-            exp.delete();
+    public void runScenario () {
+        Hand hand = getHand();
+
+        System.out.println("hand X: "+hand.getHandX());
+        System.out.println("donut X: "+donut.getX());
+        System.out.println("hand Y: "+hand.getHandX());
+        System.out.println("donut Y: "+donut.getX());
+
+        if ((hand.getHandX() == donut.getX()) && (hand.getHandY() == donut.getY())) {
+            setLevelComplete();
         }
-        return true;
     }
     
     @Override

@@ -14,7 +14,7 @@ public class Factory extends Level {
     String radioactiveImage = "Item/Pepita Vertical.png";
     String donnutImage = "Item/Donutresized.png";
     private static Integer numberofWall = 27;
-    Donut donut = new Donut (6*Game.getCellSize(),5*Game.getCellSize(),donnutImage);
+    Donut donut = new Donut (6*Game.getCellSize()+Game.getPadding(),5*Game.getCellSize()+Game.getPadding(),donnutImage);
     Radioactive Radio1 = new Radioactive(5*Game.getCellSize(),4*Game.getCellSize(),radioactiveImage );
     Radioactive Radio2 = new Radioactive( 5*Game.getCellSize(),5*Game.getCellSize(),radioactiveImage );
     Radioactive Radio3 = new Radioactive(6*Game.getCellSize(),4*Game.getCellSize(),radioactiveImage );
@@ -83,36 +83,31 @@ public class Factory extends Level {
         placeItem (Radio28);
         placeItem (Radio29);
 
-        
-        for (Integer i = 0; i < numberofWall; i++) {
-            System.out.println ("Object" + getArrayPosIndex (i));
-            System.out.println ("Position Col" + getArrayPosIndex ( i ).getY( ));
-            System.out.println ("Position Row" + getArrayPosIndex ( i ).getX());
-        }
-    }
-
-    public boolean runScenario () {
-        Hand hand = getHand ();
-
         ArrayList<Picture> temp = getArray();
         for (Picture item : temp) {
             Picture exp = item;
-            // if (exp.equals(Radio1)) {
-            //   exp.draw("a");
-            //}
+            System.out.println(item);
             exp.draw();
         }
+        // for (Integer i = 0; i < numberofTree; i++) {
+        //      System.out.println ( "Object" + getArrayPosIndex ( i ) );
+        //       System.out.println ( "Position Col" + getArrayPosIndex ( i ).getY() );
+        //      System.out.println ( "Position Row" + getArrayPosIndex ( i ).getX() );
+        //   }
 
-        System.out.println ("donut Col: "+donut.getY ());
-        System.out.println ("donut Row: "+donut.getX());
-        System.out.println ("hand Col: "+hand.getHandX ()/ Game.getCellSize ());
-        System.out.println ("hand Row: "+hand.getHandY ()/Game.getCellSize ());
+    }
 
+    @Override
+    public void runScenario () {
+        Hand hand = getHand();
 
-        if (hand.getHandX()>= donut.getX() && hand.getHandY() >= donut.getY()) {
-            return true;
-        } else {
-            return false;
+        System.out.println("hand X: "+hand.getHandX());
+        System.out.println("donut X: "+donut.getX());
+        System.out.println("hand Y: "+hand.getHandX());
+        System.out.println("donut Y: "+donut.getX());
+
+        if ((hand.getHandX() == donut.getX()) && (hand.getHandY() == donut.getY())) {
+            setLevelComplete();
         }
     }
 

@@ -5,7 +5,7 @@ import org.academiadecodigo.simplegraphics.graphics.Rectangle;
 import org.academiadecodigo.simplegraphics.pictures.Picture;
 //Translate positions to directions -width left, + width right this will be implemented in another class
 public class Hand {
-    private int numberOfMoves;
+    private int numberOfMoves = 0;
     
     private Picture hand;
     private String handPic = "Item/Mao.png";
@@ -34,6 +34,10 @@ public class Hand {
     
     public int getNumberOfMoves () {
         return this.numberOfMoves;
+    }
+
+    public void setNumberOfMoves () {
+        this.numberOfMoves = 0;
     }
     
     public void move (Direction dir) {
@@ -66,6 +70,4 @@ public class Hand {
                 break;
         }
     }
-    
-    
 }

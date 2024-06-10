@@ -17,7 +17,7 @@ public class Moes extends Level {
     }
     Picture backscreen = new Picture(Game.getCellSize(),Game.getCellSize(),"Levels/Bar background.png");
     String boxImage = "Item/Caixabar.png";
-    Donut donut = new Donut ( 3* Game.getCellSize(), 13* Game.getCellSize() , "Item/Donutresized.png");
+    Donut donut = new Donut ( 3* Game.getCellSize()+Game.getPadding(), 13* Game.getCellSize()+Game.getPadding() , "Item/Donutresized.png");
     Box box1 = new Box (  5* Game.getCellSize(), Game.getCellSize(),boxImage);
     Box box2 = new Box (  6* Game.getCellSize(), Game.getCellSize(),boxImage);
     Box box3 = new Box (  11* Game.getCellSize(), 5 * Game.getCellSize() ,boxImage);
@@ -116,17 +116,28 @@ public class Moes extends Level {
             System.out.println ( "Position Col" + getArrayPosIndex ( i ).getY() );
             System.out.println ( "Position Row" + getArrayPosIndex ( i ).getX() );
         }
+
+        ArrayList<Picture> temp = getArray();
+        for (Picture item : temp) {
+            Picture exp = item;
+            System.out.println(item);
+            exp.draw();
+        }
         
     }
 
     @Override
-    public boolean runScenario() {
-        ArrayList<Picture> temp = getArray();
-        for (Picture item : temp) {
-            Picture exp = item;
-            exp.delete();
+    public void runScenario () {
+        Hand hand = getHand();
+
+        System.out.println("hand X: "+hand.getHandX());
+        System.out.println("donut X: "+donut.getX());
+        System.out.println("hand Y: "+hand.getHandX());
+        System.out.println("donut Y: "+donut.getX());
+
+        if ((hand.getHandX() == donut.getX()) && (hand.getHandY() == donut.getY())) {
+            setLevelComplete();
         }
-        return true;
     }
 
     @Override
