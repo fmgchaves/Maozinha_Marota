@@ -69,6 +69,7 @@ public class Home extends Level {
         placeItem(box16);
 
         Hand hand = getHand();
+        hand.setBoosted ( false );
         hand.erase ();
         ArrayList<Picture> temp = getArray();
         for (Picture item : temp) {
