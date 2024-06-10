@@ -55,7 +55,7 @@ public class Game {
         
         //Criar níveís
         //Guarda níveis num Array
-        Hand hand = new Hand(9*cellSize,10*cellSize);
+        Hand hand = new Hand(12*cellSize,10*cellSize);
         this.levelArrayList = gamesInsideArray ( this.levelArrayList,hand );
 
         handler = new Handler ( this );
@@ -106,10 +106,10 @@ public class Game {
     //Home in position 3
     //Hell in position 4
     private ArrayList<Level> gamesInsideArray (ArrayList<Level> levelArrayList,Hand hand) {
-        //levelArrayList.add ( new Garden (hand) );
-        //levelArrayList.add ( new Factory (hand) );
-        //levelArrayList.add ( new Moes (hand) );
-        //levelArrayList.add ( new Home (hand) );
+        levelArrayList.add ( new Garden (hand) );
+        levelArrayList.add ( new Factory (hand) );
+        levelArrayList.add ( new Moes (hand) );
+        levelArrayList.add ( new Home (hand) );
         levelArrayList.add ( new Hell (hand) );
         return levelArrayList;
     }

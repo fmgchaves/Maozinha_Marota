@@ -117,9 +117,11 @@ public class Factory extends Level {
         setHand(hand);
         int dx = hand.getHandX();
         int dy = hand.getHandY();
-        hand.translateInitialPosition(10 - dx, 10 - dy);
-        hand.draw();
-        
+
+        hand.translateInitialPosition(10*80+10 - dx, 9*80+10 - dy);
+
+        setHand(hand);
+
     }
 
     
