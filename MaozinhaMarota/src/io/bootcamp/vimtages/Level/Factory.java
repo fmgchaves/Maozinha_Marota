@@ -100,6 +100,7 @@ public class Factory extends Level {
     @Override
     public void runScenario () {
         Hand hand = getHand();
+        hand.translateInitialPosition(18*Game.getCellSize(), 9*Game.getCellSize());
 
         System.out.println("hand X: "+hand.getHandX());
         System.out.println("donut X: "+donut.getX());

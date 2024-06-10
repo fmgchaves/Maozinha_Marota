@@ -70,4 +70,9 @@ public class Hand {
                 break;
         }
     }
+
+    public void translateInitialPosition(int x, int y){
+        hand.translate(x, y);
+    }
+
 }
