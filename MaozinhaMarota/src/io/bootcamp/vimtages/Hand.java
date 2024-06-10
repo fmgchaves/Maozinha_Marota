@@ -7,6 +7,8 @@ import org.academiadecodigo.simplegraphics.pictures.Picture;
 public class Hand extends Picture {
 
     private int numberOfMoves;
+
+    private boolean hasBooster;
     
     private Picture hand;
     private String handPic = "Item/Mao.png";
@@ -56,6 +58,13 @@ public class Hand extends Picture {
                 break;
         }
     }
-    
+
+    public boolean hasBooster(){
+        return hasBooster;
+    }
+
+    public void setHasBooster(boolean newHasBooster){
+        this.hasBooster = newHasBooster;
+    }
     
 }
