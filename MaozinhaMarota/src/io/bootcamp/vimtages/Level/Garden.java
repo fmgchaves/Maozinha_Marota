@@ -57,6 +57,8 @@ public class Garden extends Level {
     public void runScenario () {
         Hand hand = getHand();
 
+        //hand.translateInitialPosition(9*Game.getCellSize(), 10*Game.getCellSize());
+
         System.out.println("hand X: "+hand.getHandX());
         System.out.println("donut X: "+donut.getX());
         System.out.println("hand Y: "+hand.getHandX());
@@ -68,15 +70,23 @@ public class Garden extends Level {
     }
     
     @Override
-    public void deleteScenario () {
+    public void deleteScenario ()
+        {
+            Hand hand = getHand();
+            ArrayList<Picture> temp = getArray ();
+            for (Picture item : temp) {
+                Picture exp = item;
+                exp.delete ();
+            }
+            backscreen.delete ();
 
-        ArrayList<Picture> temp = getArray ();
-        for (Picture item : temp) {
-            Picture exp = item;
-            exp.delete ();
+
+            int dx = hand.getHandX();
+            int dy = hand.getHandY();
+            hand.translateInitialPosition(10 - dx, 10 - dy);
+
+            setHand(hand);
         }
-        backscreen.delete ();
-    }
     
     @Override
     public void giveLevelFinalScreen () {

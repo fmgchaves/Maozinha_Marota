@@ -62,16 +62,16 @@ public class Game {
 
         for (Level level : levelArrayList) {
             handler.setHand (hand);
-            
+            level.getClass().equals(Factory.class);
             level.drawScreen ();
             level.makeCenario ();
-
+            //hand.translateInitialPosition(19*cellSize - hand.getHandX(),9*cellSize - hand.getHandY());
             //Quando true dá os resultados
 
          while (!level.getLevelComplete()) {
 
-              level.setHand(handler.getHand());
-              level.runScenario ();
+             level.setHand(handler.getHand());
+             level.runScenario ();
             System.out.println("Running");
          }
 
@@ -84,6 +84,7 @@ public class Game {
             }
             
             level.deleteScenario ();
+
             setNextlevel ( false );
             hand.setNumberOfMoves();
             
@@ -109,4 +110,5 @@ public class Game {
         levelArrayList.add ( new Hell (hand) );
         return levelArrayList;
     }
+
 }
