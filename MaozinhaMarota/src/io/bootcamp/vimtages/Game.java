@@ -62,7 +62,7 @@ public class Game {
 
         simpsonsIntro = new Sound();
         simpsonsIntro.playSound("resources/Sound/Simpsons1.wav");
-        simpsonsIntro.loopSound(3);
+        simpsonsIntro.loopSound(-1);
 
         handler = new Handler ( this );
 
@@ -90,7 +90,8 @@ public class Game {
             level.giveLevelFinalScreen ();
 
             while (!nextlevel) {
-                System.out.println ( "Waiting" );
+                //System.out.println ( "Waiting" );
+                Thread.sleep ( 50 );
             }
             
             level.deleteScenario ();
@@ -112,10 +113,10 @@ public class Game {
     //Home in position 3
     //Hell in position 4
     private ArrayList<Level> gamesInsideArray (ArrayList<Level> levelArrayList,Hand hand) {
-        levelArrayList.add ( new Garden (hand) );
-        levelArrayList.add ( new Factory (hand) );
-        levelArrayList.add ( new Moes (hand) );
-        levelArrayList.add ( new Home (hand) );
+        //levelArrayList.add ( new Garden (hand) );
+        //levelArrayList.add ( new Factory (hand) );
+        //levelArrayList.add ( new Moes (hand) );
+        //levelArrayList.add ( new Home (hand) );
         levelArrayList.add ( new Hell (hand) );
         return levelArrayList;
     }

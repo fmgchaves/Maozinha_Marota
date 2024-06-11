@@ -11,7 +11,7 @@ import java.io.IOException;
 import java.util.ArrayList;
 
 public class Garden extends Level {
-    private Sound sound = new Sound ();
+   
     private String treeImage = "Item/Arvoreresized.png";
 
     private boolean levelComplete;
@@ -29,6 +29,10 @@ public class Garden extends Level {
     Tree tree5 = new Tree ( 18*Game.getCellSize()+Game.getPadding(), 5*Game.getCellSize()+Game.getPadding(), treeImage);
     Donut donut = new Donut ( 5*Game.getCellSize()+Game.getPadding (), 5*Game.getCellSize()+Game.getPadding (),"Item/Donutresized.png");
     Picture backscreen = new Picture (10,10,"/Levels/Jardim background.png");
+    
+    private Sound sound = new Sound ();
+    private Sound sound2 = new Sound ();
+    private Sound sound3 = new Sound ();
     
     @Override
     public void makeCenario () {
@@ -61,9 +65,11 @@ public class Garden extends Level {
         System.out.println("donut Y: "+donut.getX());
 
         if ((hand.getHandX() == donut.getX()) && (hand.getHandY() == donut.getY())) {
-            sound.stopSound ();
+            //sound.stopSound ();
+            sound2.playSound ( "resources/Sound/VoicyHmmdonuts.wav");
+            System.out.println ("Here");
             setLevelComplete();
-            sound.playSound ( "MaozinhaMarota/resources/Sound/Voicy_Hmm_donuts.wav");
+            
         }
     }
     

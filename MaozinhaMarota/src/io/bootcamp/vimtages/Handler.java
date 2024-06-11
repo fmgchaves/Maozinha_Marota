@@ -76,8 +76,8 @@ public class Handler implements KeyboardHandler {
                 //System.out.println("Donut Col: "+ donut.getPosition().getCol());
                 //System.out.println("Donut Row: " + donut.getPosition().getRow());
 
-                System.out.println("Hand col: " + hand.getHandX()/Game.getCellSize());
-                System.out.println("Hand row: " + hand.getHandY()/Game.getCellSize());
+                //System.out.println("Hand col: " + hand.getHandX()/Game.getCellSize());
+                //System.out.println("Hand row: " + hand.getHandY()/Game.getCellSize());
 
              /*   if(donut.getPosition().getCol ()*Game.getCellSize() >= hand.getHandX() && donut.getPosition().getRow ()*Game.getCellSize() >= hand.getHandY()-Game.getCellSize()){
                     System.out.println("Found My Donnut");
@@ -94,7 +94,7 @@ public class Handler implements KeyboardHandler {
                     hand.draw();
                     
                 } else {
-                    sound.playSound ("MaozinhaMarota/resources/Sound/doh1.wav");
+                    sound.playSound ( "resources/Sound/doh1.wav" );
                 }
 
                 break;
@@ -103,8 +103,8 @@ public class Handler implements KeyboardHandler {
                 //System.out.println("Donut Col: "+ donut.getPosition().getCol());
                 //System.out.println("Donut Row: " + donut.getPosition().getRow());
 
-                System.out.println("Hand col: " + hand.getHandX()/Game.getCellSize());
-                System.out.println("Hand row: " + hand.getHandY()/Game.getCellSize());
+                //System.out.println("Hand col: " + hand.getHandX()/Game.getCellSize());
+                //System.out.println("Hand row: " + hand.getHandY()/Game.getCellSize());
                /*
                 if(donut.getPosition().getCol ()*Game.getCellSize() == hand.getHandX() && donut.getPosition().getRow ()*Game.getCellSize() == hand.getHandY()-Game.getCellSize()){
                     System.out.println("Found My Donnut");
@@ -120,7 +120,7 @@ public class Handler implements KeyboardHandler {
                         setHand ( hand );
                         hand.draw();
                 } else {
-                    sound.playSound ("MaozinhaMarota/resources/Sound/doh1.wav");
+                    sound.playSound ( "resources/Sound/doh1.wav");
                 }
                 break;
             case KeyboardEvent.KEY_LEFT:
@@ -128,8 +128,8 @@ public class Handler implements KeyboardHandler {
                 //System.out.println("Donut Col: "+ donut.getPosition().getCol());
                 //System.out.println("Donut Row: " + donut.getPosition().getRow());
 
-                System.out.println("Hand col: " + hand.getHandX()/Game.getCellSize());
-                System.out.println("Hand row: " + hand.getHandY()/Game.getCellSize());
+                //System.out.println("Hand col: " + hand.getHandX()/Game.getCellSize());
+                //System.out.println("Hand row: " + hand.getHandY()/Game.getCellSize());
                /*
                 if(donut.getPosition().getCol ()*Game.getCellSize() == hand.getHandX() && donut.getPosition().getRow ()*Game.getCellSize() == hand.getHandY()-Game.getCellSize()){
                     System.out.println("Found My Donnut");
@@ -144,7 +144,7 @@ public class Handler implements KeyboardHandler {
                     setHand ( hand );
                     hand.draw();
                 } else {
-                    sound.playSound ("MaozinhaMarota/resources/Sound/doh1.wav");
+                    sound.playSound ( "resources/Sound/doh1.wav" );
                 }
                 break;
             case KeyboardEvent.KEY_RIGHT:
@@ -152,8 +152,8 @@ public class Handler implements KeyboardHandler {
                // System.out.println("Donut Col: "+ donut.getPosition().getCol());
                 //System.out.println("Donut Row: " + donut.getPosition().getRow());
 
-                System.out.println("Hand col: " + hand.getHandX()/Game.getCellSize());
-                System.out.println("Hand row: " + hand.getHandY()/Game.getCellSize());
+                //System.out.println("Hand col: " + hand.getHandX()/Game.getCellSize());
+                //System.out.println("Hand row: " + hand.getHandY()/Game.getCellSize());
                /*
                 if(donut.getPosition().getCol ()*Game.getCellSize() == hand.getHandX() && donut.getPosition().getRow ()*Game.getCellSize() == hand.getHandY()-Game.getCellSize()){
                     System.out.println("Found My Donnut");
@@ -168,7 +168,9 @@ public class Handler implements KeyboardHandler {
                     setHand ( hand );
                     hand.draw();
                 } else {
-                    sound.playSound ("MaozinhaMarota/resources/Sound/doh1.wav");
+                    System.out.println ("DOH");
+                        sound.playSound ( "resources/Sound/doh1.wav" );
+                        sound.loopSound ( 1 );
                 }
                 
                 
