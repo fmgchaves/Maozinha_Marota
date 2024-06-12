@@ -74,7 +74,7 @@ public class Moes extends Level {
         Hand hand = getHand();
         hand.erase ();
         
-        sound.playSound ( "MaozinhaMarota/resources/Sound/Simpsons1.wav" );
+        //sound.playSound ( "resources/Sound/VoicyHmmdonuts.wav" );
         
         placeItem ( donut );
         placeItem ( box1 );
@@ -142,9 +142,11 @@ public class Moes extends Level {
         System.out.println(getLevelComplete());
 
         if ((hand.getHandX() == donut.getX()) && (hand.getHandY() == donut.getY())) {
-            sound.stopSound ();
+            //sound.stopSound ();
+            sound.playSound ( "resources/Sound/VoicyHmmdonuts.wav");
+            donut.draw();
             setLevelComplete();
-            sound.playSound ( "MaozinhaMarota/resources/Sound/Voicy_Hmm_donuts.mp3");
+            
         }
     }
 

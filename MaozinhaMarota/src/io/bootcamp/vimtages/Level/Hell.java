@@ -147,10 +147,10 @@ public class Hell extends Level {
         System.out.println("donut Y: "+donut.getX());
         
         if ((hand.getHandX() == donut.getX()) && (hand.getHandY() == donut.getY())) {
-            sound.stopSound ();
+            //sound.stopSound ();
+            sound.playSound ( "resources/Sound/VoicyHmmdonuts.wav");
             donut.draw();
             setLevelComplete();
-            sound.playSound ( "MaozinhaMarota/resources/Sound/Voicy_Hmm_donuts.mp3" );
         }
     }
     
