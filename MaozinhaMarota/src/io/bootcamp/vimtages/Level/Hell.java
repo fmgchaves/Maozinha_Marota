@@ -150,7 +150,7 @@ public class Hell extends Level {
             sound.stopSound ();
             donut.draw();
             setLevelComplete();
-            sound.playSound ( "MaozinhaMarota/resources/Sound/Voicy_Hmm_donuts.mp3" );
+            sound.playSound ( "resources/Sound/Voicy_Hmm_donuts.mp3" );
         }
     }
     

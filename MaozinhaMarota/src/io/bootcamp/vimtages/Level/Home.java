@@ -48,7 +48,7 @@ public class Home extends Level {
 
     @Override
     public void makeCenario () {
-        sound.playSound ( "MaozinhaMarota/resources/Sound/Simpsons1.wav" );
+        sound.playSound ( "resources/Sound/Simpsons1.wav" );
         placeItem (maggie);
         placeItem ( donut );
         placeItem(box1);
@@ -100,7 +100,7 @@ public class Home extends Level {
             sound.stopSound ();
             donut.draw();
             setLevelComplete();
-            sound.playSound ( "MaozinhaMarota/resources/Sound/Simpsons1.wav" );
+            sound.playSound ( "resources/Sound/Simpsons1.wav" );
         }
     }
 

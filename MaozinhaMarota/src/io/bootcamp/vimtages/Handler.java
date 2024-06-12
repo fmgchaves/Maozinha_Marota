@@ -94,7 +94,7 @@ public class Handler implements KeyboardHandler {
                     hand.draw();
                     
                 } else {
-                    sound.playSound ("MaozinhaMarota/resources/Sound/doh1.wav");
+                    sound.playSound ("resources/Sound/doh1.wav");
                 }
 
                 break;
@@ -120,7 +120,7 @@ public class Handler implements KeyboardHandler {
                         setHand ( hand );
                         hand.draw();
                 } else {
-                    sound.playSound ("MaozinhaMarota/resources/Sound/doh1.wav");
+                    sound.playSound ("resources/Sound/doh1.wav");
                 }
                 break;
             case KeyboardEvent.KEY_LEFT:
@@ -144,7 +144,7 @@ public class Handler implements KeyboardHandler {
                     setHand ( hand );
                     hand.draw();
                 } else {
-                    sound.playSound ("MaozinhaMarota/resources/Sound/doh1.wav");
+                    sound.playSound ("resources/Sound/doh1.wav");
                 }
                 break;
             case KeyboardEvent.KEY_RIGHT:
@@ -168,7 +168,7 @@ public class Handler implements KeyboardHandler {
                     setHand ( hand );
                     hand.draw();
                 } else {
-                    sound.playSound ("MaozinhaMarota/resources/Sound/doh1.wav");
+                    sound.playSound ("resources/Sound/doh1.wav");
                 }
                 
                 

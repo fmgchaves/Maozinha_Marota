@@ -56,7 +56,7 @@ public class Factory extends Level {
         Hand hand = getHand();
         hand.erase ();
         
-        sound.playSound ( "MaozinhaMarota/resources/Sound/Simpsons1.wav" );
+        sound.playSound ( "resources/Sound/Simpsons1.wav" );
         placeItem (donut);
         placeItem (Radio1);
         placeItem (Radio2);
@@ -107,7 +107,7 @@ public class Factory extends Level {
         if ((hand.getHandX() == donut.getX()) && (hand.getHandY() == donut.getY())) {
             sound.stopSound ();
             setLevelComplete();
-            sound.playSound ( "MaozinhaMarota/resources/Sound/Voicy_Hmm_donuts.mp3");
+            sound.playSound ( "resources/Sound/Voicy_Hmm_donuts.mp3");
         }
     }
 

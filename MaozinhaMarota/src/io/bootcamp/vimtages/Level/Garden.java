@@ -32,7 +32,7 @@ public class Garden extends Level {
     
     @Override
     public void makeCenario () {
-        sound.playSound ( "MaozinhaMarota/resources/Sound/Simpsons1.wav" );
+        sound.playSound ( "resources/Sound/Simpsons1.wav" );
         Hand hand = getHand();
         hand.erase ();
         placeItem ( donut );
@@ -61,9 +61,8 @@ public class Garden extends Level {
         System.out.println("donut Y: "+donut.getX());
 
         if ((hand.getHandX() == donut.getX()) && (hand.getHandY() == donut.getY())) {
-            sound.stopSound ();
             setLevelComplete();
-            sound.playSound ( "MaozinhaMarota/resources/Sound/Voicy_Hmm_donuts.wav");
+            sound.playSound ( "resources/Sound/Voicy_Hmm_donuts.wav");
         }
     }
     
